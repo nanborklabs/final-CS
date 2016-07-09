@@ -22,7 +22,7 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
 
     //the points to show in Recycler view
     public ArrayList<String> points_to_show;
-public ArrayList<String> url_to_load;
+    public ArrayList<String> url_to_load;
     RecyclerView.Adapter mAdapter;
     public boolean loaded;
     RecyclerView mRecyclerView;
@@ -49,7 +49,6 @@ public ArrayList<String> url_to_load;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("CS_STACK","on CREATE====in view points fragment");
 
 
     }
@@ -79,14 +78,12 @@ public ArrayList<String> url_to_load;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
-        Log.d("CS_STACK","on CREATE view====in points fragment");
         return mView;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        Log.d("CS_STACK", "on start====in points fragment");
         if (points_to_show == null) {
             points_to_show = new ArrayList<>();
             points_to_show = getArguments().getStringArrayList("points");
@@ -111,7 +108,6 @@ public ArrayList<String> url_to_load;
     @Override
     public void onResume() {
         super.onResume();
-        Log.d("CS_STACK", "on Resume====in points fragment");
         if (points_to_show == null) {
             points_to_show = new ArrayList<>();
             points_to_show = getArguments().getStringArrayList("points");
@@ -139,12 +135,10 @@ public ArrayList<String> url_to_load;
     @Override
     public void onDetach() {
         super.onDetach();
-        Log.d("CS_STACK","on detach");
     }
 
     @Override
     public void point_clicked(int position) {
-        Log.d("CS_STACK: URL TO LOAD",url_to_load.get(position));
 
     }
 
@@ -292,7 +286,6 @@ public ArrayList<String> url_to_load;
         points_bundle.putStringArrayList("points",points);
         points_bundle.putStringArrayList("url",url);
         Fragment.setArguments(points_bundle);
-        Log.d("CS_STACK","new Instance"+position);
         return Fragment;
 
     }
