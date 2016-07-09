@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ca"
+        android:title="@string/ca" />
+    <item
+        android:id="@+id/ds"
+        android:title="@string/ds" />
+    <item
+        android:id="@+id/dbms"
+        android:title="@string/dbms" />
+    <item
+        android:id="@+id/daa"
+        android:title="@string/daa" />
+    <item
+        android:id="@+id/jip"
+        android:title="@string/jip" />
+    <item
+        android:id="@+id/os"
+        android:title="@string/os" />
+    <item
+        android:id="@+id/se"
+        android:title="@string/se" />
+
+</menu>

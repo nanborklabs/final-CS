@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">CS Stack</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="cp">Computing Techniques</string>
+    <string name="pce">Principles of Computer Engineering</string>
+    <string name="cplus">C ++</string>
+    <string name="ca">Computer Architecture</string>
+    <string name="ds">Data Structres</string>
+    <string name="dbms">Database Management Systems</string>
+    <string name="daa"><![CDATA[Design & Analysis of Algorithams]]></string>
+    <string name="jip"><![CDATA[Java & Internet Programming]]></string>
+    <string name="os">Operating Systems</string>
+    <string name="se">Software Engineering</string>
+    <string name="cn">Computer Networks</string>
+    <string name="mp"><![CDATA[Microprocessors & Controllers]]></string>
+    <string name="ss">System Software</string>
+    <string name="flat">Theory of Computation</string>
+    <string name="ooad"><![CDATA[Object Oriented Analysis & design]]></string>
+    <string name="ai">Artificial Intelligence</string>
+    <string name="pcd">Compiler Design</string>
+    <string name="cg"><![CDATA[Computer Graphics & Multimedia]]></string>
+    <string name="pp">Programming Paradigms</string>
+    <string name="pom">Principles of Management</string>
+    <string name="mobile"><![CDATA[Mobile & Pervasive Computing]]></string>
+    <string name="parallel">Parallel Programming</string>
+    <string name="security">Security in Computing</string>
+    <string name="drawer_title">CS STACK</string>
+
+</resources>

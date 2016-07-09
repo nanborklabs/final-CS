@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/cn"
+        android:title="@string/cn" />
+    <item
+        android:id="@+id/mp"
+        android:title="@string/mp" />
+    <item
+        android:id="@+id/ss"
+        android:title="@string/ss" />
+    <item
+        android:id="@+id/flat"
+        android:title="@string/flat" />
+
+    <item
+        android:id="@+id/ooad"
+        android:title="@string/ooad"/>
+
+    <item
+        android:id="@+id/ai"
+        android:title="@string/ai" />
+    <item
+        android:id="@+id/pcd"
+        android:title="@string/pcd" />
+    <item
+        android:id="@+id/cg"
+        android:title="@string/cg" />
+    <item
+        android:id="@+id/paradigms"
+        android:title="@string/pp" />
+
+</menu>
