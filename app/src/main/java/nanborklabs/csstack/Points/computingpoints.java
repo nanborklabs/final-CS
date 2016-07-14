@@ -3,15 +3,19 @@ package nanborklabs.csstack.Points;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -26,7 +30,7 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
     public boolean loaded;
     RecyclerView mRecyclerView;
 
-
+    RecyclerView.ItemDecoration itemDecoration;
 
     public computingpoints() {
         super();
@@ -42,12 +46,15 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
         super.onDestroy();
         url_to_load=null;
         points_to_show=null;
-        mAdapter=null;
+        mAdapter=null;callback=null;
     }
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        callback=(UrLoad)(getParentFragment().getContext());
 
 
     }
@@ -70,13 +77,16 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
             points_to_show=getArguments().getStringArrayList("points");
             url_to_load=getArguments().getStringArrayList("url");
 
-            mAdapter=new rv_adapter(points_to_show,this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
             loaded=true;
         }
+
         mRecyclerView=(RecyclerView)mView.findViewById(R.id.points_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
+        mRecyclerView.addItemDecoration(itemDecoration);
         return mView;
     }
 
@@ -93,7 +103,7 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter = new rv_adapter(points_to_show, this,getContext());
         }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
@@ -117,7 +127,7 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter = new rv_adapter(points_to_show, this,getContext());
         }
         loaded = true;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -138,8 +148,9 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
 
     @Override
     public void point_clicked(int position) {
-
+        callback.loadUrl(url_to_load.get(position));
     }
+    UrLoad callback;
 
 
     public static Fragment newInstance(int position) {
@@ -153,12 +164,12 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
                 points.add("Numbering System");
                 points.add("Algorithm");
                 points.add("Pesudo code");
-                points.add("Flow chart"); url.add(0,"https://en.wikipedia.org/wiki/Computer";);
-                url.add(1,"http://www.byte-notes.com/five-generations-computers";);
-                url.add(2,"https://en.wikipedia.org/wiki/Computer_number_format";);
-                url.add(3,"https://en.wikipedia.org/wiki/Algorithm";);
-                url.add(4,"https://en.wikipedia.org/wiki/Pseudocode";);
-                url.add(5,"https://en.wikipedia.org/wiki/Flowchart";);
+                points.add("Flow chart"); url.add(0,"https://en.wikipedia.org/wiki/Computer");
+                url.add(1,"http://www.byte-notes.com/five-generations-computers");
+                url.add(2,"https://en.wikipedia.org/wiki/Computer_number_format");
+                url.add(3,"https://en.wikipedia.org/wiki/Algorithm");
+                url.add(4,"https://en.wikipedia.org/wiki/Pseudocode");
+                url.add(5,"https://en.wikipedia.org/wiki/Flowchart");
 
                 break;
             case 1: points.add("Introduction to C");
@@ -166,12 +177,12 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
                 points.add("Data types");
                 points.add("I/O operation");
                 points.add("Decision Making Statements");
-                points.add("Looping Statements"); url.add(0,"https://en.wikipedia.org/wiki/C_(programming_language)";);
-                url.add(1,"https://www.cs.cf.ac.uk/Dave/C/node3.html";);
-                url.add(2,"https://en.wikipedia.org/wiki/Data_type";);
-                url.add(3,"https://en.wikipedia.org/wiki/Input/output";);
-                url.add(4,"http://www.studytonight.com/c/decision-making-in-c.php";);
-                url.add(5,"http://fresh2refresh.com/c-programming/c-loop-control-statements/";);
+                points.add("Looping Statements"); url.add(0,"https://en.wikipedia.org/wiki/C_(programming_language)");
+                url.add(1,"https://www.cs.cf.ac.uk/Dave/C/node3.html");
+                url.add(2,"https://en.wikipedia.org/wiki/Data_type");
+                url.add(3,"https://en.wikipedia.org/wiki/Input/output");
+                url.add(4,"http://www.studytonight.com/c/decision-making-in-c.php");
+                url.add(5,"http://fresh2refresh.com/c-programming/c-loop-control-statements/");
 
                 break;
             case 2:   points.add("Array");
@@ -180,10 +191,10 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
 
                 points.add("Sorting Operations");
                 points.add("Matrix Operations");
-                url.add(0,"http://www.xpode.com/ShowArticle.aspx?ArticleId=497";);
-                url.add(1,"https://en.wikipedia.org/wiki/String_operations";);
-                url.add(2,"https://en.wikipedia.org/wiki/Sorting";);
-                url.add(3,"http://www.sanfoundry.com/c-programming-examples-matrix/";);
+                url.add(0,"http://www.xpode.com/ShowArticle.aspx?ArticleId=497");
+                url.add(1,"https://en.wikipedia.org/wiki/String_operations");
+                url.add(2,"https://en.wikipedia.org/wiki/Sorting");
+                url.add(3,"http://www.sanfoundry.com/c-programming-examples-matrix/");
 //todo:1 missing
                 break;
             case 3:  points.add("Function");
@@ -194,11 +205,11 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
 
                 points.add("Pointer Arthematic");
                 points.add("Array pointer's");
-                url.add(0,"https://en.wikipedia.org/wiki/Parameter_(computer_programming)";);
-                url.add(1,"https://en.wikipedia.org/wiki/Recursion";);
-                url.add(2,"https://en.wikipedia.org/wiki/Pointer_(computer_programming)";);
-                url.add(3,"https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/BitOp/pointer.html";);
-                url.add(4,"http://www.studytonight.com/c/pointers-with-array.php";);
+                url.add(0,"https://en.wikipedia.org/wiki/Parameter_(computer_programming)");
+                url.add(1,"https://en.wikipedia.org/wiki/Recursion");
+                url.add(2,"https://en.wikipedia.org/wiki/Pointer_(computer_programming)");
+                url.add(3,"https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/BitOp/pointer.html");
+                url.add(4,"http://www.studytonight.com/c/pointers-with-array.php");
 
                 break;
             case 4:   points.add("Structures");
@@ -206,15 +217,12 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
                 points.add("Storage Classes");
 
                 points.add("PreProcessor Directives");
-                url.add(0,"https://en.wikipedia.org/wiki/Structured_programming";);
-                url.add(1,"https://en.wikipedia.org/wiki/Union_type";);
-                url.add(2,"https://en.wikipedia.org/wiki/C_syntax#Storage_duration_specifiers";);
+                url.add(0,"https://en.wikipedia.org/wiki/Structured_programming");
+                url.add(1,"https://en.wikipedia.org/wiki/Union_type");
+                url.add(2,"https://en.wikipedia.org/wiki/C_syntax#Storage_duration_specifiers");
 
-                url.add(3,"https://www.techopedia.com/definition/24295/preprocessor-directive";);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
+                url.add(3,"https://www.techopedia.com/definition/24295/preprocessor-directive");
+
                 break;
         }
         Bundle points_bundle=new Bundle();

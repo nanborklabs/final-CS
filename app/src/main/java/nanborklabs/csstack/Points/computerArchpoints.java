@@ -3,15 +3,19 @@ package nanborklabs.csstack.Points;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -25,7 +29,7 @@ public class computerArchpoints extends Fragment  implements rv_adapter.Point_cl
     public boolean loaded;
     RecyclerView mRecyclerView;
 
-
+    RecyclerView.ItemDecoration itemDecoration;
 
     public computerArchpoints() {
         super();
@@ -41,12 +45,14 @@ public class computerArchpoints extends Fragment  implements rv_adapter.Point_cl
         super.onDestroy();
         url_to_load=null;
         points_to_show=null;
-        mAdapter=null;
+        mAdapter=null;callback=null;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        callback=(UrLoad)(getParentFragment().getContext());
+
 
 
     }
@@ -69,13 +75,16 @@ public class computerArchpoints extends Fragment  implements rv_adapter.Point_cl
             points_to_show=getArguments().getStringArrayList("points");
             url_to_load=getArguments().getStringArrayList("url");
 
-            mAdapter=new rv_adapter(points_to_show,this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
             loaded=true;
         }
+
         mRecyclerView=(RecyclerView)mView.findViewById(R.id.points_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
+        mRecyclerView.addItemDecoration(itemDecoration);
         return mView;
     }
 
@@ -92,7 +101,7 @@ public class computerArchpoints extends Fragment  implements rv_adapter.Point_cl
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter = new rv_adapter(points_to_show, this,getContext());
         }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
@@ -116,7 +125,7 @@ public class computerArchpoints extends Fragment  implements rv_adapter.Point_cl
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter = new rv_adapter(points_to_show, this,getContext());
         }
         loaded = true;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -137,8 +146,9 @@ public class computerArchpoints extends Fragment  implements rv_adapter.Point_cl
 
     @Override
     public void point_clicked(int position) {
-
+        callback.loadUrl(url_to_load.get(position));
     }
+    UrLoad callback;
 
 
     public static Fragment newInstance(int position) {
@@ -154,14 +164,14 @@ public class computerArchpoints extends Fragment  implements rv_adapter.Point_cl
                 points.add("Instruction Set Architecture");
                 points.add("RISC and CISC Architectures");
                 points.add("Performance Metrics –");
-                points.add("Amdahl’s Law"); url.add(0,"https://en.wikipedia.org/wiki/Computer_architecture";);
-                url.add(1,"https://en.wikipedia.org/wiki/Computer_hardware";);
-                url.add(2,"https://en.wikipedia.org/wiki/Application_binary_interface";);
-                url.add(3,"https://en.wikipedia.org/wiki/Hardware_description_language";);
-                url.add(4,"https://en.wikipedia.org/wiki/Instruction_set";);
-                url.add(5,"https://en.wikipedia.org/wiki/Reduced_instruction_set_computing";);
-                url.add(6,"https://en.wikipedia.org/wiki/Computer_performance";);
-                url.add(7,"https://en.wikipedia.org/wiki/Amdahl%27s_law";);
+                points.add("Amdahl’s Law"); url.add(0,"https://en.wikipedia.org/wiki/Computer_architecture");
+                url.add(1,"https://en.wikipedia.org/wiki/Computer_hardware");
+                url.add(2,"https://en.wikipedia.org/wiki/Application_binary_interface");
+                url.add(3,"https://en.wikipedia.org/wiki/Hardware_description_language");
+                url.add(4,"https://en.wikipedia.org/wiki/Instruction_set");
+                url.add(5,"https://en.wikipedia.org/wiki/Reduced_instruction_set_computing");
+                url.add(6,"https://en.wikipedia.org/wiki/Computer_performance");
+                url.add(7,"https://en.wikipedia.org/wiki/Amdahl%27s_law");
                 break;
             case 1: points.add("Components of the Processor");
                 points.add("Datapath and Control");
@@ -169,14 +179,15 @@ public class computerArchpoints extends Fragment  implements rv_adapter.Point_cl
                 points.add("Hardwired and Micro programmed Control");
                 points.add("Instruction Level Parallelism");
                 points.add("Pipelining");
-                points.add("Hazard"); url.add(0,);
-                url.add(1,"https://en.wikipedia.org/wiki/Datapath";);
-                url.add(2,"https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Overall/steps.html";);
-                url.add(3,"https://en.wikipedia.org/wiki/Microcode";);
-                url.add(4,"https://en.wikipedia.org/wiki/Instruction-level_parallelism";);
-                url.add(5,"https://en.wikipedia.org/wiki/Pipelining_(DSP_implementation)";);
-                url.add(6,"https://en.wikipedia.org/wiki/Pipelining_(DSP_implementation)";);
-                url.add(7,"https://en.wikipedia.org/wiki/Hazard_(computer_architecture)";);
+//                points.add("Hazard");
+                url.add(0,"www");
+                url.add(1,"https://en.wikipedia.org/wiki/Datapath");
+                url.add(2,"https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Overall/steps.html");
+                url.add(3,"https://en.wikipedia.org/wiki/Microcode");
+                url.add(4,"https://en.wikipedia.org/wiki/Instruction-level_parallelism");
+                url.add(5,"https://en.wikipedia.org/wiki/Pipelining_(DSP_implementation)");
+                url.add(6,"https://en.wikipedia.org/wiki/Pipelining_(DSP_implementation)");
+                url.add(7,"https://en.wikipedia.org/wiki/Hazard_(computer_architecture)");
                 break;
             case 2: points.add("Exploitation of more ILP");
                 points.add("Dynamic Scheduling");
@@ -185,24 +196,25 @@ public class computerArchpoints extends Fragment  implements rv_adapter.Point_cl
                 points.add("Multiple Issue Processors");
                 points.add("ILP and Thread Level Parallelism");
                 points.add("Multicore Processors");
-                points.add("Graphics and Computing GPUs"); url.add(0,"https://en.wikipedia.org/wiki/Instruction-level_parallelism";);
-                url.add(1,"https://en.wikipedia.org/wiki/Instruction_scheduling";);
-                url.add(2,"http://www-ee.eng.hawaii.edu/~tep/EE461/Notes/ILP/hw_speculate.html";);
-                url.add(3,"http://cs.nyu.edu/courses/fall10/V22.0436-001/lecture17.html";);
+                points.add("Graphics and Computing GPUs"); url.add(0,"https://en.wikipedia.org/wiki/Instruction-level_parallelism");
+                url.add(1,"https://en.wikipedia.org/wiki/Instruction_scheduling");
+                url.add(2,"http://www-ee.eng.hawaii.edu/~tep/EE461/Notes/ILP/hw_speculate.html");
+                url.add(3,"http://cs.nyu.edu/courses/fall10/V22.0436-001/lecture17.html");
                 url.add(4,"http://pages.cs.wisc.edu/~david/courses/cs838/notes/09-18-03.html");
-                url.add(5,"https://en.wikipedia.org/wiki/Multi-core_processor";);
-                url.add(6,"https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units";);
+                url.add(5,"https://en.wikipedia.org/wiki/Multi-core_processor");
+                url.add(6,"https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units");
 
                 break;
             case 3:  points.add("Addition and Subtraction");
                 points.add("Fast Adders");
                 points.add("Binary Multiplication");
                 points.add("Binary Division");
-                points.add("Floating Point Numbers"); url.add(0,"https://en.wikipedia.org/wiki/Adder_(electronics)";);
-                url.add(1,"https://en.wikipedia.org/wiki/Carry-lookahead_adder";);
-                url.add(2,"https://en.wikipedia.org/wiki/Binary_multiplier";);
-                url.add(3,"https://en.wikipedia.org/wiki/Binary_number#Division";);
-                url.add(4,"https://en.wikipedia.org/wiki/Floating_point";);
+                points.add("Floating Point Numbers");
+                url.add(0,"https://en.wikipedia.org/wiki/Adder_(electronics)");
+                url.add(1,"https://en.wikipedia.org/wiki/Carry-lookahead_adder");
+                url.add(2,"https://en.wikipedia.org/wiki/Binary_multiplier");
+                url.add(3,"https://en.wikipedia.org/wiki/Binary_number#Division");
+                url.add(4,"https://en.wikipedia.org/wiki/Floating_point");
 
                 break;
             case 4:  points.add("hierarchical memory system");
@@ -214,15 +226,16 @@ public class computerArchpoints extends Fragment  implements rv_adapter.Point_cl
                 points.add("Accessing I/O devices");
                 points.add("Interrupts");
                 points.add("Direct Memory Access");
-                points.add("Standard I/O Interfaces"); url.add(0,"https://en.wikipedia.org/wiki/Memory_hierarchy";);
-                url.add(1,"https://en.wikipedia.org/wiki/CPU_cache";);
-                url.add(2,"https://en.wikipedia.org/wiki/Virtual_memory";);
-                url.add(3,"https://en.wikipedia.org/wiki/Memory_management";);
-                url.add(4,"https://en.wikipedia.org/wiki/Content-addressable_memory";);
-                url.add(5, "https://en.wikipedia.org/wiki/Input/output#Interface";);
-                url.add(6,"https://en.wikipedia.org/wiki/Interrupt";);
-                url.add(7,"https://en.wikipedia.org/wiki/Direct_memory_access";);
-                url.add(8,"http://www.cs.uwm.edu/classes/cs458/Lecture/HTML/ch11s02.html";);
+                points.add("Standard I/O Interfaces");
+                url.add(0,"https://en.wikipedia.org/wiki/Memory_hierarchy");
+                url.add(1,"https://en.wikipedia.org/wiki/CPU_cache");
+                url.add(2,"https://en.wikipedia.org/wiki/Virtual_memory");
+                url.add(3,"https://en.wikipedia.org/wiki/Memory_management");
+                url.add(4,"https://en.wikipedia.org/wiki/Content-addressable_memory");
+                url.add(5, "https://en.wikipedia.org/wiki/Input/output#Interface");
+                url.add(6,"https://en.wikipedia.org/wiki/Interrupt");
+                url.add(7,"https://en.wikipedia.org/wiki/Direct_memory_access");
+                url.add(8,"http://www.cs.uwm.edu/classes/cs458/Lecture/HTML/ch11s02.html");
                 break;
         }
         Bundle points_bundle=new Bundle();

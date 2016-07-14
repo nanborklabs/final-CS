@@ -1,7 +1,9 @@
 package nanborklabs.csstack;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.ViewUtils;
 import android.util.Log;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
 import nanborklabs.csstack.subjects.AIFrag;
 import nanborklabs.csstack.subjects.CGFrag;
@@ -37,7 +40,7 @@ import nanborklabs.csstack.subjects.computingtechniqueFragment;
 import nanborklabs.csstack.subjects.prinicplesofCEFragment;
 
 public class StackHome extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,UrLoad {
 
 
     NavigationView left_side;
@@ -46,12 +49,17 @@ public class StackHome extends AppCompatActivity
     boolean left_click;
     Fragment subjectFragment;
     public int year_selected;
+    public boolean introAnimation;
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stack_home);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+      toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (savedInstanceState==null){
+            introAnimation=true;
+        }
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -80,7 +88,22 @@ public class StackHome extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.stack_home, menu);
+
+        //Start intoro animation
+        if (introAnimation){
+            introAnimation=false;
+            startIntroAnim();
+        }
         return true;
+    }
+
+    private void startIntroAnim() {
+        int size=toolbar.getHeight();
+        toolbar.setTranslationY(-size);
+        toolbar.animate().translationY(0)
+                .setDuration(400)
+                .setInterpolator(new AccelerateDecelerateInterpolator())
+                .setStartDelay(500);
     }
 
     @Override
@@ -146,6 +169,7 @@ public class StackHome extends AppCompatActivity
                 right_click = true;
                 Log.d("COM_CSTACK", "CP CLICKED");
                 subjectFragment = new computingtechniqueFragment();
+
                 break;
 
             case  R.id.pcp:
@@ -243,6 +267,7 @@ public class StackHome extends AppCompatActivity
 
 
         if (right_click) {
+
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             Log.d("COM_CSTACK", "inside if");
             drawer.closeDrawer(GravityCompat.END);
@@ -253,6 +278,7 @@ public class StackHome extends AppCompatActivity
                     .replace(R.id.frag_holder, subjectFragment)
                     .commit();
             right_click=false;
+
 
         }
 
@@ -300,5 +326,15 @@ public class StackHome extends AppCompatActivity
                 break;
 
         }
+    }
+
+    @Override
+    public void loadUrl(String url) {
+        Log.d("CS_STACK",url);
+        final Intent intent=new Intent(this,WebViewActivity.class);
+        intent.putExtra("URL",url);
+        startActivity(intent);
+
+        overridePendingTransition(0,0);
     }
 }

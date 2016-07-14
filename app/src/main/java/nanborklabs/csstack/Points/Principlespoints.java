@@ -3,15 +3,19 @@ package nanborklabs.csstack.Points;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -25,7 +29,7 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
     public boolean loaded;
     RecyclerView mRecyclerView;
 
-
+    RecyclerView.ItemDecoration itemDecoration;
 
     public Principlespoints() {
         super();
@@ -41,13 +45,13 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
         super.onDestroy();
         url_to_load=null;
         points_to_show=null;
-        mAdapter=null;
+        mAdapter=null;callback=null;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        callback=(UrLoad)(getParentFragment().getContext());
 
     }
 
@@ -69,13 +73,16 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
             points_to_show=getArguments().getStringArrayList("points");
             url_to_load=getArguments().getStringArrayList("url");
 
-            mAdapter=new rv_adapter(points_to_show,this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
             loaded=true;
         }
+
         mRecyclerView=(RecyclerView)mView.findViewById(R.id.points_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
+        mRecyclerView.addItemDecoration(itemDecoration);
         return mView;
     }
 
@@ -92,7 +99,7 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
@@ -116,7 +123,7 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         loaded = true;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -137,9 +144,9 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
 
     @Override
     public void point_clicked(int position) {
-
+        callback.loadUrl(url_to_load.get(position));
     }
-
+    UrLoad callback;
 
     public static Fragment newInstance(int position) {
 
@@ -153,11 +160,11 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
                 points.add("computer genreation");
                 points.add("Units of Data Storage");
                 points.add("Programming Planning");
-                url.add(0,"https://en.wikipedia.org/wiki/Computer#Modern_computers";);
-                url.add(1,"http://wikieducator.org/History_of_Computer_Development_%26_Generation_of_Computer#DEVELOPMENT_OF_COMPUTER";);
-                url.add(2,"http://wikieducator.org/History_of_Computer_Development_%26_Generation_of_Computer#GENERATION_OF_COMPUTER";);
-                url.add(3,"https://en.wikipedia.org/wiki/Computer_data_storage";);
-                url.add(4,"https://en.wikipedia.org/wiki/Logic_model#Program_planning";);
+                url.add(0,"https://en.wikipedia.org/wiki/Computer#Modern_computers");
+                url.add(1,"http://wikieducator.org/History_of_Computer_Development_%26_Generation_of_Computer#DEVELOPMENT_OF_COMPUTER");
+                url.add(2,"http://wikieducator.org/History_of_Computer_Development_%26_Generation_of_Computer#GENERATION_OF_COMPUTER");
+                url.add(3,"https://en.wikipedia.org/wiki/Computer_data_storage");
+                url.add(4,"https://en.wikipedia.org/wiki/Logic_model#Program_planning");
 
                 break;
             case 1:  points.add("basic computer Operation");
@@ -176,9 +183,8 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
                 points.add("FUnctional Languages");
                 points.add("Language Desgin");
                 points.add("Language Syntax & semantics");
-                url.add(0,);
-
-//                TODO: 5mins
+                url.add(0,"www");
+                /*
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -186,6 +192,11 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                url.add(8,);
+                url.add(9,);
+                url.add(10,);
+                url.add(11,);
+                */
                 break;
             case 2:  points.add("Roles of OS");
                 points.add("Process Managment");
@@ -197,14 +208,14 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
                 points.add("UNIX");
 
                 points.add("Ms-DOS");
-                url.add(0,"https://en.wikibooks.org/wiki/A-level_Computing/AQA/Problem_Solving,_Programming,_Operating_Systems,_Databases_and_Networking/Operating_Systems/Role_of_the_operating_system";);
-                url.add(1,"https://en.wikipedia.org/wiki/Process_management_(computing)";);
-                url.add(2,"https://en.wikipedia.org/wiki/Memory_management";);
-                url.add(3,"https://en.wikipedia.org/wiki/File_manager";);
-                url.add(4,"https://en.wikipedia.org/wiki/Device_driver";);
-                url.add(5,"https://en.wikipedia.org/wiki/MS-DOS";);
-                url.add(6,"https://en.wikipedia.org/wiki/Unix";);
-                url.add(7,);
+                url.add(0,"https://en.wikibooks.org/wiki/A-level_Computing/AQA/Problem_Solving,_Programming,_Operating_Systems,_Databases_and_Networking/Operating_Systems/Role_of_the_operating_system");
+                url.add(1,"https://en.wikipedia.org/wiki/Process_management_(computing)");
+                url.add(2,"https://en.wikipedia.org/wiki/Memory_management");
+                url.add(3,"https://en.wikipedia.org/wiki/File_manager");
+                url.add(4,"https://en.wikipedia.org/wiki/Device_driver");
+                url.add(5,"https://en.wikipedia.org/wiki/MS-DOS");
+                url.add(6,"https://en.wikipedia.org/wiki/Unix");
+                url.add(7,"www.google.com");
                 break;
             case 3: points.add("File Based Approach");
                 points.add("Evolutions of Data models");
@@ -212,11 +223,11 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
 
                 points.add("Data dictionary");
                 points.add("Database administrator");
-                url.add(0,"http://www.cs.cityu.edu.hk/~helena/cs34622000B/FileApproach.pdf";);
-                url.add(1,"https://en.wikipedia.org/wiki/Data_modela";);
-                url.add(2,"https://en.wikipedia.org/wiki/Data_independence";);
-                url.add(3,"https://en.wikipedia.org/wiki/Data_dictionary";);
-                url.add(4,"https://en.wikipedia.org/wiki/Database_administrator";);
+                url.add(0,"http://www.cs.cityu.edu.hk/~helena/cs34622000B/FileApproach.pdf");
+                url.add(1,"https://en.wikipedia.org/wiki/Data_modela");
+                url.add(2,"https://en.wikipedia.org/wiki/Data_independence");
+                url.add(3,"https://en.wikipedia.org/wiki/Data_dictionary");
+                url.add(4,"https://en.wikipedia.org/wiki/Database_administrator");
 
                 break;
             case 4:   points.add("Computer Networks");
@@ -229,14 +240,14 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
 
                 points.add("Internet");
                 points.add("World wide web");
-                url.add(0,"https://en.wikipedia.org/wiki/Computer_network";);
-                url.add(1,"https://en.wikipedia.org/wiki/OSI_model";);
-                url.add(2,"https://en.wikipedia.org/wiki/Network_topology";);
-                url.add(3,"https://en.wikipedia.org/wiki/Network_switch#Layer-specific_functionality";);
-                url.add(4,"https://en.wikipedia.org/wiki/Internet_protocol_suite";);
-                url.add(5,"https://en.wikipedia.org/wiki/Networking_hardware";);
-                url.add(6,"https://en.wikipedia.org/wiki/Internet";);
-                url.add(7,"https://en.wikipedia.org/wiki/World_Wide_Web";);
+                url.add(0,"https://en.wikipedia.org/wiki/Computer_network");
+                url.add(1,"https://en.wikipedia.org/wiki/OSI_model");
+                url.add(2,"https://en.wikipedia.org/wiki/Network_topology");
+                url.add(3,"https://en.wikipedia.org/wiki/Network_switch#Layer-specific_functionality");
+                url.add(4,"https://en.wikipedia.org/wiki/Internet_protocol_suite");
+                url.add(5,"https://en.wikipedia.org/wiki/Networking_hardware");
+                url.add(6,"https://en.wikipedia.org/wiki/Internet");
+                url.add(7,"https://en.wikipedia.org/wiki/World_Wide_Web");
                 break;
         }
         Bundle points_bundle=new Bundle();

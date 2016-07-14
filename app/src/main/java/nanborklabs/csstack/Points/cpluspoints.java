@@ -3,15 +3,19 @@ package nanborklabs.csstack.Points;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -25,7 +29,7 @@ public class cpluspoints extends Fragment  implements rv_adapter.Point_clicked{
     public boolean loaded;
     RecyclerView mRecyclerView;
 
-
+    RecyclerView.ItemDecoration itemDecoration;
 
     public cpluspoints() {
         super();
@@ -41,12 +45,14 @@ public class cpluspoints extends Fragment  implements rv_adapter.Point_clicked{
         super.onDestroy();
         url_to_load=null;
         points_to_show=null;
-        mAdapter=null;
+        mAdapter=null;callback=null;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        callback=(UrLoad)(getParentFragment().getContext());
+
 
 
     }
@@ -69,13 +75,16 @@ public class cpluspoints extends Fragment  implements rv_adapter.Point_clicked{
             points_to_show=getArguments().getStringArrayList("points");
             url_to_load=getArguments().getStringArrayList("url");
 
-            mAdapter=new rv_adapter(points_to_show,this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
             loaded=true;
         }
+
         mRecyclerView=(RecyclerView)mView.findViewById(R.id.points_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
+        mRecyclerView.addItemDecoration(itemDecoration);
         return mView;
     }
 
@@ -92,7 +101,7 @@ public class cpluspoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter = new rv_adapter(points_to_show, this,getContext());
         }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
@@ -116,7 +125,7 @@ public class cpluspoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter = new rv_adapter(points_to_show, this,getContext());
         }
         loaded = true;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -137,8 +146,9 @@ public class cpluspoints extends Fragment  implements rv_adapter.Point_clicked{
 
     @Override
     public void point_clicked(int position) {
-
+        callback.loadUrl(url_to_load.get(position));
     }
+    UrLoad callback;
 
 
     public static Fragment newInstance(int position) {
@@ -150,14 +160,17 @@ public class cpluspoints extends Fragment  implements rv_adapter.Point_clicked{
             case 0:  points.add("Pointers");
                 points.add("Array Pointers");
                 points.add("Pointer to Functions");
-                points.add("File Handling"); url.add(0,);
-                url.add(1,);
+                points.add("File Handling");
+                /*url.add(0,);
+             /*
+             *   url.add(1,);
                 url.add(2,);
                 url.add(3,);
                 url.add(4,);
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                 */
                 break;
             case 1: points.add("Introduction");
                 points.add("Procedure Vs object oriented programming");
@@ -165,7 +178,8 @@ public class cpluspoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Control Structres");
                 points.add("Array");
                 points.add("Strings");
-                points.add("User defined Types"); url.add(0,);
+                points.add("User defined Types");
+                /*url.add(0,);
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -173,13 +187,15 @@ public class cpluspoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
             case 2: points.add("Classes");
                 points.add("Objects");
                 points.add("Operator Overloading");
                 points.add("Inheritance");
                 points.add("Polymorphism");
-                points.add("Virtual Functions"); url.add(0,);
+                points.add("Virtual Functions");
+                /*url.add(0,);
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -187,12 +203,14 @@ public class cpluspoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
 
                 break;
             case 3:  points.add("Templates");
                 points.add("Name Spaces");
                 points.add("Casting");
-                points.add("Exception Handling"); url.add(0,);
+                points.add("Exception Handling");
+                /*url.add(0,);
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -213,6 +231,7 @@ public class cpluspoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
         }
         Bundle points_bundle=new Bundle();

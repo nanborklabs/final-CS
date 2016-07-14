@@ -3,15 +3,19 @@ package nanborklabs.csstack.Points;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -25,7 +29,7 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
     public boolean loaded;
     RecyclerView mRecyclerView;
 
-
+    RecyclerView.ItemDecoration itemDecoration;
 
     public Ooadpoints() {
         super();
@@ -41,13 +45,13 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
         super.onDestroy();
         url_to_load=null;
         points_to_show=null;
-        mAdapter=null;
+        mAdapter=null;callback=null;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        callback=(UrLoad)(getParentFragment().getContext());
 
     }
 
@@ -69,13 +73,16 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
             points_to_show=getArguments().getStringArrayList("points");
             url_to_load=getArguments().getStringArrayList("url");
 
-            mAdapter=new rv_adapter(points_to_show,this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
             loaded=true;
         }
+
         mRecyclerView=(RecyclerView)mView.findViewById(R.id.points_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
+        mRecyclerView.addItemDecoration(itemDecoration);
         return mView;
     }
 
@@ -92,7 +99,7 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
@@ -116,7 +123,7 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         loaded = true;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -137,8 +144,9 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
 
     @Override
     public void point_clicked(int position) {
-
+        callback.loadUrl(url_to_load.get(position));
     }
+    UrLoad callback;
 
 
     public static Fragment newInstance(int position) {
@@ -156,12 +164,12 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
 
                 points.add("State modeling");
                 points.add("Interaction Modeling");
-                url.add(0,"https://en.wikipedia.org/wiki/Object-oriented_analysis_and_design";);
-                url.add(1,"https://en.wikipedia.org/wiki/Object_(computer_science)";);
-                url.add(2,"https://en.wikipedia.org/wiki/Object_model";);
-                url.add(3,"https://en.wikipedia.org/wiki/Unified_Modeling_Language";);
-                url.add(4,"https://en.wikipedia.org/wiki/Use_case";);
-                url.add(5,"https://en.wikipedia.org/wiki/State_diagram_(UML)";);
+                url.add(0,"https://en.wikipedia.org/wiki/Object-oriented_analysis_and_design");
+                url.add(1,"https://en.wikipedia.org/wiki/Object_(computer_science)");
+                url.add(2,"https://en.wikipedia.org/wiki/Object_model");
+                url.add(3,"https://en.wikipedia.org/wiki/Unified_Modeling_Language");
+                url.add(4,"https://en.wikipedia.org/wiki/Use_case");
+                url.add(5,"https://en.wikipedia.org/wiki/State_diagram_(UML)");
                 url.add(6,"https://en.wikipedia.org/wiki/Interaction_model");
 
 
@@ -172,15 +180,16 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
 
                 points.add("Sequence Diagrams");
                 points.add("Operation Contracts");
-                url.add(0,"https://en.wikipedia.org/wiki/Object_Constraint_Language";);
-                url.add(1,);
+                url.add(0,"https://en.wikipedia.org/wiki/Object_Constraint_Language");
+                   url.add(1,"wwww");
 //                todo:1 in
-                url.add(2,"https://en.wikipedia.org/wiki/Domain_model";);
-                url.add(3,"https://en.wikipedia.org/wiki/Sequence_diagram";);
-                url.add(4,"https://en.wikipedia.org/wiki/Design_by_contract";);
-                url.add(5,);
+                url.add(2,"https://en.wikipedia.org/wiki/Domain_model");
+                url.add(3,"https://en.wikipedia.org/wiki/Sequence_diagram");
+                url.add(4,"https://en.wikipedia.org/wiki/Design_by_contract");
+             /*   url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
 
                 break;
             case 2:   points.add("Design Patterns");
@@ -191,12 +200,12 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Detailed design");
                 points.add("Object design with GRASP pattern");
                 points.add("class diagram");
-                url.add(0,"https://en.wikipedia.org/wiki/Design_pattern";);
-                url.add(1,"https://en.wikipedia.org/wiki/Multilayered_architecture";);
-                url.add(2,"https://en.wikipedia.org/wiki/Package_diagram";);
-                url.add(3,"https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller";);
-                url.add(4,"https://en.wikipedia.org/wiki/Software_design_description";);
-                url.add(5,"https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)";);
+                url.add(0,"https://en.wikipedia.org/wiki/Design_pattern");
+                url.add(1,"https://en.wikipedia.org/wiki/Multilayered_architecture");
+                url.add(2,"https://en.wikipedia.org/wiki/Package_diagram");
+                url.add(3,"https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller");
+                url.add(4,"https://en.wikipedia.org/wiki/Software_design_description");
+                url.add(5,"https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)");
                 url.add(6,"https://en.wikipedia.org/wiki/Class_diagram");
 
                 break;
@@ -204,11 +213,11 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Test Driven development");
                 points.add("refactoring");
                 points.add("UML Tools");
-                url.add(0,);
+                url.add(0,"www");
 //                todo:1 min
-                url.add(1,"https://en.wikipedia.org/wiki/Test-driven_development";);
-                url.add(2,"https://en.wikipedia.org/wiki/Code_refactoring";);
-                url.add(3,"https://en.wikipedia.org/wiki/UML_tool";);
+                url.add(1,"https://en.wikipedia.org/wiki/Test-driven_development");
+                url.add(2,"https://en.wikipedia.org/wiki/Code_refactoring");
+                url.add(3,"https://en.wikipedia.org/wiki/UML_tool");
 
 
                 break;
@@ -219,15 +228,16 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Architecture Refinement");
                 points.add("Package Design");
                 points.add("Persistence framework with patterns.");
-                url.add(0,"https://en.wikipedia.org/wiki/Static_program_analysis";);
-                url.add(1,"http://stackoverflow.com/questions/3698594/how-do-you-apply-design-patterns";);
-                url.add(2,);
+                url.add(0,"https://en.wikipedia.org/wiki/Static_program_analysis");
+                url.add(1,"http://stackoverflow.com/questions/3698594/how-do-you-apply-design-patterns");
+                /*url.add(2,);
 //                todo:5 min
                 url.add(3,);
                 url.add(4,);
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
         }
         Bundle points_bundle=new Bundle();

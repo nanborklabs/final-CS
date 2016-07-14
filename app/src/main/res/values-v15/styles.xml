@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+
+
+    <style name="points_text" parent="AppTheme">
+        <item name="android:textSize">@dimen/points_size</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background"> ?android:selectableItemBackground</item>
+    </style>
+
+    <style name="navigation_view">
+
+    </style>
+
+    <style name="title_text_view">
+        <item name="android:gravity">center_horizontal|top</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/title_text</item>
+        <item name="android:background">@color/white</item>
+
+
+    </style>
+</resources>

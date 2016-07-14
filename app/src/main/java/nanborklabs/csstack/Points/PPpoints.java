@@ -3,15 +3,19 @@ package nanborklabs.csstack.Points;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -24,7 +28,7 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
     RecyclerView.Adapter mAdapter;
     public boolean loaded;
     RecyclerView mRecyclerView;
-
+    RecyclerView.ItemDecoration itemDecoration;
 
 
     public PPpoints() {
@@ -41,13 +45,13 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
         super.onDestroy();
         url_to_load=null;
         points_to_show=null;
-        mAdapter=null;
+        mAdapter=null;callback=null;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        callback=(UrLoad)(getParentFragment().getContext());
 
     }
 
@@ -69,13 +73,16 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
             points_to_show=getArguments().getStringArrayList("points");
             url_to_load=getArguments().getStringArrayList("url");
 
-            mAdapter=new rv_adapter(points_to_show,this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
             loaded=true;
         }
+
         mRecyclerView=(RecyclerView)mView.findViewById(R.id.points_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
+        mRecyclerView.addItemDecoration(itemDecoration);
         return mView;
     }
 
@@ -92,7 +99,7 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
@@ -116,7 +123,7 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         loaded = true;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -137,9 +144,9 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
 
     @Override
     public void point_clicked(int position) {
-
+        callback.loadUrl(url_to_load.get(position));
     }
-
+    UrLoad callback;
 
     public static Fragment newInstance(int position) {
 
@@ -158,6 +165,7 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Dynamic");
 
 //                todo:5 mins
+               /*
                 url.add(0,);
                 url.add(1,);
                 url.add(2,);
@@ -166,6 +174,11 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                url.add(8,);
+                url.add(9,);
+                url.add(10,);
+                url.add(11,);
+                */
 
                 break;
             case 1: points.add("Expression");
@@ -178,6 +191,7 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("partial function");
                 points.add("dynamic typing");
 //                todo:5min
+                  /*
                 url.add(0,);
                 url.add(1,);
                 url.add(2,);
@@ -186,6 +200,11 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                url.add(8,);
+                url.add(9,);
+                url.add(10,);
+                url.add(11,);
+                */
                 break;
             case 2:  points.add("Call and Return");
                 points.add("Parameter passing");
@@ -196,6 +215,7 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("dynamic arrays");
                 points.add("garbage Collection");
 //                todo:5min
+                  /*
                 url.add(0,);
                 url.add(1,);
                 url.add(2,);
@@ -204,6 +224,11 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                url.add(8,);
+                url.add(9,);
+                url.add(10,);
+                url.add(11,);
+                */
                 break;
             case 3:  points.add("Logic programming");
                 points.add("Event-Driven programming");
@@ -212,8 +237,10 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Language level mechanism");
                 points.add("Interprocess");
                 points.add("Scripting languages.");
-                url.add(0,);
+
 //                todo:5min
+                 /*
+                url.add(0,);
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -221,6 +248,11 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                url.add(8,);
+                url.add(9,);
+                url.add(10,);
+                url.add(11,);
+                */
                 break;
             case 4: points.add("Logic programming");
                 points.add("Event-Driven programming");
@@ -230,6 +262,7 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Interprocess");
                 points.add("Scripting languages.");
 //                todo:5min
+                /*
                 url.add(0,);
                 url.add(1,);
                 url.add(2,);
@@ -238,6 +271,11 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                url.add(8,);
+                url.add(9,);
+                url.add(10,);
+                url.add(11,);
+                */
                 break;
         }
         Bundle points_bundle=new Bundle();

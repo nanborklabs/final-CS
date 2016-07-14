@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import nanborklabs.csstack.Points.computingpoints;
 import nanborklabs.csstack.R;
@@ -68,6 +69,37 @@ public class computingtechniqueFragment extends android.support.v4.app.Fragment 
         mAdapter=new ViewPagerAdapter(getChildFragmentManager());
         mViewPager.setAdapter(mAdapter);
         mViewPager.setOffscreenPageLimit(3);
+        TextView title =(TextView)mView.findViewById(R.id.subject_title);
+        title.setText(R.string.cp);
+        final TextView sub=(TextView)mView.findViewById(R.id.subtitle);
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position){
+                    case 0:
+                        sub.setText("Introduction");
+                        break;
+                    case 1:sub.setText("C Program Basics");
+                        break;
+                    case 2:sub.setText("Arrays & Strings");
+                        break;
+                    case 3:sub.setText("Function & pointers");
+                        break;
+                    case 4:sub.setText("Structures & Unions");
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         TabLayout tabLayout=(TabLayout)mView.findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(mViewPager);
@@ -85,7 +117,6 @@ public class computingtechniqueFragment extends android.support.v4.app.Fragment 
     public void onStart() {
         super.onStart();
         Log.d("CS_STACK","on start====in view pager fragment");
-        mViewPager.setCurrentItem(0);
     }
 
     @Override

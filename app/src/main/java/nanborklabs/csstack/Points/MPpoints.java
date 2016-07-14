@@ -3,15 +3,19 @@ package nanborklabs.csstack.Points;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -24,7 +28,7 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
     RecyclerView.Adapter mAdapter;
     public boolean loaded;
     RecyclerView mRecyclerView;
-
+    RecyclerView.ItemDecoration itemDecoration;
 
 
     public MPpoints() {
@@ -41,13 +45,13 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
         super.onDestroy();
         url_to_load=null;
         points_to_show=null;
-        mAdapter=null;
+        mAdapter=null;callback=null;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        callback=(UrLoad)(getParentFragment().getContext());
 
     }
 
@@ -69,13 +73,16 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
             points_to_show=getArguments().getStringArrayList("points");
             url_to_load=getArguments().getStringArrayList("url");
 
-            mAdapter=new rv_adapter(points_to_show,this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
             loaded=true;
         }
+
         mRecyclerView=(RecyclerView)mView.findViewById(R.id.points_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
+        mRecyclerView.addItemDecoration(itemDecoration);
         return mView;
     }
 
@@ -92,7 +99,7 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
@@ -116,7 +123,7 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         loaded = true;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -137,8 +144,9 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
 
     @Override
     public void point_clicked(int position) {
-
+        callback.loadUrl(url_to_load.get(position));
     }
+    UrLoad callback;
 
 
     public static Fragment newInstance(int position) {
@@ -151,14 +159,15 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Microprocessor architecture");
                 points.add("Instruction set ");
                 points.add("Programming the 8085");
-                url.add(0,"https://en.wikipedia.org/wiki/Intel_8085";);
-                url.add(1,"https://en.wikibooks.org/wiki/Microprocessor_Design/Computer_Architecture";);
-                url.add(2,"https://en.wikipedia.org/wiki/Instruction_set";);
-                url.add(3,"http://www.go4expert.com/articles/8085-assembly-language-programming-code-t302/";);
-                url.add(4,);
+                url.add(0,"https://en.wikipedia.org/wiki/Intel_8085");
+                url.add(1,"https://en.wikibooks.org/wiki/Microprocessor_Design/Computer_Architecture");
+                url.add(2,"https://en.wikipedia.org/wiki/Instruction_set");
+                url.add(3,"http://www.go4expert.com/articles/8085-assembly-language-programming-code-t302/");
+              /*  url.add(4,);
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
 
                 break;
             case 1: points.add("8086");
@@ -171,7 +180,7 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Interrupts");
                 points.add("interrupt service routines");
 //                todo:5 min
-                url.add(0,);
+              /*  url.add(0,);
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -179,6 +188,7 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                 */
                 break;
             case 2: points.add("8086 signals");
                 points.add("Basic configurations");
@@ -188,7 +198,7 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Coprocessor");
                 points.add("Coupled configurations");
                 points.add("advanced processors.");
-                url.add(0,);
+                /*url.add(0,);
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -196,6 +206,7 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                 */
                 break;
             case 3: points.add("Memory Interfacing");
                 points.add("I/O interfacing");
@@ -206,7 +217,7 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Interrupt controller");
                 points.add("DMA controller");
                 points.add("Programming and applications");
-                url.add(0,);
+               /* url.add(0,);
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -214,6 +225,7 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                 */
 
                 break;
             case 4: points.add("Architecture of 8051");
@@ -223,7 +235,7 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Interrupts");
                 points.add("Instruction set");
                 points.add("Applications");
-                url.add(0,);
+             /*   url.add(0,);
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -231,6 +243,7 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                 */
                 break;
         }
         Bundle points_bundle=new Bundle();

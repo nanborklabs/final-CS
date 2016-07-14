@@ -3,15 +3,19 @@ package nanborklabs.csstack.Points;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -25,7 +29,7 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
     public boolean loaded;
     RecyclerView mRecyclerView;
 
-
+    RecyclerView.ItemDecoration itemDecoration;
 
     public Flatpoints() {
         super();
@@ -41,13 +45,13 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
         super.onDestroy();
         url_to_load=null;
         points_to_show=null;
-        mAdapter=null;
+        mAdapter=null;callback=null;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        callback=(UrLoad)(getParentFragment().getContext());
 
     }
 
@@ -69,13 +73,16 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
             points_to_show=getArguments().getStringArrayList("points");
             url_to_load=getArguments().getStringArrayList("url");
 
-            mAdapter=new rv_adapter(points_to_show,this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
             loaded=true;
         }
+
         mRecyclerView=(RecyclerView)mView.findViewById(R.id.points_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
+        mRecyclerView.addItemDecoration(itemDecoration);
         return mView;
     }
 
@@ -92,7 +99,7 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
@@ -116,7 +123,7 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         loaded = true;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -137,8 +144,9 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
 
     @Override
     public void point_clicked(int position) {
-
+        callback.loadUrl(url_to_load.get(position));
     }
+    UrLoad callback;
 
 
     public static Fragment newInstance(int position) {
@@ -153,13 +161,13 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Epsilon transitions");
                 points.add("Regular Expression");
                 points.add("Pumping lemma");
-                points.add("Equivalence and minimization"); url.add(0,"https://en.wikipedia.org/wiki/Automata_theory";);
-                url.add(1,"https://en.wikipedia.org/wiki/Deterministic_finite_automaton";);
-                url.add(2,"https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton";);
-                url.add(3,"https://en.wikipedia.org/wiki/Epsilon_transition";);
-                url.add(4,"https://en.wikipedia.org/wiki/Regular_expression";);
-                url.add(5,"https://en.wikipedia.org/wiki/Pumping_lemma";);
-                url.add(6,"https://en.wikipedia.org/wiki/DFA_minimization";);
+                points.add("Equivalence and minimization"); url.add(0,"https://en.wikipedia.org/wiki/Automata_theory");
+                url.add(1,"https://en.wikipedia.org/wiki/Deterministic_finite_automaton");
+                url.add(2,"https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton");
+                url.add(3,"https://en.wikipedia.org/wiki/Epsilon_transition");
+                url.add(4,"https://en.wikipedia.org/wiki/Regular_expression");
+                url.add(5,"https://en.wikipedia.org/wiki/Pumping_lemma");
+                url.add(6,"https://en.wikipedia.org/wiki/DFA_minimization");
 
                 break;
             case 1: points.add("Context-Free Grammar (CFG)");
@@ -167,7 +175,9 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("- Normal forms for CFG");
                 points.add("Pushdown\n" +
                         "automata");
-                points.add("Pumping lemma for CFL"); url.add(0,);
+                points.add("Pumping lemma for CFL");
+                url.add(0,"www");
+                /*
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -176,6 +186,7 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(6,);
 //                todo:10 min
                 url.add(7,);
+                */
                 break;
             case 2: points.add("Closure properties");
                 points.add("Turing Machines");
@@ -184,7 +195,8 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
             case 3:  points.add("Recursively Enumerable");
                 points.add("Undecidable problems");
                 points.add("Rice theorem");
-                points.add("Post’s Correspondence Problem."); url.add(0,);
+                points.add("Post’s Correspondence Problem."); url.add(0,"www");
+                /*
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -193,13 +205,15 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
             case 4:  points.add("Matrix grammar");
                 points.add("Programmed grammar");
                 points.add("Random context grammar");
                 points.add("Regular Control grammar");
                 points.add("Lindenmayer systems");
-                points.add("DNA computing and Membrane computing"); url.add(0,);
+                points.add("DNA computing and Membrane computing");  url.add(0,"www");
+                /*
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -208,6 +222,7 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
         }
         Bundle points_bundle=new Bundle();

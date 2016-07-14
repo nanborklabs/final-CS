@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import nanborklabs.csstack.Points.AIpoints;
 import nanborklabs.csstack.Points.CGpoints;
@@ -73,6 +74,37 @@ public class JavaFrag extends android.support.v4.app.Fragment {
 
         TabLayout tabLayout=(TabLayout)mView.findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(mViewPager);
+        TextView title =(TextView)mView.findViewById(R.id.subject_title);
+        title.setText(R.string.jip);
+        final TextView sub=(TextView)mView.findViewById(R.id.subtitle);
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position){
+                    case 0:
+                        sub.setText("Java Fundamentals");
+                        break;
+                    case 1:sub.setText("Java Network Programming");
+                        break;
+                    case 2:sub.setText("Client Side Programming");
+                        break;
+                    case 3:sub.setText("Server-Side Programming");
+                        break;
+                    case 4:sub.setText("web Application Development");
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         Log.d("CS_STACK","on CREATE====in view pager fragment");
         return mView;
@@ -87,7 +119,6 @@ public class JavaFrag extends android.support.v4.app.Fragment {
     public void onStart() {
         super.onStart();
         Log.d("CS_STACK","on start====in view pager fragment");
-        mViewPager.setCurrentItem(0);
     }
 
     @Override

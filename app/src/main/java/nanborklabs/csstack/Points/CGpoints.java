@@ -3,15 +3,19 @@ package nanborklabs.csstack.Points;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -24,6 +28,7 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
     RecyclerView.Adapter mAdapter;
     public boolean loaded;
     RecyclerView mRecyclerView;
+    RecyclerView.ItemDecoration itemDecoration;
 
 
 
@@ -41,12 +46,13 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
         super.onDestroy();
         url_to_load=null;
         points_to_show=null;
-        mAdapter=null;
+        mAdapter=null;callback=null;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        callback=(UrLoad)(getParentFragment().getContext());
 
 
     }
@@ -69,9 +75,10 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
             points_to_show=getArguments().getStringArrayList("points");
             url_to_load=getArguments().getStringArrayList("url");
 
-            mAdapter=new rv_adapter(points_to_show,this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
             loaded=true;
         }
+
         mRecyclerView=(RecyclerView)mView.findViewById(R.id.points_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
@@ -92,8 +99,10 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
+        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
+        mRecyclerView.addItemDecoration(itemDecoration);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
     }
@@ -116,7 +125,7 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         loaded = true;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -137,8 +146,9 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
 
     @Override
     public void point_clicked(int position) {
-
+        callback.loadUrl(url_to_load.get(position));
     }
+    UrLoad callback;
 
 
     public static Fragment newInstance(int position) {
@@ -169,11 +179,11 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("2D Geometric Transormations");
                 points.add("Clipping Alorithms");
                 url.add(0,"https://en.wikipedia.org/wiki/2D_computer_graphics");
-                url.add(1,"https://en.wikipedia.org/wiki/Window_(computing)";);
-                url.add(2,"https://en.wikipedia.org/wiki/Viewport";);
+                url.add(1,"https://en.wikipedia.org/wiki/Window_(computing)");
+                url.add(2,"https://en.wikipedia.org/wiki/Viewport");
 
-                url.add(3,"https://www.cs.mtsu.edu/~jhankins/files/4250/notes/WinToView/WinToViewMap.html";);
-                url.add(4,"https://en.wikipedia.org/wiki/Line_clipping";);
+                url.add(3,"https://www.cs.mtsu.edu/~jhankins/files/4250/notes/WinToView/WinToViewMap.html");
+                url.add(4,"https://en.wikipedia.org/wiki/Line_clipping");
 
 
                 break;
@@ -187,13 +197,13 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
 
                 points.add("Visible Surface Identification");
                 points.add("Color models");
-                url.add(0,"https://en.wikipedia.org/wiki/Graphical_projection";);
+                url.add(0,"https://en.wikipedia.org/wiki/Graphical_projection");
                 url.add(1,"https://en.wikipedia.org/wiki/3D_modeling#Representation");
                 url.add(2,"http://www.math.utah.edu/~treiberg/Perspect/Perspect.htm#Parallelx");
                 url.add(3,"https://en.wikipedia.org/wiki/Transformation_(function)");
                 url.add(4,"https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation");
                 url.add(5,"https://en.wikipedia.org/wiki/Viewing_frustum");
-                url.add(6,"https://en.wikipedia.org/wiki/Hidden_surface_determination#Culling_and_Visible_Surface_Determination";);
+                url.add(6,"https://en.wikipedia.org/wiki/Hidden_surface_determination#Culling_and_Visible_Surface_Determination");
                 url.add(7,"https://en.wikipedia.org/wiki/Color_model");
                 break;
             case 3:  points.add("Multimedia");
@@ -204,7 +214,7 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Video Compression");
                 points.add("File Format ");
                 points.add("Multimedia Data structres-KD Trees , R-Trees");
-                url.add(0,);
+              /*  url.add(0,);
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -212,6 +222,7 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
             case 4:  points.add("Authoring Systemsi");
                 points.add("Video on Demand");

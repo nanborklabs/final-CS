@@ -3,15 +3,19 @@ package nanborklabs.csstack.Points;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -26,7 +30,7 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
     RecyclerView mRecyclerView;
 
 
-
+    RecyclerView.ItemDecoration itemDecoration;
     public Jippoints() {
         super();
     }
@@ -41,13 +45,13 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
         super.onDestroy();
         url_to_load=null;
         points_to_show=null;
-        mAdapter=null;
+        mAdapter=null;callback=null;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        callback=(UrLoad)(getParentFragment().getContext());
 
     }
 
@@ -69,13 +73,16 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
             points_to_show=getArguments().getStringArrayList("points");
             url_to_load=getArguments().getStringArrayList("url");
 
-            mAdapter=new rv_adapter(points_to_show,this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
             loaded=true;
         }
+
         mRecyclerView=(RecyclerView)mView.findViewById(R.id.points_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
+        mRecyclerView.addItemDecoration(itemDecoration);
         return mView;
     }
 
@@ -92,7 +99,7 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
@@ -116,7 +123,7 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         loaded = true;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -137,8 +144,9 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
 
     @Override
     public void point_clicked(int position) {
-
+        callback.loadUrl(url_to_load.get(position));
     }
+    UrLoad callback;
 
 
     public static Fragment newInstance(int position) {
@@ -147,14 +155,16 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
         ArrayList<String> points=new ArrayList<>();
         ArrayList<String> url=new ArrayList<>();
         switch (position){
-            case 0:oints.add("Overview of Java");
+            case 0:points.add("Overview of Java");
                 points.add("classes Objects & methods");
                 points.add("Inheritance ");
                 points.add("Packages and Interfaces");
                 points.add("Exception handling");
                 points.add("Multithreading");
                 points.add("Java I/O Streams");
-                points.add("File Handling"); url.add(0,);
+                points.add("File Handling");
+                url.add(0,"www");
+                /*
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -162,6 +172,7 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
             case 1:points.add("Internet Addressing,");
                 points.add("Web Application Architectures");
@@ -179,7 +190,9 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Working with URLs");
                 points.add("HTTP");
                 points.add("SMTP");
-                points.add("Remote Method Invocation"); url.add(0,);
+                points.add("Remote Method Invocation");
+                url.add(0,"www");
+                /*
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -187,6 +200,7 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
             case 2:
                 points.add("Scripting for content structuring");
@@ -201,7 +215,9 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("AJAX with PHP");
                 points.add("- AJAX with Databases");
                 points.add("Jquery");
-                points.add("Swing"); url.add(0,);
+                points.add("Swing");
+                url.add(0,"www");
+                /*
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -209,6 +225,7 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
             case 3:
                 points.add("Types of servers");
@@ -218,7 +235,9 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Handling form data");
                 points.add("querying databases");
                 points.add("information retrieval");
-                points.add("Session management"); url.add(0,);
+                points.add("Session management");
+                url.add(0,"www");
+                /*
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -226,13 +245,16 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
             case 4:
                 points.add("Creating Interactive Websites");
                 points.add("Search engines");
                 points.add("cookies");
                 points.add("Blogs");
-                points.add("Social web applications"); url.add(0,);
+                points.add("Social web applications");
+                url.add(0,"www");
+                /*
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -240,6 +262,7 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
         }
         Bundle points_bundle=new Bundle();

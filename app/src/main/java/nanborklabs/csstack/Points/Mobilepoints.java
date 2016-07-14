@@ -3,15 +3,19 @@ package nanborklabs.csstack.Points;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -25,7 +29,7 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
     public boolean loaded;
     RecyclerView mRecyclerView;
 
-
+    RecyclerView.ItemDecoration itemDecoration;
 
     public Mobilepoints() {
         super();
@@ -41,13 +45,13 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
         super.onDestroy();
         url_to_load=null;
         points_to_show=null;
-        mAdapter=null;
+        mAdapter=null;callback=null;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        callback=(UrLoad)(getParentFragment().getContext());
 
     }
 
@@ -69,13 +73,16 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
             points_to_show=getArguments().getStringArrayList("points");
             url_to_load=getArguments().getStringArrayList("url");
 
-            mAdapter=new rv_adapter(points_to_show,this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
             loaded=true;
         }
+
         mRecyclerView=(RecyclerView)mView.findViewById(R.id.points_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
+        mRecyclerView.addItemDecoration(itemDecoration);
         return mView;
     }
 
@@ -92,7 +99,7 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
@@ -116,7 +123,7 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         loaded = true;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -137,8 +144,9 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
 
     @Override
     public void point_clicked(int position) {
-
+        callback.loadUrl(url_to_load.get(position));
     }
+    UrLoad callback;
 
 
     public static Fragment newInstance(int position) {
@@ -149,14 +157,15 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
         switch (position){
             case 0: points.add("Basics");
                 points.add("Architecture and requirements");
-                points.add("operating systems"); url.add(0,);
-                url.add(1,);
+                points.add("operating systems");  url.add(0,"www");
+                /*
                 url.add(2,);
                 url.add(3,);
                 url.add(4,);
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
             case 1:
                 points.add("Mobile Ecosystem");
@@ -164,14 +173,15 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Information Architecture");
                 points.add("Mobile Web apps vs Native Apps");
                 points.add("Adapting to devices");
-                points.add("Application development on Android and iPhone"); url.add(0,);
-                url.add(1,);
+                points.add("Application development on Android and iPhone"); url.add(0,"www");
+                /*
                 url.add(2,);
                 url.add(3,);
                 url.add(4,);
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
             case 2:
                 points.add("Frequencies");
@@ -180,7 +190,8 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Signal propagation");
                 points.add("Media Access Control");
                 points.add("GSM");
-                points.add("GPRS"); url.add(0,);
+                points.add("GPRS"); url.add(0,"www");
+                /*
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -188,11 +199,13 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
             case 3:   points.add("Infrared vs radio transmission");
                 points.add("Infrastructure and ad hoc networks");
                 points.add("IEEE 802.11,WLAN");
-                points.add("satellites networks"); url.add(0,);
+                points.add("satellites networks"); url.add(0,"www");
+                /*
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -200,12 +213,14 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
                 break;
             case 4:  points.add("Mobile IP");
                 points.add("DHCP");
                 points.add("Routing in Mobile");
                 points.add("TCP improvements");
-                points.add("TCP over 2.5/3G."); url.add(0,);
+                points.add("TCP over 2.5/3G."); url.add(0,"www");
+                /*
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);
@@ -213,6 +228,7 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,);
                 url.add(6,);
                 url.add(7,);
+                */
 
                 break;
         }

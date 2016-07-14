@@ -1,63 +1,80 @@
 package nanborklabs.csstack.subjects;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextSwitcher;
+import android.widget.TextView;
+import android.widget.ViewSwitcher;
 
 import nanborklabs.csstack.Points.AIpoints;
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.RecyclerViewAnim;
 
 /**
  * Created by nandhu on 8/7/16.
  */
-public class AIFrag extends android.support.v4.app.Fragment  {
+public class AIFrag extends android.support.v4.app.Fragment implements ViewPager.PageTransformer{
 
 
     public View mView;
     ViewPager mViewPager;
     public PagerAdapter mAdapter;
+    public TextView sub;
+    TextSwitcher mSwitcher;
+    RecyclerView.ItemDecoration itemDecoration;
+    String text_sub[]={"hi","hello","wonderful","its coming","fuck yeah"};
+    int cu=-1;
 
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        Log.d("CS_STACK","on attach view pager");
+        Log.d("CS_STACK", "on attach view pager");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        Log.d("CS_STACK","on detach VIEW PAGER");
+        Log.d("CS_STACK", "on detach VIEW PAGER");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("CS_STACK","on destroy VIEW PAGER");
-        mAdapter=null;
+        Log.d("CS_STACK", "on destroy VIEW PAGER");
+        mAdapter = null;
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d("CS_STACK","on destroy view View pager");
+        Log.d("CS_STACK", "on destroy view View pager");
 
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("CS_STACK","on CREATE====in view pager fragment");
+        Log.d("CS_STACK", "on CREATE====in view pager fragment");
 
 
     }
@@ -65,29 +82,85 @@ public class AIFrag extends android.support.v4.app.Fragment  {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView=inflater.inflate(R.layout.viewpager,container,false);
-        mViewPager=(ViewPager)mView.findViewById(R.id.pager);
-        mAdapter=new ViewPagerAdapter(getChildFragmentManager());
+        mView = inflater.inflate(R.layout.viewpager, container, false);
+        mViewPager = (ViewPager) mView.findViewById(R.id.pager);
+        mAdapter = new ViewPagerAdapter(getChildFragmentManager());
         mViewPager.setAdapter(mAdapter);
+        mSwitcher=(TextSwitcher)mView.findViewById(R.id.subtitle);
+        mSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                TextView textView=new TextView(getContext());
+                textView.setGravity(Gravity.CENTER);
+                textView.setTextSize(18);
+                textView.setTextColor(Color.BLUE);
+                return textView;
+
+            }
+        });
+        Animation in= AnimationUtils.loadAnimation(getContext(),android.R.anim.slide_in_left);
+        Animation out=AnimationUtils.loadAnimation(getContext(),android.R.anim.slide_out_right);
+        mSwitcher.setInAnimation(in);
+        mSwitcher.setOutAnimation(out);
         mViewPager.setOffscreenPageLimit(3);
 
-        TabLayout tabLayout=(TabLayout)mView.findViewById(R.id.sliding_tabs);
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 0:
+
+                     mSwitcher.setText(text_sub[position]);
+                        break;
+                    case 1:
+                        mSwitcher.setText(text_sub[position]);
+                        break;
+                    case 2:
+                        mSwitcher.setText(text_sub[position]);
+                        break;
+                    case 3:
+                        mSwitcher.setText(text_sub[position]);
+                        break;
+                    case 4:
+                        mSwitcher.setText(text_sub[position]);
+                        break;
+                }
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        TextView title = (TextView) mView.findViewById(R.id.subject_title);
+        title.setText(R.string.ai);
+        RecyclerViewAnim.startTitleAnim(title);
+
+
+        TabLayout tabLayout = (TabLayout) mView.findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        Log.d("CS_STACK","on CREATE====in view pager fragment");
+        Log.d("CS_STACK", "on CREATE====in view pager fragment");
         return mView;
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        Log.d("save_state","state is saved");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        Log.d("CS_STACK","on start====in view pager fragment");
-        mViewPager.setCurrentItem(0);
+        Log.d("CS_STACK", "on start====in view pager fragment");
+
     }
 
     @Override
@@ -98,25 +171,42 @@ public class AIFrag extends android.support.v4.app.Fragment  {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.d("CS_STACK","on view created====in view pager fragment");
+        Log.d("CS_STACK", "on view created====in view pager fragment");
+    }
+
+    @Override
+    public void transformPage(View page, float position) {
+        int width=page.getWidth();
+        if (position < -1) { // [-Infinity,-1)
+            // This page is way off-screen to the left.
+            page.setAlpha(0);
+
+        } else if (position <= 1) { // [-1,1]
+            sub.setTranslationX((float)0.5*width);
+
+
+        }
+        else {
+            page.setAlpha(0);
+        }
     }
 
 
-    public class ViewPagerAdapter extends FragmentPagerAdapter {
+
+
+    class ViewPagerAdapter extends FragmentPagerAdapter {
 
         public AIpoints showpointsFragment;
 
 
-
         public ViewPagerAdapter(FragmentManager fm) {
             super(fm);
-            Log.d("CS_STACK","VIEW PAGER");
+            Log.d("CS_STACK", "VIEW PAGER");
 
-            if (showpointsFragment==null){
-                showpointsFragment=new AIpoints();
-            }
-            else {
-                Log.d("CS_STACK","show points fragment is not null");
+            if (showpointsFragment == null) {
+                showpointsFragment = new AIpoints();
+            } else {
+                Log.d("CS_STACK", "show points fragment is not null");
             }
 
 
@@ -145,26 +235,27 @@ public class AIFrag extends android.support.v4.app.Fragment  {
 
             }
 
-        return null;
+            return null;
 
 
         }
 
         @Override
         public Fragment getItem(int position) {
-            Log.d("CS_STACK","fragment returning from view pager");
-            switch (position){
+            Log.d("CS_STACK", "fragment returning from view pager");
+            switch (position) {
                 case 0:
-                    return  showpointsFragment.newInstance(position);
+                    return showpointsFragment.newInstance(position);
 
                 case 1:
-                    return  showpointsFragment.newInstance(position);
+                    return showpointsFragment.newInstance(position);
                 case 2:
-                    return  showpointsFragment.newInstance(position);
+                    return showpointsFragment.newInstance(position);
                 case 3:
-                    return  showpointsFragment.newInstance(position);
+                    return showpointsFragment.newInstance(position);
                 case 4:
-                    return  showpointsFragment.newInstance(position);
+
+                    return showpointsFragment.newInstance(position);
 
             }
             return null;
@@ -178,23 +269,24 @@ public class AIFrag extends android.support.v4.app.Fragment  {
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
             super.destroyItem(container, position, object);
-            Log.d("CS_STACK","view pager destroy item");
-
+            Log.d("CS_STACK", "view pager destroy item");
 
 
         }
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            Log.d("CS_STACK","intantiate item view pager");
+            Log.d("CS_STACK", "intantiate item view pager");
 
             return super.instantiateItem(container, position);
 
         }
     }
-
-
-
-
-
 }
+
+
+
+
+
+
+

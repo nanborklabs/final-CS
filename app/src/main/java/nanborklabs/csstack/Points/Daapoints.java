@@ -3,15 +3,19 @@ package nanborklabs.csstack.Points;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -26,7 +30,7 @@ public class Daapoints extends Fragment  implements rv_adapter.Point_clicked{
     RecyclerView mRecyclerView;
 
 
-
+    RecyclerView.ItemDecoration itemDecoration;
     public Daapoints() {
         super();
     }
@@ -41,12 +45,13 @@ public class Daapoints extends Fragment  implements rv_adapter.Point_clicked{
         super.onDestroy();
         url_to_load=null;
         points_to_show=null;
-        mAdapter=null;
+        mAdapter=null;callback=null;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        callback=(UrLoad)(getParentFragment().getContext());
 
 
     }
@@ -69,13 +74,16 @@ public class Daapoints extends Fragment  implements rv_adapter.Point_clicked{
             points_to_show=getArguments().getStringArrayList("points");
             url_to_load=getArguments().getStringArrayList("url");
 
-            mAdapter=new rv_adapter(points_to_show,this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
             loaded=true;
         }
+
         mRecyclerView=(RecyclerView)mView.findViewById(R.id.points_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
+        mRecyclerView.addItemDecoration(itemDecoration);
         return mView;
     }
 
@@ -92,7 +100,7 @@ public class Daapoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
@@ -116,7 +124,7 @@ public class Daapoints extends Fragment  implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
         loaded = true;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -137,8 +145,9 @@ public class Daapoints extends Fragment  implements rv_adapter.Point_clicked{
 
     @Override
     public void point_clicked(int position) {
-
+        callback.loadUrl(url_to_load.get(position));
     }
+    UrLoad callback;
 
 
     public static Fragment newInstance(int position) {
@@ -153,14 +162,14 @@ public class Daapoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Substitution Method");
                 points.add("Maxima & minima");
                 points.add("Strasses Matrix Multiplication");
-                points.add("Convex Hull"); url.add(0,"https://en.wikipedia.org/wiki/Algorithm";);
-                url.add(1,"http://www.cs.odu.edu/~cs381/cs381content/function/growth.html";);
-                url.add(2,"http://www.radford.edu/~nokie/classes/360/recurrence.eqns.html";);
-                url.add(3,"https://en.wikipedia.org/wiki/Substitution_method";);
-                url.add(4,"https://en.wikipedia.org/wiki/Maxima_and_minima";);
-                url.add(5,"http://www.stoimen.com/blog/2012/11/26/computer-algorithms-strassens-matrix-multiplication/";);
-                url.add(6,"https://en.wikipedia.org/wiki/Convex_hull_algorithms";);
-                url.add(7,);
+                points.add("Convex Hull"); url.add(0,"https://en.wikipedia.org/wiki/Algorithm");
+                url.add(1,"http://www.cs.odu.edu/~cs381/cs381content/function/growth.html");
+                url.add(2,"http://www.radford.edu/~nokie/classes/360/recurrence.eqns.html");
+                url.add(3,"https://en.wikipedia.org/wiki/Substitution_method");
+                url.add(4,"https://en.wikipedia.org/wiki/Maxima_and_minima");
+                url.add(5,"http://www.stoimen.com/blog/2012/11/26/computer-algorithms-strassens-matrix-multiplication/");
+                url.add(6,"https://en.wikipedia.org/wiki/Convex_hull_algorithms");
+//                url.add(7,);
                 break;
             case 1:  points.add("Greedy Algorithm's");
                 points.add("Knapsack Problem");
@@ -170,41 +179,37 @@ public class Daapoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Principle of Optimality");
                 points.add("All Pairs Problem");
                 points.add("Longest Common SubSequence");
-                points.add("Travelling Salesman Problem"); url.add(0,"https://en.wikipedia.org/wiki/Greedy_algorithm";);
-                url.add(1,"https://en.wikipedia.org/wiki/Knapsack_problem";);
-                url.add(2,"https://en.wikipedia.org/wiki/Minimum_spanning_tree";);
-                url.add(3,"https://en.wikipedia.org/wiki/Shortest_path_problem";);
-                url.add(4,"https://en.wikipedia.org/wiki/Dynamic_programming";);
-                url.add(5,"https://en.wikipedia.org/wiki/Bellman_equation";);
-                url.add(6,"https://en.wikipedia.org/wiki/Shortest_path_problem";);
-                url.add(7,"https://en.wikipedia.org/wiki/Longest_common_subsequence_problem";);
-                url.add(8,"https://en.wikipedia.org/wiki/Travelling_salesman_problem";);
+                points.add("Travelling Salesman Problem"); url.add(0,"https://en.wikipedia.org/wiki/Greedy_algorithm");
+                url.add(1,"https://en.wikipedia.org/wiki/Knapsack_problem");
+                url.add(2,"https://en.wikipedia.org/wiki/Minimum_spanning_tree");
+                url.add(3,"https://en.wikipedia.org/wiki/Shortest_path_problem");
+                url.add(4,"https://en.wikipedia.org/wiki/Dynamic_programming");
+                url.add(5,"https://en.wikipedia.org/wiki/Bellman_equation");
+                url.add(6,"https://en.wikipedia.org/wiki/Shortest_path_problem");
+                url.add(7,"https://en.wikipedia.org/wiki/Longest_common_subsequence_problem");
+                url.add(8,"https://en.wikipedia.org/wiki/Travelling_salesman_problem");
                 break;
             case 2:  points.add("Backtracking");
                 points.add("8 Queens problem");
                 points.add("Graph Coloring");
                 points.add("Sum of Subset problems");
                 points.add("Hamiltonian Cycle");
-                points.add("Branch & Bound"); url.add(0,"https://en.wikipedia.org/wiki/Backtracking";);
-                url.add(1,"https://en.wikipedia.org/wiki/Eight_queens_puzzle";);
-                url.add(2,"https://en.wikipedia.org/wiki/Graph_coloring";);
-                url.add(3,"https://en.wikipedia.org/wiki/Subset_sum_problem";);
-                url.add(4,"https://en.wikipedia.org/wiki/Hamiltonian_path";);
-                url.add(5,"https://en.wikipedia.org/wiki/Branch_and_bound";);
+                points.add("Branch & Bound"); url.add(0,"https://en.wikipedia.org/wiki/Backtracking");
+                url.add(1,"https://en.wikipedia.org/wiki/Eight_queens_puzzle");
+                url.add(2,"https://en.wikipedia.org/wiki/Graph_coloring");
+                url.add(3,"https://en.wikipedia.org/wiki/Subset_sum_problem");
+                url.add(4,"https://en.wikipedia.org/wiki/Hamiltonian_path");
+                url.add(5,"https://en.wikipedia.org/wiki/Branch_and_bound");
 
                 break;
             case 3: points.add("String Matching");
                 points.add("KMP String Matching Algorithm");
                 points.add("Prefix Computation");
-                points.add("Multi Threaded Programming"); url.add(0,"https://www.hackerearth.com/notes/exact-string-matching-algorithms/";);
-                url.add(1,"https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm";);
-                url.add(2,"https://en.wikipedia.org/wiki/Prefix_sum";);
-                url.add(3,);
+                points.add("Multi Threaded Programming"); url.add(0,"https://www.hackerearth.com/notes/exact-string-matching-algorithms/");
+                url.add(1,"https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm");
+                url.add(2,"https://en.wikipedia.org/wiki/Prefix_sum");
+//                url.add(3,);
 //                // TODO:1min
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
 
                 break;
             case 4:   points.add("NP Completeness");
@@ -213,13 +218,13 @@ public class Daapoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Circuit Satisfiablity");
                 points.add("NP Completeness");
                 points.add("Samples Problems of NP Completeness");
-                points.add("Approximation Alogrithm"); url.add(0,"https://en.wikipedia.org/wiki/NP-completeness";);
-                url.add(1,"http://www.cs.ucr.edu/~michalis/COURSES/141/handouts/NP.html";);
-                url.add(2,"https://en.wikipedia.org/wiki/Reduction_(complexity)";);
-                url.add(3,"https://en.wikipedia.org/wiki/Circuit_satisfiability_problem";);
-                url.add(4,"https://en.wikipedia.org/wiki/NP-completeness";);
-                url.add(5,"https://en.wikipedia.org/wiki/List_of_NP-complete_problems";);
-                url.add(6,"https://en.wikipedia.org/wiki/Approximation_algorithm";);
+                points.add("Approximation Alogrithm"); url.add(0,"https://en.wikipedia.org/wiki/NP-completeness");
+                url.add(1,"http://www.cs.ucr.edu/~michalis/COURSES/141/handouts/NP.html");
+                url.add(2,"https://en.wikipedia.org/wiki/Reduction_(complexity)");
+                url.add(3,"https://en.wikipedia.org/wiki/Circuit_satisfiability_problem");
+                url.add(4,"https://en.wikipedia.org/wiki/NP-completeness");
+                url.add(5,"https://en.wikipedia.org/wiki/List_of_NP-complete_problems");
+                url.add(6,"https://en.wikipedia.org/wiki/Approximation_algorithm");
 
 
                 break;

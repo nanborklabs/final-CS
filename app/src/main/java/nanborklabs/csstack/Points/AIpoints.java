@@ -3,16 +3,20 @@ package nanborklabs.csstack.Points;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
+import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -26,6 +30,9 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
     RecyclerView.Adapter mAdapter;
     public boolean loaded;
     RecyclerView mRecyclerView;
+    RecyclerView.ItemDecoration itemDecoration;
+  UrLoad callback;
+
 
 
 
@@ -43,12 +50,19 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
         super.onDestroy();
         url_to_load=null;
         points_to_show=null;
-        mAdapter=null;
+        mAdapter=null;callback=null;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       callback=(UrLoad)(getParentFragment().getContext());
+        if (callback==null){
+            Log.d("CALLBACK","caal back is null");
+        }
+        else {
+            Log.d("CALLBACK","yes working");
+        }
 
 
     }
@@ -71,9 +85,10 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
             points_to_show=getArguments().getStringArrayList("points");
             url_to_load=getArguments().getStringArrayList("url");
 
-            mAdapter=new rv_adapter(points_to_show,this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
             loaded=true;
         }
+
         mRecyclerView=(RecyclerView)mView.findViewById(R.id.points_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
@@ -94,10 +109,14 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter=new rv_adapter(points_to_show,this,getContext());
+            mRecyclerView.setAdapter(mAdapter);
         }
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mAdapter);
+        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
+       mRecyclerView.addItemDecoration(itemDecoration);
+      //  mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+      //  mRecyclerView.setAdapter(mAdapter);
+
     }
 
     @Override
@@ -118,11 +137,11 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
         }
         if (mAdapter == null) {
 
-            mAdapter = new rv_adapter(points_to_show, this);
+            mAdapter = new rv_adapter(points_to_show, this,getContext());
         }
-        loaded = true;
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mAdapter);
+
+     //   mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
 
     }
 
@@ -139,6 +158,8 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
 
     @Override
     public void point_clicked(int position) {
+
+        callback.loadUrl(url_to_load.get(position));
 
     }
 
