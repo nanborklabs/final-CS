@@ -1,6 +1,7 @@
 package nanborklabs.csstack.subjects;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -10,10 +11,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.ViewSwitcher;
 
 import nanborklabs.csstack.Points.AIpoints;
 import nanborklabs.csstack.Points.CGpoints;
@@ -26,6 +32,8 @@ public class CGFrag extends android.support.v4.app.Fragment {
     public View mView;
     ViewPager mViewPager;
     public PagerAdapter mAdapter;
+    TextSwitcher mSwitcher;
+    String text_sub[]={};
 
 
     @Override
@@ -114,6 +122,27 @@ public class CGFrag extends android.support.v4.app.Fragment {
         super.onSaveInstanceState(outState);
     }
 
+
+    private void setUpTextSwitcher() {
+
+        mSwitcher=(TextSwitcher)mView.findViewById(R.id.subtitle);
+        mSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                TextView textView=new TextView(getContext());
+                textView.setGravity(Gravity.CENTER);
+                textView.setTextSize(18);
+                textView.setTextColor(Color.BLUE);
+                return textView;
+
+            }
+        });
+        mSwitcher.setText(text_sub[0]);
+        Animation in= AnimationUtils.loadAnimation(getContext(),android.R.anim.slide_in_left);
+        Animation out=AnimationUtils.loadAnimation(getContext(),android.R.anim.slide_out_right);
+        mSwitcher.setInAnimation(in);
+        mSwitcher.setOutAnimation(out);
+    }
     @Override
     public void onStart() {
         super.onStart();

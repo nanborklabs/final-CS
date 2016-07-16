@@ -30,12 +30,18 @@
         <item name="android:textColor">@color/colorPrimary</item>
        <item name="android:paddingTop">4dp</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:paddingLeft">36dp</item>
         
         <item name="android:textSize">@dimen/points_size</item>
 
-        <item name="android:background"> ?android:selectableItemBackground</item>
     </style>
 
+
+
+    <style name="AppTheme.WebViewActivity" parent="AppTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
     <style name="navigation_view">
 
     </style>
@@ -53,6 +59,11 @@
         <item name="android:background">@color/white</item>
 
 
+    </style>
+
+    <style name="points_cardview">
+
+        <item name="android:foreground">?android:selectableItemBackground</item>
     </style>
 
 

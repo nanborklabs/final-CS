@@ -113,7 +113,7 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
             mRecyclerView.setAdapter(mAdapter);
         }
         itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
-       mRecyclerView.addItemDecoration(itemDecoration);
+   //    mRecyclerView.addItemDecoration(itemDecoration);
       //  mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
       //  mRecyclerView.setAdapter(mAdapter);
 

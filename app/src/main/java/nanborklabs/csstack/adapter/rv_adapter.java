@@ -1,6 +1,7 @@
 package nanborklabs.csstack.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.ViewUtils;
 import android.util.Log;
@@ -38,11 +39,12 @@ public class rv_adapter extends RecyclerView.Adapter<rv_adapter.ItemHolder> {
         public TextView mTextView;
         rv_adapter.Point_clicked callback;
 
-        public ItemHolder(View itemView, Point_clicked callback1) {
+        public ItemHolder(final View itemView, Point_clicked callback1) {
             super(itemView);
-            mTextView=(TextView) itemView;
+            mTextView=(TextView) itemView.findViewById(R.id.points_text);
+            final CardView cardView= (CardView)itemView.findViewById(R.id.card_view);
             this.callback=callback1;
-            mTextView.setOnClickListener(new View.OnClickListener() {
+            cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (callback !=null){

@@ -12,8 +12,8 @@
     <item name="android:textSize">@dimen/points_size</item>
     <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingLeft">24dp</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:background">@drawable/riplple_effect</item>
     </style>
 
 
@@ -37,6 +37,10 @@
         <item name="android:background">@color/white</item>
 
 
+    </style>
+
+    <style name="points_cardview">
+        <item name="android:foreground">@drawable/riplple_effect</item>
     </style>
 </resources>
 

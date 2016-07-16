@@ -1,6 +1,7 @@
 package nanborklabs.csstack.subjects;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -10,10 +11,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.ViewSwitcher;
 
 import nanborklabs.csstack.Points.AIpoints;
 import nanborklabs.csstack.Points.CGpoints;
@@ -27,6 +33,8 @@ public class ComputerarchFragment extends android.support.v4.app.Fragment {
     public View mView;
     ViewPager mViewPager;
     public PagerAdapter mAdapter;
+    TextSwitcher mSwitcher;
+    String text_sub[]={"Fundamentals Of Computer Systems","Basic Processing Unit","ILP","Memory and I/O"};
 
 
     @Override
@@ -73,7 +81,7 @@ public class ComputerarchFragment extends android.support.v4.app.Fragment {
         mViewPager.setOffscreenPageLimit(3);
         TextView title =(TextView)mView.findViewById(R.id.subject_title);
         title.setText(R.string.ca);
-        final TextView sub=(TextView)mView.findViewById(R.id.subtitle);
+        setUpTextSwitcher();
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -84,15 +92,15 @@ public class ComputerarchFragment extends android.support.v4.app.Fragment {
             public void onPageSelected(int position) {
                 switch (position){
                     case 0:
-                        sub.setText("Fundamentals Of Computer Systems");
+                        mSwitcher.setText(text_sub[position]);
                         break;
-                    case 1:sub.setText("Basic Processing Unit");
+                    case 1:mSwitcher.setText(text_sub[position]);
                         break;
-                    case 2:sub.setText("ILP");
+                    case 2:mSwitcher.setText(text_sub[position]);
                         break;
-                    case 3:sub.setText("Computer Arithmetic");
+                    case 3:mSwitcher.setText(text_sub[position]);
                         break;
-                    case 4:sub.setText("Memory and I/O");
+                    case 4:mSwitcher.setText(text_sub[position]);
                         break;
                 }
             }
@@ -120,7 +128,26 @@ public class ComputerarchFragment extends android.support.v4.app.Fragment {
         super.onStart();
         Log.d("CS_STACK","on start====in view pager fragment");
     }
+    private void setUpTextSwitcher() {
 
+        mSwitcher=(TextSwitcher)mView.findViewById(R.id.subtitle);
+        mSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                TextView textView=new TextView(getContext());
+                textView.setGravity(Gravity.CENTER);
+                textView.setTextSize(18);
+                textView.setTextColor(Color.BLUE);
+                return textView;
+
+            }
+        });
+        mSwitcher.setText(text_sub[0]);
+        Animation in= AnimationUtils.loadAnimation(getContext(),android.R.anim.slide_in_left);
+        Animation out=AnimationUtils.loadAnimation(getContext(),android.R.anim.slide_out_right);
+        mSwitcher.setInAnimation(in);
+        mSwitcher.setOutAnimation(out);
+    }
     @Override
     public void onStop() {
         super.onStop();

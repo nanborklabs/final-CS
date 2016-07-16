@@ -40,8 +40,7 @@ public class AIFrag extends android.support.v4.app.Fragment implements ViewPager
     public PagerAdapter mAdapter;
     public TextView sub;
     TextSwitcher mSwitcher;
-    RecyclerView.ItemDecoration itemDecoration;
-    String text_sub[]={"hi","hello","wonderful","its coming","fuck yeah"};
+    String text_sub[]={};
     int cu=-1;
 
 
@@ -86,22 +85,7 @@ public class AIFrag extends android.support.v4.app.Fragment implements ViewPager
         mViewPager = (ViewPager) mView.findViewById(R.id.pager);
         mAdapter = new ViewPagerAdapter(getChildFragmentManager());
         mViewPager.setAdapter(mAdapter);
-        mSwitcher=(TextSwitcher)mView.findViewById(R.id.subtitle);
-        mSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
-            @Override
-            public View makeView() {
-                TextView textView=new TextView(getContext());
-                textView.setGravity(Gravity.CENTER);
-                textView.setTextSize(18);
-                textView.setTextColor(Color.BLUE);
-                return textView;
-
-            }
-        });
-        Animation in= AnimationUtils.loadAnimation(getContext(),android.R.anim.slide_in_left);
-        Animation out=AnimationUtils.loadAnimation(getContext(),android.R.anim.slide_out_right);
-        mSwitcher.setInAnimation(in);
-        mSwitcher.setOutAnimation(out);
+        setUpTextSwitcher();
         mViewPager.setOffscreenPageLimit(3);
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -148,6 +132,27 @@ public class AIFrag extends android.support.v4.app.Fragment implements ViewPager
 
         Log.d("CS_STACK", "on CREATE====in view pager fragment");
         return mView;
+    }
+
+    private void setUpTextSwitcher() {
+
+        mSwitcher=(TextSwitcher)mView.findViewById(R.id.subtitle);
+        mSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                TextView textView=new TextView(getContext());
+                textView.setGravity(Gravity.CENTER);
+                textView.setTextSize(18);
+                textView.setTextColor(Color.BLUE);
+                return textView;
+
+            }
+        });
+        mSwitcher.setText(text_sub[0]);
+        Animation in= AnimationUtils.loadAnimation(getContext(),android.R.anim.slide_in_left);
+        Animation out=AnimationUtils.loadAnimation(getContext(),android.R.anim.slide_out_right);
+        mSwitcher.setInAnimation(in);
+        mSwitcher.setOutAnimation(out);
     }
 
     @Override

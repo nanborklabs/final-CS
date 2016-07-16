@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    style="@style/points_cardview"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+
+    android:layout_height="80dp"
+
+    app:cardCornerRadius="4dp">
+    <TextView
     android:layout_width="match_parent"
     style="@style/points_text"
     android:text="hello world"
-    android:paddingLeft="36dp"
+        android:id="@+id/points_text"
 
 
     android:layout_height="60dp">
 
 </TextView>
+    </android.support.v7.widget.CardView>

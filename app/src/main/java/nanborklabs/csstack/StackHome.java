@@ -335,6 +335,6 @@ public class StackHome extends AppCompatActivity
         intent.putExtra("URL",url);
         startActivity(intent);
 
-        overridePendingTransition(0,0);
+
     }
 }

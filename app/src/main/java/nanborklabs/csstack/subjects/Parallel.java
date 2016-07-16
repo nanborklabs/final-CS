@@ -1,6 +1,7 @@
 package nanborklabs.csstack.subjects;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -10,10 +11,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.ViewSwitcher;
 
 import nanborklabs.csstack.Points.AIpoints;
 import nanborklabs.csstack.Points.CGpoints;
@@ -25,6 +31,9 @@ import nanborklabs.csstack.R;
  */
 public class Parallel extends android.support.v4.app.Fragment {
     public View mView;
+    TextSwitcher mSwitcher;
+    String text_sub[]={"Fundamentals","Challenges in Parallel Computing",
+            "OpenMP and Shared Memory models","MPI programming","Heterogeneous Processors"};
     ViewPager mViewPager;
     public PagerAdapter mAdapter;
 
@@ -74,7 +83,6 @@ public class Parallel extends android.support.v4.app.Fragment {
         TextView title =(TextView)mView.findViewById(R.id.subject_title);
         title.setText(R.string.parallel);
 
-        final TextView sub=(TextView)mView.findViewById(R.id.subtitle);
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -85,15 +93,17 @@ public class Parallel extends android.support.v4.app.Fragment {
             public void onPageSelected(int position) {
                 switch (position){
                     case 0:
-                        sub.setText("Fundamentals");
+                        mSwitcher.setText(text_sub[position]);
                         break;
-                    case 1:sub.setText("Challenges in Parallel Computing");
+                    case 1:
+                        mSwitcher.setText(text_sub[position]);
                         break;
-                    case 2:sub.setText("OpenMP and Shared Memory models");
+                    case 2
+                            :  mSwitcher.setText(text_sub[position]);
                         break;
-                    case 3:sub.setText("MPI programming");
+                    case 3:  mSwitcher.setText(text_sub[position]);
                         break;
-                    case 4:sub.setText("Heterogeneous Processors");
+                    case 4:  mSwitcher.setText(text_sub[position]);
                         break;
                 }
             }
@@ -126,7 +136,26 @@ public class Parallel extends android.support.v4.app.Fragment {
     public void onStop() {
         super.onStop();
     }
+    private void setUpTextSwitcher() {
 
+        mSwitcher=(TextSwitcher)mView.findViewById(R.id.subtitle);
+        mSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                TextView textView=new TextView(getContext());
+                textView.setGravity(Gravity.CENTER);
+                textView.setTextSize(18);
+                textView.setTextColor(Color.BLUE);
+                return textView;
+
+            }
+        });
+        mSwitcher.setText(text_sub[0]);
+        Animation in= AnimationUtils.loadAnimation(getContext(),android.R.anim.slide_in_left);
+        Animation out=AnimationUtils.loadAnimation(getContext(),android.R.anim.slide_out_right);
+        mSwitcher.setInAnimation(in);
+        mSwitcher.setOutAnimation(out);
+    }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
