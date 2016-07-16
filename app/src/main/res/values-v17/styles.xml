@@ -19,7 +19,9 @@
         <item name="android:gravity">center_vertical</item>
     </style>
 
-    <style name="navigation_view"></style>
+    <style name="navigation_view">
+
+    </style>
 
     <style name="title_text_view">
         <item name="android:gravity">center_horizontal|top</item>

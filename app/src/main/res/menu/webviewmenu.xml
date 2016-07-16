@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:id="@+id/menu_item_share"
+        app:showAsAction="always"
+        android:title="Share"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"/>
+    <item
+
+        android:id="@+id/open_chrome"
+        android:title="Open in browser"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/fav"
+        android:icon="@drawable/fav"
+        android:title="favourite"
+        app:showAsAction="ifRoom"
+        />
+</menu>

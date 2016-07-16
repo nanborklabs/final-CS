@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
 import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.RecyclerViewAnim;
 import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
@@ -81,8 +82,7 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
-        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
-        mRecyclerView.addItemDecoration(itemDecoration);
+        RecyclerViewAnim.startIntroAnim(mRecyclerView,getContext());
         return mView;
     }
 
@@ -100,9 +100,10 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
         if (mAdapter == null) {
 
             mAdapter=new rv_adapter(points_to_show,this,getContext());
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            mRecyclerView.setAdapter(mAdapter);
         }
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mAdapter);
+
     }
 
     @Override
@@ -113,21 +114,7 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
     @Override
     public void onResume() {
         super.onResume();
-        if (points_to_show == null) {
-            points_to_show = new ArrayList<>();
-            points_to_show = getArguments().getStringArrayList("points");
-        }
-        if (url_to_load == null) {
 
-            url_to_load = getArguments().getStringArrayList("url");
-        }
-        if (mAdapter == null) {
-
-            mAdapter=new rv_adapter(points_to_show,this,getContext());
-        }
-        loaded = true;
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mAdapter);
 
     }
 

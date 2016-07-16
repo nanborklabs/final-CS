@@ -19,16 +19,21 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:text="Hi there"
+            android:background="#E3F2FD"
             android:id="@+id/subject_title"
             style="@style/title_text_view"
             android:layout_height="0dp" />
-        <TextView
+        <TextSwitcher
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:background="#E3F2FD"
+
+
             android:id="@+id/subtitle"
-            android:text="TItle text stub"
             style="@style/title_text_view"
             android:layout_weight="1"/>
+
+
 
 
 
@@ -42,17 +47,19 @@
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:background="@color/white" />
     <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
+        app:tabMinWidth="150dp"
         android:layout_height="wrap_content"
-        app:tabBackground="@color/white"
-        app:tabIndicatorColor="@color/colorPrimary"
-        app:tabSelectedTextColor="@color/colorPrimary"
+        app:tabBackground="@color/colorPrimary"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="2dp"
+        app:tabIndicatorColor="@color/white"
+        app:tabSelectedTextColor="@color/white"
 
-
-        app:tabMode="scrollable" />
+        app:tabMode="scrollable"  />
 
 </LinearLayout>

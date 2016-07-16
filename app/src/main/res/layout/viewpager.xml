@@ -19,12 +19,15 @@ android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:text="Hi there"
+            android:background="#E3F2FD"
             android:id="@+id/subject_title"
             style="@style/title_text_view"
             android:layout_height="0dp" />
         <TextSwitcher
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:background="#E3F2FD"
+
 
             android:id="@+id/subtitle"
             style="@style/title_text_view"
@@ -53,7 +56,6 @@ android:layout_height="match_parent"
         app:tabIndicatorHeight="2dp"
         app:tabIndicatorColor="@color/white"
         app:tabSelectedTextColor="@color/white"
-
 
         app:tabMode="scrollable" />
 

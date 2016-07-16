@@ -24,5 +24,7 @@
 
     </style>
 
-    <style name="points_cardview"></style>
+    <style name="points_cardview">
+
+    </style>
 </resources>

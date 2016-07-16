@@ -40,7 +40,8 @@ public class AIFrag extends android.support.v4.app.Fragment implements ViewPager
     public PagerAdapter mAdapter;
     public TextView sub;
     TextSwitcher mSwitcher;
-    String text_sub[]={};
+    String text_sub[]={"Introduction","Problem Solving Methods",
+            "Knowledge Representation","Machine Learning","Applications"};
     int cu=-1;
 
 
@@ -142,8 +143,8 @@ public class AIFrag extends android.support.v4.app.Fragment implements ViewPager
             public View makeView() {
                 TextView textView=new TextView(getContext());
                 textView.setGravity(Gravity.CENTER);
-                textView.setTextSize(18);
-                textView.setTextColor(Color.BLUE);
+                textView.setTextSize(20);
+                textView.setTextColor(ContextCompat.getColor(getContext(),R.color.colorPrimary));
                 return textView;
 
             }

@@ -8,6 +8,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -33,7 +34,8 @@ public class CGFrag extends android.support.v4.app.Fragment {
     ViewPager mViewPager;
     public PagerAdapter mAdapter;
     TextSwitcher mSwitcher;
-    String text_sub[]={};
+    String text_sub[]={"2D Primitives","2D Geometric Transformations","3D Concepts",
+            "Multimedia Basics","Multimedia Authoring Systems"};
 
 
     @Override
@@ -80,7 +82,7 @@ public class CGFrag extends android.support.v4.app.Fragment {
         mViewPager.setOffscreenPageLimit(3);
         TextView title =(TextView)mView.findViewById(R.id.subject_title);
         title.setText(R.string.cg);
-        final TextView sub=(TextView)mView.findViewById(R.id.subtitle);
+        setUpTextSwitcher();
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -91,15 +93,15 @@ public class CGFrag extends android.support.v4.app.Fragment {
             public void onPageSelected(int position) {
                 switch (position){
                     case 0:
-                        sub.setText("2D Primitives");
+                        mSwitcher.setText(text_sub[position]);
                         break;
-                    case 1:sub.setText("2D Geometric Transformations");
+                    case 1:mSwitcher.setText(text_sub[position]);
                         break;
-                    case 2:sub.setText("3D Concepts");
+                    case 2:mSwitcher.setText(text_sub[position]);
                         break;
-                    case 3:sub.setText("Multimedia Basics");
+                    case 3:mSwitcher.setText(text_sub[position]);
                         break;
-                    case 4:sub.setText("Multimedia Authoring Systems");
+                    case 4:mSwitcher.setText(text_sub[position]);
                         break;
                 }
             }
@@ -131,8 +133,8 @@ public class CGFrag extends android.support.v4.app.Fragment {
             public View makeView() {
                 TextView textView=new TextView(getContext());
                 textView.setGravity(Gravity.CENTER);
-                textView.setTextSize(18);
-                textView.setTextColor(Color.BLUE);
+                textView.setTextSize(20);
+                textView.setTextColor(ContextCompat.getColor(getContext(),R.color.colorPrimary));
                 return textView;
 
             }

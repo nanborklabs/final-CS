@@ -34,7 +34,10 @@ public class ComputerarchFragment extends android.support.v4.app.Fragment {
     ViewPager mViewPager;
     public PagerAdapter mAdapter;
     TextSwitcher mSwitcher;
-    String text_sub[]={"Fundamentals Of Computer Systems","Basic Processing Unit","ILP","Memory and I/O"};
+    String text_sub[]={"Fundamentals Of Computer Systems",
+            "Basic Processing Unit",
+            "ILP","Computer Arthmetic",
+            "Memory and I/O"};
 
 
     @Override

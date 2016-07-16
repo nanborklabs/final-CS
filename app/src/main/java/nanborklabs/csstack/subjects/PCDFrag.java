@@ -8,6 +8,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -86,7 +87,7 @@ public class PCDFrag extends android.support.v4.app.Fragment {
         tabLayout.setupWithViewPager(mViewPager);
         TextView title =(TextView)mView.findViewById(R.id.subject_title);
         title.setText(R.string.pcd);
-        final TextView sub=(TextView)mView.findViewById(R.id.subtitle);
+        setUpTextSwitcher();
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -95,17 +96,22 @@ public class PCDFrag extends android.support.v4.app.Fragment {
 
             @Override
             public void onPageSelected(int position) {
-                switch (position){
+                switch (position) {
                     case 0:
-                        sub.setText("Basics of Compiler");
+
+                        mSwitcher.setText(text_sub[position]);
                         break;
-                    case 1:sub.setText("Intermediate Code Generation");
+                    case 1:
+                        mSwitcher.setText(text_sub[position]);
                         break;
-                    case 2:sub.setText("Object code ");
+                    case 2:
+                        mSwitcher.setText(text_sub[position]);
                         break;
-                    case 3:sub.setText("Code optimisation principles");
+                    case 3:
+                        mSwitcher.setText(text_sub[position]);
                         break;
-                    case 4:sub.setText("Palatalizing Compiler");
+                    case 4:
+                        mSwitcher.setText(text_sub[position]);
                         break;
                 }
             }
@@ -143,8 +149,8 @@ public class PCDFrag extends android.support.v4.app.Fragment {
             public View makeView() {
                 TextView textView=new TextView(getContext());
                 textView.setGravity(Gravity.CENTER);
-                textView.setTextSize(18);
-                textView.setTextColor(Color.BLUE);
+                textView.setTextSize(20);
+                textView.setTextColor(ContextCompat.getColor(getContext(),R.color.colorPrimary));
                 return textView;
 
             }

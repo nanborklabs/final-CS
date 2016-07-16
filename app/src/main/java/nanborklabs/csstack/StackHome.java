@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -51,6 +52,7 @@ public class StackHome extends AppCompatActivity
     public int year_selected;
     public boolean introAnimation;
     Toolbar toolbar;
+    DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +67,7 @@ public class StackHome extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         left_side= (NavigationView) findViewById(R.id.nav_view);
@@ -268,7 +270,7 @@ public class StackHome extends AppCompatActivity
 
         if (right_click) {
 
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+             drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             Log.d("COM_CSTACK", "inside if");
             drawer.closeDrawer(GravityCompat.END);
             //       subjectFragment=new TestFragment();
@@ -284,7 +286,8 @@ public class StackHome extends AppCompatActivity
 
 
         if (left_click) {
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+              drawer= (DrawerLayout) findViewById(R.id.drawer_layout);
+
             drawer.closeDrawer(GravityCompat.START);
             drawer.openDrawer(GravityCompat.END);
             left_click = false;
@@ -333,7 +336,7 @@ public class StackHome extends AppCompatActivity
         Log.d("CS_STACK",url);
         final Intent intent=new Intent(this,WebViewActivity.class);
         intent.putExtra("URL",url);
-        startActivity(intent);
+        this.startActivity(intent);
 
 
     }

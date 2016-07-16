@@ -9,6 +9,7 @@
     android:paddingBottom="6dp"
     android:layout_marginTop="6dp"
     android:layout_marginBottom="6dp"
+    app:cardBackgroundColor="#BBDEFB"
 
     android:layout_height="80dp"
 
@@ -16,7 +17,6 @@
     <TextView
     android:layout_width="match_parent"
     style="@style/points_text"
-    android:text="hello world"
         android:id="@+id/points_text"
 
 

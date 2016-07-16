@@ -88,7 +88,6 @@ public class SSpoints extends Fragment  implements rv_adapter.Point_clicked{
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
         RecyclerViewAnim.startIntroAnim(mRecyclerView,getContext());
-        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
 
         return mView;
     }
@@ -113,8 +112,7 @@ public class SSpoints extends Fragment  implements rv_adapter.Point_clicked{
 
             mAdapter=new rv_adapter(points_to_show,this,getContext());
         }
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mAdapter);
+
     }
 
     @Override
@@ -125,22 +123,7 @@ public class SSpoints extends Fragment  implements rv_adapter.Point_clicked{
     @Override
     public void onResume() {
         super.onResume();
-        if (points_to_show == null) {
-            points_to_show = new ArrayList<>();
-            points_to_show = getArguments().getStringArrayList("points");
-        }
-        if (url_to_load == null) {
 
-            url_to_load = getArguments().getStringArrayList("url");
-        }
-        if (mAdapter == null) {
-
-            mAdapter=new rv_adapter(points_to_show,this,getContext());
-        }
-        loaded = true;
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.addItemDecoration(itemDecoration);
 
     }
 

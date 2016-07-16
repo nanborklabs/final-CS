@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
 import nanborklabs.csstack.RecycelerviewDecorator;
+import nanborklabs.csstack.RecyclerViewAnim;
 import nanborklabs.csstack.UrLoad;
 import nanborklabs.csstack.adapter.rv_adapter;
 
@@ -83,6 +84,7 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        RecyclerViewAnim.startIntroAnim(mRecyclerView,getContext());
         return mView;
     }
 
@@ -100,11 +102,10 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
         if (mAdapter == null) {
 
             mAdapter=new rv_adapter(points_to_show,this,getContext());
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            mRecyclerView.setAdapter(mAdapter);
         }
-        itemDecoration=new RecycelerviewDecorator(ContextCompat.getDrawable(getContext(),R.drawable.divider));
-        mRecyclerView.addItemDecoration(itemDecoration);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mAdapter);
+
     }
 
     @Override
@@ -115,23 +116,8 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
     @Override
     public void onResume() {
         super.onResume();
-        if (points_to_show == null) {
-            points_to_show = new ArrayList<>();
-            points_to_show = getArguments().getStringArrayList("points");
-        }
-        if (url_to_load == null) {
-
-            url_to_load = getArguments().getStringArrayList("url");
-        }
-        if (mAdapter == null) {
-
-            mAdapter=new rv_adapter(points_to_show,this,getContext());
-        }
-        loaded = true;
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mAdapter);
-
     }
+
 
 
     @Override
@@ -177,7 +163,7 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("View Port Transformation");
 
                 points.add("2D Geometric Transormations");
-                points.add("Clipping Alorithms");
+                points.add("Clipping Algorithms");
                 url.add(0,"https://en.wikipedia.org/wiki/2D_computer_graphics");
                 url.add(1,"https://en.wikipedia.org/wiki/Window_(computing)");
                 url.add(2,"https://en.wikipedia.org/wiki/Viewport");
@@ -191,7 +177,7 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Three Dimensional Object Representations");
                 points.add("Parallel & Perspective Polygons");
 
-                points.add("3D Affine Transforamtions");
+                points.add("3D Affine Transformations");
                 points.add("3D Rotations using Quatemions");
                 points.add("Viewing");
 

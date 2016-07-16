@@ -8,6 +8,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -80,7 +81,7 @@ public class DatastructresFrag extends android.support.v4.app.Fragment {
         mViewPager.setAdapter(mAdapter);
         mViewPager.setOffscreenPageLimit(3); TextView title =(TextView)mView.findViewById(R.id.subject_title);
         title.setText(R.string.ds);
-        final TextView sub=(TextView)mView.findViewById(R.id.subtitle);
+       setUpTextSwitcher();
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -139,8 +140,8 @@ public class DatastructresFrag extends android.support.v4.app.Fragment {
             public View makeView() {
                 TextView textView=new TextView(getContext());
                 textView.setGravity(Gravity.CENTER);
-                textView.setTextSize(18);
-                textView.setTextColor(Color.BLUE);
+                textView.setTextSize(20);
+                textView.setTextColor(ContextCompat.getColor(getContext(),R.color.colorPrimary));
                 return textView;
 
             }
