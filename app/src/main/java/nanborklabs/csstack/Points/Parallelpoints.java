@@ -157,42 +157,34 @@ public class Parallelpoints extends Fragment  implements rv_adapter.Point_clicke
         ArrayList<String> url=new ArrayList<>();
         switch (position){
             case 0: points.add("Parallel Computer Models");
-                points.add("ILP, TLP and Data Parallelism");
-                points.add("Processes, Tasks and Threads"); url.add(0,"https://en.wikipedia.org/wiki/Parallel_computing");
-                url.add(1,"https://en.wikipedia.org/wiki/Data_parallelism");
-                url.add(2,"http://stackoverflow.com/questions/3042717/what-is-the-diff-between-a-thread-process-task");
-                url.add(3,"https://computing.llnl.gov/tutorials/parallel_comp/");
-                url.add(4,"https://en.wikipedia.org/wiki/Message_Passing_Interface");
-                url.add(5,"https://en.wikipedia.org/wiki/Multistage_interconnection_networks");
-//               todo:check here 2 url exist
+                points.add("ILP,TLP and Data Parallelism");
+                points.add("Processes, Tasks and Threads");
 
                 points.add("Shared Memory Programming");
                 points.add("Message Passing Paradigm");
                 points.add("Interconnection Networks");
-                url.add(0,"www");
-                /*
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                url.add(8,);
-                url.add(9,);
-                url.add(10,);
-                url.add(11,);
-                */
+
+                url.add(0,"https://en.wikipedia.org/wiki/Parallel_computing");
+                url.add(1,"https://en.wikipedia.org/wiki/Data_parallelism");
+                url.add(2,"http://stackoverflow.com/questions/3042717/what-is-the-diff-between-a-thread-process-task");
+
+                url.add(3,"https://en.wikipedia.org/wiki/Shared_memory");
+                url.add(4,"https://en.wikipedia.org/wiki/Message_Passing_Interface");
+                url.add(5,"https://en.wikipedia.org/wiki/Multistage_interconnection_networks");
+
                 break;
-            case 1:  points.add("Techniques for Parallelizing Programs");
+            case 1:
+                points.add("Techniques for Parallelizing Programs");
                 points.add("Issues");
-                points.add("Cache coherency");
+                points.add("Cache Coherency");
 
                 points.add("Memory Consistency Models");
                 points.add("Eventual Consistency");
-                points.add("Synchronization"); url.add(0,"https://en.wikipedia.org/wiki/Parallel_computing#Algorithmic_methods");
+                points.add("Synchronization");
+                url.add(0,"https://en.wikipedia.org/wiki/Parallel_computing#Algorithmic_methods");
                 url.add(1,"https://en.wikipedia.org/wiki/Parallel_computing#Race_conditions.2C_mutual_exclusion.2C_synchronization.2C_and_parallel_slowdownc");
                 url.add(2,"https://en.wikipedia.org/wiki/Cache_coherence");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Consistency_modele");
                 url.add(4,"https://en.wikipedia.org/wiki/Eventual_consistency");
                 url.add(5,"https://en.wikipedia.org/wiki/Synchronization_(computer_science)");
@@ -201,7 +193,8 @@ public class Parallelpoints extends Fragment  implements rv_adapter.Point_clicke
             case 2:   points.add("OpenMP Execution Model");
                 points.add("Memory Model and Consistency");
                 points.add("Run Time Library Routines");
-                points.add("Performance Considertions");
+
+                points.add("Performance Considerations");
                 url.add(0,"https://en.wikipedia.org/wiki/OpenMP");
                 url.add(1,"https://en.wikipedia.org/wiki/Consistency_model");
                 url.add(2,"https://en.wikipedia.org/wiki/Library_(computing)");

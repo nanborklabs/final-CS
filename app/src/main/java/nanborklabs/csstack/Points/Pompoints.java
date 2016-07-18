@@ -147,8 +147,8 @@ public class Pompoints extends Fragment  implements rv_adapter.Point_clicked{
 
                 points.add("Approaches to Management");
                 points.add("Types of Business Organisation");
-                points.add("Companies-public, private");
-                points.add("Organisation cultre");
+                points.add("Companies-Public & Private");
+                points.add("Organisation Culture");
                 url.add(0,"https://en.wikipedia.org/wiki/Management");
                 url.add(1,"https://en.wikipedia.org/wiki/Management#Topics");
                 url.add(2,"https://en.wikipedia.org/wiki/Management#Historical_development");
@@ -159,11 +159,11 @@ public class Pompoints extends Fragment  implements rv_adapter.Point_clicked{
 //                url.add(7,);
 
                 break;
-            case 1:  points.add("Organisation chart");
-                points.add("Organisation Structre");
+            case 1:  points.add("Organisation Chart");
+                points.add("Organisation Structure");
                 points.add("Line of Staff");
                 points.add("Departmentalisation");
-                points.add("Job designation");
+                points.add("Job Designation");
                 points.add("Human Resource Management");
                 url.add(0,"https://en.wikipedia.org/wiki/Organizational_chart");
                 url.add(1,"https://en.wikipedia.org/wiki/Organizational_structure");
@@ -173,8 +173,8 @@ public class Pompoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(5,"https://en.wikipedia.org/wiki/Human_resource_management");
 
                 break;
-            case 2:   points.add("Organisation chart");
-                points.add("Organisation Structre");
+            case 2:   points.add("Organisation Chart");
+                points.add("Organisation Structure");
                 points.add("Line of Staff");
                 points.add("Departmentalisation");
                 points.add("Job designation");
@@ -194,12 +194,12 @@ public class Pompoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(11,);
                 */
                 break;
-            case 3: points.add("Foundations of Individual and  group Behaviour");
+            case 3: points.add("Foundations of Individual and  Group Behaviour");
                 points.add("Motivation Theories");
-                points.add("leadership");
+                points.add("Leadership");
 
-                points.add("Types and Theories of leadership");
-                points.add("Communication and process");
+                points.add("Types and Theories of Leadership");
+                points.add("Communication and Process");
                 url.add(0,"https://en.wikipedia.org/wiki/Group_dynamics");
                 url.add(1,"https://en.wikipedia.org/wiki/Motivation");
                 url.add(2,"https://en.wikipedia.org/wiki/Leadership");
@@ -211,7 +211,7 @@ public class Pompoints extends Fragment  implements rv_adapter.Point_clicked{
 
 
                 points.add("Productivity and Management");
-                points.add("Control and perfomance");
+                points.add("Control and Performance");
                 points.add("Reporting");
                 url.add(0,"https://en.wikipedia.org/wiki/Control_(management)");
                 url.add(1,"https://en.wikipedia.org/wiki/Workforce_productivity");

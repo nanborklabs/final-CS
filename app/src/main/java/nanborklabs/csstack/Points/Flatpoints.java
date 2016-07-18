@@ -145,71 +145,77 @@ public class Flatpoints extends Fragment  implements rv_adapter.Point_clicked{
             case 0: points.add("Finite Automata (FA)");
                 points.add("Deterministic Finite Automata (DFA)");
                 points.add("Non-deterministic Finite Automata (NFA)");
-                points.add("Epsilon transitions");
+
+                points.add("Epsilon Transitions");
                 points.add("Regular Expression");
-                points.add("Pumping lemma");
-                points.add("Equivalence and minimization"); url.add(0,"https://en.wikipedia.org/wiki/Automata_theory");
+                points.add("Pumping Lemma");
+
+                points.add("Equivalence and Minimization");
+                url.add(0,"https://en.wikipedia.org/wiki/Automata_theory");
                 url.add(1,"https://en.wikipedia.org/wiki/Deterministic_finite_automaton");
                 url.add(2,"https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Epsilon_transition");
                 url.add(4,"https://en.wikipedia.org/wiki/Regular_expression");
                 url.add(5,"https://en.wikipedia.org/wiki/Pumping_lemma");
+
                 url.add(6,"https://en.wikipedia.org/wiki/DFA_minimization");
 
                 break;
             case 1: points.add("Context-Free Grammar (CFG)");
                 points.add("Parse Trees");
-                points.add("- Normal forms for CFG");
-                points.add("Pushdown\n" +
-                        "automata");
-                points.add("Pumping lemma for CFL");
-                url.add(0,"www");
-                /*
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-//                todo:10 min
-                url.add(7,);
-                */
+                points.add("Normal forms for CFG");
+
+                points.add("Pushdown Automata");
+                points.add("Pumping Lemma for CFL");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Context-free_grammar");
+                url.add(1,"https://en.wikipedia.org/wiki/Parse_tree");
+                url.add(2,"https://en.wikipedia.org/wiki/Chomsky_normal_form");
+
+                url.add(3,"https://en.wikipedia.org/wiki/Pushdown_automaton");
+                url.add(4,"https://en.wikipedia.org/wiki/Pumping_lemma_for_context-free_languages");
+
+
                 break;
-            case 2: points.add("Closure properties");
+            case 2: points.add("Closure Properties");
                 points.add("Turing Machines");
                 points.add("Construction of TM's");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Context-free_language#Closure_properties");
+                url.add(1,"https://en.wikipedia.org/wiki/Turing_machine");;
+                url.add(2,"https://en.wikipedia.org/wiki/Turing_machine#Additional_details_required_to_visualize_or_implement_Turing_machines");
                 break;
-            case 3:  points.add("Recursively Enumerable");
-                points.add("Undecidable problems");
-                points.add("Rice theorem");
-                points.add("Post’s Correspondence Problem."); url.add(0,"www");
-                /*
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                //                todo:10 min
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                */
+            case 3:
+                points.add("Recursively Enumerable");
+                points.add("Undecidable Problems");
+                points.add("Rice Theorem");
+
+                points.add("Post’s Correspondence Problem");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Recursively_enumerable_language");
+                url.add(1,"https://en.wikipedia.org/wiki/Undecidable_problem");
+                url.add(2,"https://en.wikipedia.org/wiki/Rice%27s_theorem");
+                url.add(3,"https://en.wikipedia.org/wiki/Post_correspondence_problem");
+
                 break;
             case 4:  points.add("Matrix grammar");
                 points.add("Programmed grammar");
-                points.add("Random context grammar");
+                points.add("Random Context grammar");
+
                 points.add("Regular Control grammar");
                 points.add("Lindenmayer systems");
-                points.add("DNA computing and Membrane computing");  url.add(0,"www");
-                /*
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                //                todo:10 min
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                */
+                points.add("DNA computing and Membrane computing");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Matrix_grammar");
+                url.add(1,"https://en.wikipedia.org/wiki/Controlled_grammar#Programmed_grammars");
+                url.add(2,"https://en.wikipedia.org/wiki/Controlled_grammar#Control_by_context_conditions");
+
+
+                url.add(3,"https://en.wikipedia.org/wiki/Regular_grammar");
+                url.add(4,"https://en.wikipedia.org/wiki/L-system");
+                url.add(5,"https://en.wikipedia.org/wiki/DNA_computing");
+
                 break;
         }
         Bundle points_bundle=new Bundle();

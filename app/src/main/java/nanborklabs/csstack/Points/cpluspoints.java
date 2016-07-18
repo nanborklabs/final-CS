@@ -161,12 +161,12 @@ public class cpluspoints extends Fragment  implements rv_adapter.Point_clicked{
                  */
                 break;
             case 1: points.add("Introduction");
-                points.add("Procedure Vs object oriented programming");
-                points.add("Data types");
-                points.add("Control Structres");
+                points.add("Procedure Vs Object Oriented Programming");
+                points.add("Data Types");
+                points.add("Control Structures");
                 points.add("Array");
                 points.add("Strings");
-                points.add("User defined Types");
+                points.add("User Defined Types");
                 /*url.add(0,);
                 url.add(1,);
                 url.add(2,);

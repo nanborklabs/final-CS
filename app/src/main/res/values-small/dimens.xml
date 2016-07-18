@@ -5,4 +5,15 @@
         <dimen name="title_text" >20sp</dimen>
     <dimen name="no_data_size" >36sp</dimen>
     <dimen name="offline_text_size">18sp</dimen>
+    <dimen name="data_button_width">100dp</dimen>
+    <dimen name="data_button_height">60dp</dimen>
+    <dimen name="nd_mtop">40dp</dimen>
+    <dimen name="nd_but_mtop">45dp</dimen>
+    <dimen name="nd_but_mbottom">80dp</dimen>
+    <dimen name="nd_button_width">90dp</dimen>
+    <dimen name="nd_button_height">40dp</dimen>
+    <dimen name="nd_but_mtop_land">35dp</dimen>
+    <dimen name="nd_button_width_land">100dp</dimen>
+    <dimen name="nd_but_height_land">48dp</dimen>
+    <dimen name="nd_but_mbottom_land">36dp</dimen>
 </resources>

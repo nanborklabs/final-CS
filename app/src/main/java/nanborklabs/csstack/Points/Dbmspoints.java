@@ -142,79 +142,108 @@ public class Dbmspoints extends Fragment  implements rv_adapter.Point_clicked{
         ArrayList<String> points=new ArrayList<>();
         ArrayList<String> url=new ArrayList<>();
         switch (position){
-            case 0:  points.add("Data");
+            case 0:
+                points.add("Data");
                 points.add("Evolution of Database");
-                points.add("DBMS");
                 points.add("Data models");
+
                 points.add("Database Architecture");
-                points.add("Challenges in Database Systems"); url.add(0,"https://en.wikipedia.org/wiki/Data");
+                points.add("Challenges in Database Systems");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Data");
                 url.add(1,"https://en.wikipedia.org/wiki/Database");
-                       url.add(2,"Www");//todo:1 min;
                 url.add(3,"https://en.wikipedia.org/wiki/Data_model");
+
                 url.add(4,"https://en.wikipedia.org/wiki/Shard_(database_architecture)#Database_architecture");
-                url.add(5,"http://data-informed.com/how-to-address-top-challenges-of-database-management/");
-//                url.add(6,);
-//                url.add(7,);
+                url.add(5,"http://data-informed.com/how-to-address-top-challenges-of-database-management");
+
                 break;
-            case 1: points.add("ER Diagrams");
-                points.add("Relational Model");
-                points.add("- Keys");
-                points.add("- Relational Algebra");
+            case 1:
+                points.add("ER Diagrams");
+                points.add("Relational Algebra");
+                points.add("Relational Database");
+
+                points.add("Key/Value Database");
                 points.add("Normalisation");
                 points.add("BCNF");
-                points.add("Join Dependencies"); url.add(0,"https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model");
-                url.add(1,"https://en.wikipedia.org/wiki/Key-value_database");
-                url.add(2,"https://en.wikipedia.org/wiki/Relational_algebra");
+
+                points.add("Join Dependencies");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model");
+                url.add("https://en.wikipedia.org/wiki/Relational_database_management_system");
+                url.add(1,"https://en.wikipedia.org/wiki/Relational_algebra");
+
+                url.add(2,"https://en.wikipedia.org/wiki/Key-value_database");
                 url.add(3,"https://en.wikipedia.org/wiki/Database_normalization");
                 url.add(4,"https://en.wikipedia.org/wiki/Boyce%E2%80%93Codd_normal_form");
+
                 url.add(5,"https://en.wikipedia.org/wiki/Join_dependency");
 
                 break;
             case 2: points.add("Introduction to SQL");
-                points.add("- Data Constraints");
+                points.add("Data Constraints");
                 points.add("Triggers");
+
                 points.add("Database Security");
                 points.add("Embedded SQL");
                 points.add("Dynamic SQL");
-                points.add("Views"); url.add(0,"https://en.wikipedia.org/wiki/SQL");
+
+                points.add("Views");
+
+                url.add(0,"https://en.wikipedia.org/wiki/SQL");
                 url.add(1,"http://www.w3schools.com/sql/sql_constraints.asp");
                 url.add(2,"https://en.wikipedia.org/wiki/Database_trigger");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Database_security");
                 url.add(4,"https://en.wikipedia.org/wiki/Embedded_SQL");
                 url.add(5,"https://docs.oracle.com/cd/B10501_01/appdev.920/a96590/adg09dyn.htm#22315");
+
                 url.add(6,"https://en.wikipedia.org/wiki/View_(SQL)");
 
                 break;
             case 3:  points.add("Introduction to Transactions");
                 points.add("Transaction Systems");
                 points.add("ACID Properties");
+
                 points.add("Two Phase Commit Protocol");
                 points.add("Recovery with SQL");
                 points.add("Locking Protocols");
+
                 points.add("Deadlocks & Managing Deadlocks");
-                points.add("SQL Support for Concurrency"); url.add(0,"https://en.wikipedia.org/wiki/Database_transaction");
+                points.add("SQL Support for Concurrency");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Database_transaction");
                 url.add(1,"https://en.wikipedia.org/wiki/Transaction_processing_system");
                 url.add(2,"https://en.wikipedia.org/wiki/ACID");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Two-phase_commit_protocol");
                 url.add(4,"https://msdn.microsoft.com/en-us/library/ms187495.aspx");
                 url.add(5,"https://en.wikipedia.org/wiki/Lock_(computer_science)");
+
                 url.add(6,"https://en.wikipedia.org/wiki/Deadlock");
                 url.add(7,"http://blog.sqlauthority.com/2012/11/15/sql-server-concurrency-basics-guest-post-by-vinod-kumar/");
                 break;
-            case 4:   points.add("Indexing & Hashing Techniques");
+            case 4:
+                points.add("Indexing & Hashing Techniques");
                 points.add("Query Processing & Optimization");
                 points.add("Sorting & Joins");
+
                 points.add("Database tuning");
                 points.add("Spatial");
                 points.add("Temporal Databases");
+
                 points.add("Data Visualisation");
                 points.add("Mobile Databases");
-                points.add("OODB & XML Databases"); url.add(0,"http://www.tutorialspoint.com/dbms/dbms_hashing.htm");
+                points.add("OODB & XML Databases");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Database_index");
                 url.add(1,"https://en.wikipedia.org/wiki/Query_optimization");
                 url.add(2,"https://en.wikipedia.org/wiki/Join_(SQL)");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Database_tuning");
                 url.add(4,"https://en.wikipedia.org/wiki/Spatial_database");
                 url.add(5,"https://en.wikipedia.org/wiki/Temporal_database");
+
                 url.add(6,"https://en.wikipedia.org/wiki/Data_visualization");
                 url.add(7,"https://en.wikipedia.org/wiki/Mobile_database");
                 url.add(8,"https://en.wikipedia.org/wiki/XML_database");

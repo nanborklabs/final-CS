@@ -145,32 +145,44 @@ public class Daapoints extends Fragment  implements rv_adapter.Point_clicked{
             case 0:  points.add("What is Algorithm?");
                 points.add("Growth of Functions");
                 points.add("Recurrence equations");
+
                 points.add("Substitution Method");
-                points.add("Maxima & minima");
+                points.add("Maxima & Minima");
                 points.add("Strasses Matrix Multiplication");
-                points.add("Convex Hull"); url.add(0,"https://en.wikipedia.org/wiki/Algorithm");
+
+                points.add("Convex Hull");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Algorithm");
                 url.add(1,"http://www.cs.odu.edu/~cs381/cs381content/function/growth.html");
                 url.add(2,"http://www.radford.edu/~nokie/classes/360/recurrence.eqns.html");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Substitution_method");
                 url.add(4,"https://en.wikipedia.org/wiki/Maxima_and_minima");
-                url.add(5,"http://www.stoimen.com/blog/2012/11/26/computer-algorithms-strassens-matrix-multiplication/");
+                url.add(5,"https://en.wikipedia.org/wiki/Strassen_algorithm");
+
                 url.add(6,"https://en.wikipedia.org/wiki/Convex_hull_algorithms");
-//                url.add(7,);
                 break;
-            case 1:  points.add("Greedy Algorithm's");
+            case 1:
+                points.add("Greedy Algorithm's");
                 points.add("Knapsack Problem");
                 points.add("Minimum Cost Spanning trees");
+
                 points.add("Shortest Path Problem");
-                points.add("Dynammic Programming");
+                points.add("Dynamic Programming");
                 points.add("Principle of Optimality");
+
                 points.add("All Pairs Problem");
                 points.add("Longest Common SubSequence");
-                points.add("Travelling Salesman Problem"); url.add(0,"https://en.wikipedia.org/wiki/Greedy_algorithm");
+                points.add("Travelling Salesman Problem");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Greedy_algorithm");
                 url.add(1,"https://en.wikipedia.org/wiki/Knapsack_problem");
                 url.add(2,"https://en.wikipedia.org/wiki/Minimum_spanning_tree");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Shortest_path_problem");
                 url.add(4,"https://en.wikipedia.org/wiki/Dynamic_programming");
                 url.add(5,"https://en.wikipedia.org/wiki/Bellman_equation");
+
                 url.add(6,"https://en.wikipedia.org/wiki/Shortest_path_problem");
                 url.add(7,"https://en.wikipedia.org/wiki/Longest_common_subsequence_problem");
                 url.add(8,"https://en.wikipedia.org/wiki/Travelling_salesman_problem");
@@ -178,11 +190,15 @@ public class Daapoints extends Fragment  implements rv_adapter.Point_clicked{
             case 2:  points.add("Backtracking");
                 points.add("8 Queens problem");
                 points.add("Graph Coloring");
+
                 points.add("Sum of Subset problems");
                 points.add("Hamiltonian Cycle");
-                points.add("Branch & Bound"); url.add(0,"https://en.wikipedia.org/wiki/Backtracking");
+                points.add("Branch & Bound");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Backtracking");
                 url.add(1,"https://en.wikipedia.org/wiki/Eight_queens_puzzle");
                 url.add(2,"https://en.wikipedia.org/wiki/Graph_coloring");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Subset_sum_problem");
                 url.add(4,"https://en.wikipedia.org/wiki/Hamiltonian_path");
                 url.add(5,"https://en.wikipedia.org/wiki/Branch_and_bound");
@@ -191,26 +207,31 @@ public class Daapoints extends Fragment  implements rv_adapter.Point_clicked{
             case 3: points.add("String Matching");
                 points.add("KMP String Matching Algorithm");
                 points.add("Prefix Computation");
-                points.add("Multi Threaded Programming"); url.add(0,"https://www.hackerearth.com/notes/exact-string-matching-algorithms/");
+
+                points.add("Multi Threaded Programming");
+
+                url.add(0,"https://en.wikipedia.org/wiki/String_searching_algorithm");
                 url.add(1,"https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm");
                 url.add(2,"https://en.wikipedia.org/wiki/Prefix_sum");
-//                url.add(3,);
-//                // TODO:1min
 
+              url.add(3,"https://en.wikipedia.org/wiki/Threaded_code#Threading_models");
                 break;
-            case 4:   points.add("NP Completeness");
-                points.add("Polynomial Time Verification");
-                points.add("Theory of Reduciblity");
-                points.add("Circuit Satisfiablity");
+            case 4:
                 points.add("NP Completeness");
+                points.add("Polynomial Time Verification");
+                points.add("Theory of Reducibility");
+
+                points.add("Circuit Satisfiablity");
                 points.add("Samples Problems of NP Completeness");
-                points.add("Approximation Alogrithm"); url.add(0,"https://en.wikipedia.org/wiki/NP-completeness");
+                points.add("Approximation Algorithm");
+
+                url.add(0,"https://en.wikipedia.org/wiki/NP-completeness");
                 url.add(1,"http://www.cs.ucr.edu/~michalis/COURSES/141/handouts/NP.html");
                 url.add(2,"https://en.wikipedia.org/wiki/Reduction_(complexity)");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Circuit_satisfiability_problem");
-                url.add(4,"https://en.wikipedia.org/wiki/NP-completeness");
-                url.add(5,"https://en.wikipedia.org/wiki/List_of_NP-complete_problems");
-                url.add(6,"https://en.wikipedia.org/wiki/Approximation_algorithm");
+                url.add(4,"https://en.wikipedia.org/wiki/List_of_NP-complete_problems");
+                url.add(5,"https://en.wikipedia.org/wiki/Approximation_algorithm");
 
 
                 break;

@@ -155,9 +155,11 @@ public class CNpoints extends Fragment implements rv_adapter.Point_clicked{
                 url.add(0,"https://en.wikipedia.org/wiki/Network_architecture");
                 url.add(1,"https://en.wikipedia.org/wiki/OSI_model");
                 url.add(2,"https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Domain_Name_System");
                 url.add(4,"https://en.wikipedia.org/wiki/Email");
                 url.add(5,"https://en.wikipedia.org/wiki/File_Transfer_Protocol");
+
                 url.add(6,"https://en.wikipedia.org/wiki/Telnet");
                 url.add(7,"https://en.wikipedia.org/wiki/Secure_Shell");
                 break;
@@ -167,7 +169,7 @@ public class CNpoints extends Fragment implements rv_adapter.Point_clicked{
                 points.add("Flow Control");
 
                 points.add("Congestion Control");
-                points.add("Queuing");
+                points.add("Queuing Theory");
                 points.add("Quality Of Service");
                 url.add(0,"https://en.wikipedia.org/wiki/User_Datagram_Protocol");
                 url.add(1,"https://en.wikipedia.org/wiki/Transmission_Control_Protocol");
@@ -188,40 +190,41 @@ public class CNpoints extends Fragment implements rv_adapter.Point_clicked{
 
                 points.add("Routing");
                 points.add("Subnetting");
-                points.add("Classless_Inter-Domain_Routing");
+                points.add("Classless Inter-Domain Routing");
 
                 points.add("BGP");
                 points.add("IPv6");
                 points.add("Congestion Avoidance");
 
-//              todo:check count
+
                 url.add(0,"https://en.wikipedia.org/wiki/Circuit_switching");
                 url.add(1,"https://en.wikipedia.org/wiki/Packet_switching");
                 url.add(2,"https://en.wikipedia.org/wiki/Internet_Protocol");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Address_Resolution_Protocol");
                 url.add(4,"https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol");
                 url.add(5,"https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol");
+
                 url.add(6,"https://en.wikipedia.org/wiki/Routing");
-                url.add(7,"Ihttps://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing");
-               url.add(8,"https://https://en.wikipedia.org/wiki/Border_Gateway_Protocol");
-                url.add(9,"https://en.wikipedia.org/wiki/IPv6");
-                url.add(10,"https://www.cisco.com/c/en/us/td/docs/ios/12_2/qos/configuration/guide/fqos_c/qcfconav.html");
+                url.add(7,"https://en.wikipedia.org/wiki/Subnetwork");
+                url.add(8,"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing");
+
+                 url.add(9,"https://https://en.wikipedia.org/wiki/Border_Gateway_Protocol");
+                url.add(10,"https://en.wikipedia.org/wiki/IPv6");
+                url.add(11,"https://www.cisco.com/c/en/us/td/docs/ios/12_2/qos/configuration/guide/fqos_c/qcfconav.html");
+
                 break;
             case 3:
-                points.add("Channel Access in links");
+                points.add("Multiple Access Techniques");
                 points.add("SDMA");
                 points.add("TDMA");
 
                 points.add("FDMA");
                 points.add("CDMA");
-                points.add("Multiple Access Techniques");
-
-                points.add("Issues in Data link layer");
                 points.add("Framing");
-                points.add("Error detection & correction");
 
+                points.add("Error detection & correction");
                 points.add("Link level Flow");
-                points.add("Medium Access");
                 points.add("Ethernet");
 
                 points.add("Token Ring");
@@ -231,35 +234,39 @@ public class CNpoints extends Fragment implements rv_adapter.Point_clicked{
                 points.add("Bridges & Switches");
 
 
-                url.add(0,"https://www.techopedia.com/definition/25940/channel-access-method-cam");
-                url.add(1,"https://en.wikipedia.org/wiki/Channel_access_method");
-                url.add(2,"https://en.wikipedia.org/wiki/Space-division_multiple_access");
-                url.add(3,"https://en.wikipedia.org/wiki/Time_division_multiple_access");
-                url.add(4,"https://en.wikipedia.org/wiki/Frequency-division_multiple_access");
-                url.add(5,"https://en.wikipedia.org/wiki/Code_division_multiple_access");
-                url.add(6,"http://www.durofy.com/multiple-access-techniques-fdma-tdma-cdma/");
+                url.add(0,"http://www.wtec.org/loyola/wireless/02_04.htm");
+                url.add(1,"https://en.wikipedia.org/wiki/Space-division_multiple_access");
+                url.add(2,"https://en.wikipedia.org/wiki/Time_division_multiple_access");
 
-                url.add(7,"http://dns2.asia.edu.tw/~wzyang/slides/info_net/info_A/Ch3.pdf");
-                url.add(8,"http://www.examsoverflow.com/question/framing-explain-various-methods-used-carrying-framing-detail/");
-                url.add(9,"https://en.wikipedia.org/wiki/Error_detection_and_correction");
-                url.add(10,"https://en.wikipedia.org/wiki/Ethernet_flow_control");
-                url.add(11,"https://en.wikipedia.org/wiki/Ethernet");
+                url.add(3,"https://en.wikipedia.org/wiki/Frequency-division_multiple_access");
+                url.add(4,"https://en.wikipedia.org/wiki/Code_division_multiple_access");
+                url.add(5,"https://en.wikipedia.org/wiki/Frame_synchronization");
+
+
+
+                url.add(6,"https://en.wikipedia.org/wiki/Error_detection_and_correction");
+                url.add(7,"https://en.wikipedia.org/wiki/Ethernet_flow_control");
+                url.add(8,"https://en.wikipedia.org/wiki/Ethernet");
+
                 url.add(12,"https://en.wikipedia.org/wiki/Token_ring");
                 url.add(13,"https://en.wikipedia.org/wiki/Fiber_Distributed_Data_Interface");
                 url.add(14,"https://en.wikipedia.org/wiki/Wireless_LAN");
+
                 url.add(15,"http://docwiki.cisco.com/wiki/Bridging_and_Switching_Basics");
                 break;
             case 4:
                 points.add("Data Transmission");
                 points.add("Transmission Media");
                 points.add("Signal Encoding Techniques");
+
                 points.add("Multiplexing");
                 points.add("Spectrum");
                 url.add(0,"https://en.wikipedia.org/wiki/Data_Transmission");
-                url.add(1,"https://en.wikipedia.org/wiki/Data_Transmission");
-                url.add(2,"http://www.cse.iitk.ac.in/users/dheeraj/cs425/lec03.html");
+                url.add(1,"https://en.wikipedia.org/wiki/Transmission_medium");
+                url.add(2,"https://en.wikipedia.org/wiki/Modulation");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Multiplexing");
-                url.add(4,"http://www.spectrumtransmission.com/");
+                url.add(4,"https://en.wikipedia.org/wiki/Spectrum");
 
                 break;
         }

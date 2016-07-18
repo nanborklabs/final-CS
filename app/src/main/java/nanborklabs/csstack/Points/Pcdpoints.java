@@ -148,7 +148,8 @@ public class Pcdpoints extends Fragment  implements rv_adapter.Point_clicked{
 
                 points.add("Syntax Analysis/Parsing");
 
-                points.add("Types of Parsers"); url.add(0,"https://en.wikipedia.org/wiki/Compiler");
+                points.add("Types of Parsers");
+                url.add(0,"https://en.wikipedia.org/wiki/Compiler");
                 url.add(1,"https://en.wikipedia.org/wiki/Lexical_analysis");
                 url.add(2,"https://en.wikipedia.org/wiki/Lexical_analysis#Tokens");
                 url.add(3,"https://en.wikipedia.org/wiki/Parsing");
@@ -156,14 +157,14 @@ public class Pcdpoints extends Fragment  implements rv_adapter.Point_clicked{
 
                 break;
             case 1:  points.add("Syntax Directed Definition");
-                points.add("Translation schemes");
-                points.add("Three Address codes");
+                points.add("Translation Schemes");
+                points.add("Three Address Codes");
 
-                points.add("Syntax tree");
-                points.add("postfix code");
-                points.add("Type checking");
+                points.add("Syntax Tree");
+                points.add("postfix Code");
+                points.add("Type Checking");
 
-                points.add("Back patching");
+                points.add("Back Patching");
                 url.add(0,"https://en.wikipedia.org/wiki/Syntax-directed_translatione");
                 url.add(1,"http://www.csd.uwo.ca/~moreno//CS447/Lectures/Translation.html/node3.html");
                 url.add(2,"https://en.wikipedia.org/wiki/Three-address_code");
@@ -173,14 +174,14 @@ public class Pcdpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(6,"http://www.csd.uwo.ca/~moreno//CS447/Lectures/IntermediateCode.html/node7.html");
 //                url.add(7,);
                 break;
-            case 2:  points.add("Storage organization");
-                points.add("Stack allocation space");
+            case 2:  points.add("Storage Organization");
+                points.add("Stack Allocation Space");
                 points.add("Heap Memory");
-                points.add("Design of code gnenrator");
-                points.add("Register Managment");
-                points.add("Tree rewriting");
+                points.add("Design of Code Generator");
+                points.add("Register Management");
+                points.add("Tree Rewriting");
                 points.add("Optimal code Generation");
-                points.add("Dynammic Programming"); url.add(0,"https://en.wikipedia.org/wiki/Static_memory_allocation");
+                points.add("Dynamic Programming"); url.add(0,"https://en.wikipedia.org/wiki/Static_memory_allocation");
                 url.add(1,"https://en.wikipedia.org/wiki/Stack-based_memory_allocation");
                 url.add(2,"http://gribblelab.org/CBootcamp/7_Memory_Stack_vs_Heap.html");
                 url.add(3,"https://en.wikipedia.org/wiki/Code_generation_(compiler)");
@@ -190,39 +191,34 @@ public class Pcdpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(7,"https://en.wikipedia.org/wiki/Dynamic_programming");
                 break;
             case 3:   points.add("Blocks & Flow Graphs");
-                //  points.add("ptimisation of locks");
-                //TODO: optimisation titles check
-                //  points.add("Principles sources of optimsation");
+                points.add("Data Flow Analysis");
+                points.add("Constant Propagation");
 
-                points.add("Data Flow analysis");
-                points.add("Constant Propogation");
                 points.add("partial Redundancy Elimination");
-
-                points.add("Peephole optimisation");
+                points.add("Peephole Optimisation");
 //
                  url.add(0,"https://en.wikipedia.org/wiki/Control_flow_graph" );
-                url.add(1,"www.google.com");
-//                todo:1min
-                url.add(2,"https://en.wikipedia.org/wiki/Data-flow_analysis");
-                url.add(3,"https://en.wikipedia.org/wiki/Constant_folding");
-                url.add(4,"https://en.wikipedia.org/wiki/Partial_redundancy_elimination");
-                url.add(5,"https://en.wikipedia.org/wiki/Peephole_optimization");
+                url.add(1,"https://en.wikipedia.org/wiki/Data-flow_analysis");
+                url.add(2,"https://en.wikipedia.org/wiki/Constant_folding");
+                url.add(3,"https://en.wikipedia.org/wiki/Partial_redundancy_elimination");
+                url.add(4,"https://en.wikipedia.org/wiki/Peephole_optimization");
 
                 break;
-            case 4: points.add("Iteration spaces");
-                points.add("Affine array Index");
-                points.add("Data reuse");
-                points.add("Array Data dependence");
-                points.add("Synchronisation free parallelism");
-                points.add("Locality optimisation"); url.add(0,"https://www.cs.cmu.edu/~tcm/thesis/subsection2_7_3_3.html");
+            case 4: points.add("Iteration Spaces");
+                points.add("Loop Optimisation");
+                points.add("Data Reuse");
+
+                points.add("Array Data Dependence");
+                points.add("Locality Optimisation");
+
+                url.add(0,"https://www.cs.cmu.edu/~tcm/thesis/subsection2_7_3_3.html");
                 url.add(1,"https://en.wikipedia.org/wiki/Loop_optimization");
-                url.add(2,"https://www.cs.umd.edu/projects/omega/sectionstar3_1.html");
-//                url.add(3,);
-//                todo:2min
-//                url.add(4,"https://en.wikipedia.org/wiki/Locality_of_reference");
-//                url.add(5,);
-//                url.add(6,);
-//                url.add(7,);
+                url.add(2,"https://en.wikipedia.org/wiki/Reusability");
+
+                url.add(3,"https://www.cs.umd.edu/projects/omega/sectionstar3_1.html");
+                url.add(5,"https://en.wikipedia.org/wiki/Locality_of_reference");
+
+//
                 break;
         }
         Bundle points_bundle=new Bundle();

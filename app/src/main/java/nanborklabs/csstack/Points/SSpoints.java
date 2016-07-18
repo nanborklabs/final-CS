@@ -157,7 +157,7 @@ public class SSpoints extends Fragment  implements rv_adapter.Point_clicked{
 
                 points.add("Assembler Features");
                 points.add("Assembler Design Options");
-                points.add("certificates");
+                points.add("Certificates");
                 url.add(0,"https://en.wikipedia.org/wiki/Machine_code");
                 url.add(1,"https://en.wikipedia.org/wiki/Assembly_language");
                 url.add(2,"http://www.cs.princeton.edu/courses/archive/spr11/cos217/lectures/15AssemblyFunctions.pdf");
@@ -169,12 +169,12 @@ public class SSpoints extends Fragment  implements rv_adapter.Point_clicked{
 
 
                 break;
-            case 1: points.add("Loader");
-                points.add("Linker");
+            case 1: points.add("Loaders");
+                points.add("Linkers");
                 points.add("Machine-Independent Loader");
 
                 points.add("Dynamic Linking");
-                points.add("Object files");
+                points.add("Object Files");
                 points.add("Symbols and Relocation");
 
                 url.add(0,"https://en.wikipedia.org/wiki/Loader_(computing)#Dynamic_linkers");
@@ -189,11 +189,11 @@ public class SSpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Machine-Independent Macro");
                 points.add("Introduction to Virtual Machines");
 
-                points.add("basic Interpretation");
+                points.add("Basic Interpretation");
                 points.add("Threaded Interpretation");
-                points.add("instruction set");
+                points.add("Instruction Set");
 
-                points.add("binary translation");
+                points.add("Binary Translation");
                 url.add(0,"https://en.wikipedia.org/wiki/General-purpose_macro_processor");
                 url.add(1,"https://en.wikipedia.org/wiki/Macro_(computer_science)#Macros_for_machine-independent_software");
                 url.add(2,"https://en.wikipedia.org/wiki/Virtual_machine");
@@ -206,7 +206,7 @@ public class SSpoints extends Fragment  implements rv_adapter.Point_clicked{
                 break;
             case 3:  points.add("Pascal P-Code VM");
                 points.add("Java VM Architecture");
-                points.add("Common Language infrastructre");
+                points.add("Common Language Infrastructure");
 
                 points.add("Dynamic Class Loading");
 
@@ -221,7 +221,7 @@ public class SSpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Profiling");
                 points.add("Grids");
 
-                points.add("Code optimizations-");
+                points.add("Code optimizations");
                 points.add("Garbage Collection");
 
                 url.add(0,"https://en.wikipedia.org/wiki/Instruction_set#Instruction_set_implementation");

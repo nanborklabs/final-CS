@@ -143,94 +143,89 @@ public class MPpoints extends Fragment  implements rv_adapter.Point_clicked{
         ArrayList<String> url=new ArrayList<>();
         switch (position){
             case 0:  points.add("The 8085");
-                points.add("Microprocessor architecture");
-                points.add("Instruction set ");
+                points.add("Microprocessor Architecture");
+                points.add("Instruction Set ");
+
                 points.add("Programming the 8085");
+
                 url.add(0,"https://en.wikipedia.org/wiki/Intel_8085");
                 url.add(1,"https://en.wikibooks.org/wiki/Microprocessor_Design/Computer_Architecture");
                 url.add(2,"https://en.wikipedia.org/wiki/Instruction_set");
+
                 url.add(3,"http://www.go4expert.com/articles/8085-assembly-language-programming-code-t302/");
-              /*  url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                */
+
 
                 break;
             case 1: points.add("8086");
                 points.add("Architecture");
-                points.add("Instruction set");
-                points.add("Addressing modes");
-                points.add("Assembly language programming");
+                points.add("Addressing Modes");
+
+                points.add("Assembly Language Programming");
                 points.add("Procedures");
-                points.add("Macros");
                 points.add("Interrupts");
-                points.add("interrupt service routines");
-//                todo:5 min
-              /*  url.add(0,);
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                 */
+
+                points.add("Interrupt Service Routines");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Intel_8086");
+                url.add(1,"http://www.cosc.brocku.ca/~bockusd/3p92/Local_Pages/8086_achitecture.htm");
+                url.add(2,"https://en.wikipedia.org/wiki/Addressing_mode");
+
+                url.add(3,"https://en.wikipedia.org/wiki/Assembly_language");
+                url.add(4,"http://www.shsu.edu/csc_tjm/spring2001/cs272/ch4b.html");
+                url.add(5,"https://en.wikipedia.org/wiki/Interrupt_flag");
+
+                url.add(6,"https://en.wikipedia.org/wiki/Interrupt_handler");
+
                 break;
             case 2: points.add("8086 signals");
-                points.add("Basic configurations");
-                points.add("System bus timing");
-                points.add("System design using 8086");
-                points.add("Multiprocessor configurations");
+                points.add("System Design Using 8086");
+                points.add("Multiprocessor Configurations");
+
                 points.add("Coprocessor");
-                points.add("Coupled configurations");
-                points.add("advanced processors.");
-                /*url.add(0,);
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                 */
+                points.add("Coupled Configurations");
+                points.add("Advanced Processors");
+
+                url.add(0,"http://www.allsyllabus.com/aj/note/EEE/8086%20Microprocessor%20&%20Peripherals/unit%201/Signal%20Description%20of%208086%20Microprocessor.php#.V4ztd9_I6R0");
+                url.add(1,"https://en.wikipedia.org/wiki/Intel_8086#The_first_x86_design");
+                url.add(2,"https://en.wikipedia.org/wiki/MultiProcessor_Specification");
+
+                url.add(3,"https://en.wikipedia.org/wiki/Coprocessor");
+                url.add(4,"https://en.wikipedia.org/wiki/Multiprocessing#Processor_coupling");
+                url.add(5,"https://en.wikipedia.org/wiki/List_of_Intel_microprocessors");
                 break;
             case 3: points.add("Memory Interfacing");
-                points.add("I/O interfacing");
-                points.add("Parallel communication interface");
-                points.add("Serial communication interface");
-                points.add("Timer");
-                points.add("Keyboard /display controller");
-                points.add("Interrupt controller");
-                points.add("DMA controller");
-                points.add("Programming and applications");
-               /* url.add(0,);
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                 */
+                points.add("I/O Interfacing");
+                points.add("Parallel Communication Interface");
+
+                points.add("Serial Communication Interface");
+                points.add("Keyboard Controller");
+                points.add("DMA Controller");
+
+               url.add(0,"https://en.wikipedia.org/wiki/External_memory_interface");
+                url.add(1,"https://en.wikipedia.org/wiki/Input/output#Interface");
+                url.add(2,"https://en.wikipedia.org/wiki/Parallel_communication");
+
+                url.add(3,"https://en.wikipedia.org/wiki/Serial_communication");
+                url.add(4,"https://en.wikipedia.org/wiki/Keyboard_controller_(computing)");
+                url.add(5,"https://en.wikipedia.org/wiki/Direct_memory_access");
+
+
 
                 break;
             case 4: points.add("Architecture of 8051");
-                points.add("Signals");
-                points.add("Operational features");
-                points.add("Memory and I/O addressing");
+                points.add("Memory and I/O AddressinFg");
                 points.add("Interrupts");
-                points.add("Instruction set");
+
+                points.add("Instruction Set");
                 points.add("Applications");
-             /*   url.add(0,);
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                 */
+                url.add(0,"https://en.wikipedia.org/wiki/Intel_MCS-51");
+                url.add(1,"http://www.circuitstoday.com/8051-microcontroller");
+                url.add(2,"https://www.ee.iitb.ac.in/student/~dghosh/EE712/8051/Interrupts");
+
+                url.add(3,"https://www.win.tue.nl/~aeb/comp/8051/set8051.html");
+                url.add(4,"https://en.wikipedia.org/wiki/Intel_MCS-51#Important_features_and_applications");
+
+
                 break;
         }
         Bundle points_bundle=new Bundle();

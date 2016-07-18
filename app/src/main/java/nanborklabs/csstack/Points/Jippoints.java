@@ -142,10 +142,10 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
         ArrayList<String> url=new ArrayList<>();
         switch (position){
             case 0:points.add("Overview of Java");
-                points.add("classes Objects & methods");
+                points.add("Classes Objects & methods");
                 points.add("Inheritance ");
                 points.add("Packages and Interfaces");
-                points.add("Exception handling");
+                points.add("Exception Handling");
                 points.add("Multithreading");
                 points.add("Java I/O Streams");
                 points.add("File Handling");
@@ -195,12 +195,12 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("XML Schema");
                 points.add("Document Object Model");
                 points.add("Presenting XML");
-                points.add("Using XML Parsers: DOM and SAX -");
+                points.add("Using XML Parsers: DOM and SAX");
                 points.add("Evolution of AJAX JQuery");
-                points.add("Web applications with AJAX");
+                points.add("Web Applications with AJAX");
                 points.add("AJAX with PHP");
-                points.add("- AJAX with Databases");
-                points.add("Jquery");
+                points.add("AJAX with Databases");
+                points.add("jQuery");
                 points.add("Swing");
                 url.add(0,"www");
                 /*
@@ -214,14 +214,14 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
                 */
                 break;
             case 3:
-                points.add("Types of servers");
-                points.add("Configuring and Using Web servers");
+                points.add("Types of Servers");
+                points.add("Configuring and Using Web Servers");
                 points.add("Setting up Databases");
                 points.add("Java Database Connectivity");
-                points.add("Handling form data");
-                points.add("querying databases");
-                points.add("information retrieval");
-                points.add("Session management");
+                points.add("Handling Form Data");
+                points.add("Querying Databases");
+                points.add("Information Retrieval");
+                points.add("Session Management");
                 url.add(0,"www");
                 /*
                 url.add(1,);
@@ -235,8 +235,8 @@ public class Jippoints extends Fragment  implements rv_adapter.Point_clicked{
                 break;
             case 4:
                 points.add("Creating Interactive Websites");
-                points.add("Search engines");
-                points.add("cookies");
+                points.add("Search Engines");
+                points.add("Cookies");
                 points.add("Blogs");
                 points.add("Social web applications");
                 url.add(0,"www");

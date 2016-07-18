@@ -141,19 +141,19 @@ public class Securitypoints extends Fragment  implements rv_adapter.Point_clicke
         ArrayList<String> points=new ArrayList<>();
         ArrayList<String> url=new ArrayList<>();
         switch (position){
-            case 0: points.add("Security overivew");
-                points.add("Substitution ciphers");
-                points.add("Encryption Algorithams");
+            case 0: points.add("Security Overview");
+                points.add("Substitution Ciphers");
+                points.add("Encryption Algorithms");
 
-                points.add("Data Enryption Sstandards");
+                points.add("Data Encryption Standards");
                 points.add("AES");
                 points.add("Public Key Encryption");
 
-                points.add("Cryptographc hash functions");
+                points.add("Cryptographic Hash Functions");
                 points.add("Key Exchange");
-                points.add("digital Signature");
+                points.add("Digital Signature");
 
-                points.add("certificates");
+                points.add("Certificates");
                 url.add(0,"https://en.wikipedia.org/wiki/Computer_security");
                 url.add(1,"https://en.wikipedia.org/wiki/Substitution_cipher");
                 url.add(2,"https://en.wikipedia.org/wiki/Encryption");
@@ -167,9 +167,9 @@ public class Securitypoints extends Fragment  implements rv_adapter.Point_clicke
 
                 break;
             case 1: points.add("Viruses");
-                points.add("Targeted Malicious code");
+                points.add("Targeted Malicious Code");
                 points.add("Control Against Threat");
-                points.add("User Autentication");
+                points.add("User Authentication");
                 points.add("Best Practices");
                 points.add("Common Errors");
                 url.add(0,"https://en.wikipedia.org/wiki/Computer_virus");
@@ -183,10 +183,10 @@ public class Securitypoints extends Fragment  implements rv_adapter.Point_clicke
                 points.add("PKI");
                 points.add("SSH,SSL,IPsec");
                 points.add("Access Control");
-                points.add("Wireless security");
+                points.add("Wireless Security");
                 points.add("Honeypots");
                 points.add("Traffic Flow");
-                points.add("firewalls");
+                points.add("Firewalls");
                 points.add("Intrusion Detection Systems");
                 points.add("Secure e-mail");
                 url.add(0,"https://en.wikipedia.org/wiki/Virtual_private_network");
@@ -201,8 +201,8 @@ public class Securitypoints extends Fragment  implements rv_adapter.Point_clicke
                 url.add(9,"https://en.wikipedia.org/wiki/Email_encryption");
                 break;
             case 3:  points.add("Requirements in Database Systems");
-                points.add("Reliablity & integrity");
-                points.add("Two phase update");
+                points.add("Reliability & Integrity");
+                points.add("Two phase Update");
 
                 points.add("Redundancy/Internal Consistency");
                 points.add("Recovery");
@@ -219,14 +219,14 @@ public class Securitypoints extends Fragment  implements rv_adapter.Point_clicke
                 url.add(6,"https://en.wikipedia.org/wiki/Inference");
                 break;
             case 4:points.add("Secure Application Testing");
-                points.add("Security Architeacure Models");
+                points.add("Security Architecture Models");
                 points.add("Trusted Computing");
 
-                points.add("Bell-Lapdula Confidentiality model");
-                points.add("Biba integrity model");
-                points.add("Graham-Denning Access control model");
+                points.add("Bell-Lapdula Confidentiality Model");
+                points.add("Biba integrity Model");
+                points.add("Graham-Denning Access control Model");
 
-                points.add("Harrison Ruzzo Ulman model");
+                points.add("Harrison Ruzzo Ulman Model");
                 points.add("PCI DSS");
                 points.add("Security Standards");
 

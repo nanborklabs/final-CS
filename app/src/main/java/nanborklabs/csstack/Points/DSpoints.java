@@ -147,7 +147,7 @@ public class DSpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Stacks");
                 points.add("Queues");
                 points.add("Linked List");
-                points.add("Doubly linked list"); url.add(0,"https://en.wikipedia.org/wiki/Big_O_notation");
+                points.add("Doubly Linked List"); url.add(0,"https://en.wikipedia.org/wiki/Big_O_notation");
                 url.add(1,"https://en.wikipedia.org/wiki/Proof_by_exhaustion");
                 url.add(2,"https://en.wikipedia.org/wiki/Stack_(abstract_data_type)");
                 url.add(3,"https://en.wikipedia.org/wiki/Queue_(abstract_data_type)");
@@ -158,10 +158,10 @@ public class DSpoints extends Fragment  implements rv_adapter.Point_clicked{
             case 1: points.add("Trees");
                 points.add("Binary Trees");
                 points.add("Tree Traversal");
-                points.add("Threaded binary trees");
-                points.add("Graph and its representations");
+                points.add("Threaded Binary Trees");
+                points.add("Graph  Representations");
                 points.add("Graph Traversals");
-                points.add("Connected components"); url.add(0,"https://en.wikipedia.org/wiki/Tree_structure");
+                points.add("Connected Components"); url.add(0,"https://en.wikipedia.org/wiki/Tree_structure");
                 url.add(1,"https://en.wikipedia.org/wiki/Binary_tree");
                 url.add(2,"https://en.wikipedia.org/wiki/Tree_traversal");
                 url.add(3,"https://en.wikipedia.org/wiki/Threaded_binary_tree");
@@ -173,7 +173,7 @@ public class DSpoints extends Fragment  implements rv_adapter.Point_clicked{
             case 2: points.add("AVL Trees");
                 points.add("Red-Black Trees");
                 points.add("Splay Trees");
-                points.add("Binary Heap –");
+                points.add("Binary Heap");
                 points.add("Leftist Heap"); url.add(0,"https://en.wikipedia.org/wiki/AVL_tree");
                 url.add(1,"https://en.wikipedia.org/wiki/Red%E2%80%93black_tree");
                 url.add(2,"https://en.wikipedia.org/wiki/Splay_tree");
@@ -186,9 +186,9 @@ public class DSpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Merge sort");
                 points.add("Quick sort");
                 points.add("Heap sort");
-                points.add("Sorting with disks");
+                points.add("Sorting with Disks");
                 points.add("k-way merging");
-                points.add("Polyphase merge."); url.add(0,"https://en.wikipedia.org/wiki/Insertion_sort");
+                points.add("Polyphase merge"); url.add(0,"https://en.wikipedia.org/wiki/Insertion_sort");
                 url.add(1,"https://en.wikipedia.org/wiki/Merge_sort");
                 url.add(2,"https://en.wikipedia.org/wiki/Quicksort");
                 url.add(3,"https://en.wikipedia.org/wiki/Heapsort");
@@ -199,8 +199,8 @@ public class DSpoints extends Fragment  implements rv_adapter.Point_clicked{
                 break;
             case 4:  points.add("Linear Search");
                 points.add("Binary Search ");
-                points.add("Hash tables");
-                points.add("Overflow handling");
+                points.add("Hash Tables");
+                points.add("Overflow Handling");
                 points.add("Cylinder Surface Indexing");
                 points.add("Hash Index");
                 points.add("B-Tree Indexing"); url.add(0,"https://en.wikipedia.org/wiki/Linear_search");

@@ -142,8 +142,8 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
         ArrayList<String> url=new ArrayList<>();
         switch (position){
             case 0: points.add("Basics");
-                points.add("Architecture and requirements");
-                points.add("operating systems");  url.add(0,"www");
+                points.add("Architecture and Requirements");
+                points.add("Operating Systems");  url.add(0,"www");
                 /*
                 url.add(2,);
                 url.add(3,);
@@ -158,8 +158,8 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Mobile strategy");
                 points.add("Information Architecture");
                 points.add("Mobile Web apps vs Native Apps");
-                points.add("Adapting to devices");
-                points.add("Application development on Android and iPhone"); url.add(0,"www");
+                points.add("Adapting to Devices");
+                points.add("Application Development on Android and iPhone"); url.add(0,"www");
                 /*
                 url.add(2,);
                 url.add(3,);
@@ -173,7 +173,7 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Frequencies");
                 points.add("Signals");
                 points.add("Antennas");
-                points.add("Signal propagation");
+                points.add("Signal Propagation");
                 points.add("Media Access Control");
                 points.add("GSM");
                 points.add("GPRS"); url.add(0,"www");
@@ -188,9 +188,9 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
                 */
                 break;
             case 3:   points.add("Infrared vs radio transmission");
-                points.add("Infrastructure and ad hoc networks");
-                points.add("IEEE 802.11,WLAN");
-                points.add("satellites networks"); url.add(0,"www");
+                points.add("Infrastructure and ad-hoc networks");
+                points.add("IEEE 802.11, WLAN");
+                points.add("satellites Networks"); url.add(0,"www");
                 /*
                 url.add(1,);
                 url.add(2,);
@@ -204,8 +204,8 @@ public class Mobilepoints extends Fragment  implements rv_adapter.Point_clicked{
             case 4:  points.add("Mobile IP");
                 points.add("DHCP");
                 points.add("Routing in Mobile");
-                points.add("TCP improvements");
-                points.add("TCP over 2.5/3G."); url.add(0,"www");
+                points.add("TCP Improvements");
+                points.add("TCP over 2.5/3G"); url.add(0,"www");
                 /*
                 url.add(1,);
                 url.add(2,);

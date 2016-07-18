@@ -149,7 +149,7 @@ public class computerArchpoints extends Fragment  implements rv_adapter.Point_cl
                 points.add("Hardware Language");
                 points.add("Instruction Set Architecture");
                 points.add("RISC and CISC Architectures");
-                points.add("Performance Metrics –");
+                points.add("Performance Metrics");
                 points.add("Amdahl’s Law"); url.add(0,"https://en.wikipedia.org/wiki/Computer_architecture");
                 url.add(1,"https://en.wikipedia.org/wiki/Computer_hardware");
                 url.add(2,"https://en.wikipedia.org/wiki/Application_binary_interface");
@@ -203,13 +203,13 @@ public class computerArchpoints extends Fragment  implements rv_adapter.Point_cl
                 url.add(4,"https://en.wikipedia.org/wiki/Floating_point");
 
                 break;
-            case 4:  points.add("hierarchical memory system");
-                points.add("Cache memories");
-                points.add("Improving cache performance");
-                points.add("Virtual memory");
-                points.add("Memory management technique");
-                points.add("Associative memories");
-                points.add("Accessing I/O devices");
+            case 4:  points.add("Hierarchical Memory System");
+                points.add("Cache Memories");
+                points.add("Improving Cache Performance");
+                points.add("Virtual Memory");
+                points.add("Memory Management Technique");
+                points.add("Associative Memories");
+                points.add("Accessing I/O Devices");
                 points.add("Interrupts");
                 points.add("Direct Memory Access");
                 points.add("Standard I/O Interfaces");

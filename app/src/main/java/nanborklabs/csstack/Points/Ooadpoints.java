@@ -142,88 +142,90 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
         ArrayList<String> url=new ArrayList<>();
         switch (position){
             case 0:  points.add("Introduction");
-                points.add("Object basics");
-                points.add("Modeling concepts");
+                points.add("Object Basics");
+                points.add("Modeling Concepts");
 
-                points.add("UML diagrams");
-                points.add("Use case Modeling");
+                points.add("UML Diagrams");
+                points.add("Use Case Modeling");
+                points.add("State Modeling");
 
-                points.add("State modeling");
                 points.add("Interaction Modeling");
+
                 url.add(0,"https://en.wikipedia.org/wiki/Object-oriented_analysis_and_design");
                 url.add(1,"https://en.wikipedia.org/wiki/Object_(computer_science)");
                 url.add(2,"https://en.wikipedia.org/wiki/Object_model");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Unified_Modeling_Language");
                 url.add(4,"https://en.wikipedia.org/wiki/Use_case");
                 url.add(5,"https://en.wikipedia.org/wiki/State_diagram_(UML)");
+
                 url.add(6,"https://en.wikipedia.org/wiki/Interaction_model");
 
 
                 break;
             case 1:   points.add("Object Constraint Language");
-                points.add("Evolutionary Requirements");
                 points.add("Domain Models");
-
                 points.add("Sequence Diagrams");
+
                 points.add("Operation Contracts");
                 url.add(0,"https://en.wikipedia.org/wiki/Object_Constraint_Language");
-                   url.add(1,"wwww");
-//                todo:1 in
                 url.add(2,"https://en.wikipedia.org/wiki/Domain_model");
                 url.add(3,"https://en.wikipedia.org/wiki/Sequence_diagram");
+
                 url.add(4,"https://en.wikipedia.org/wiki/Design_by_contract");
-             /*   url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                */
+
 
                 break;
             case 2:   points.add("Design Patterns");
-                points.add("Logical Architecture");
-                points.add("Package diagram");
-                points.add("Design patterns");
-                points.add("Model, View, Control pattern");
-                points.add("Detailed design");
-                points.add("Object design with GRASP pattern");
-                points.add("class diagram");
+                points.add("Multi Architecture");
+                points.add("Package Diagram");
+
+                points.add("Design Patterns");
+                points.add("Model, View, Control Pattern");
+                points.add("Detailed Design");
+
+                points.add("Object Design with GRASP Pattern");
+                points.add("class Diagram");
+
                 url.add(0,"https://en.wikipedia.org/wiki/Design_pattern");
                 url.add(1,"https://en.wikipedia.org/wiki/Multilayered_architecture");
                 url.add(2,"https://en.wikipedia.org/wiki/Package_diagram");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller");
                 url.add(4,"https://en.wikipedia.org/wiki/Software_design_description");
+
                 url.add(5,"https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)");
                 url.add(6,"https://en.wikipedia.org/wiki/Class_diagram");
 
                 break;
-            case 3:  points.add("designs to code");
-                points.add("Test Driven development");
-                points.add("refactoring");
+            case 3:
+                points.add("Test Driven Development");
+                points.add("Refactoring");
                 points.add("UML Tools");
-                url.add(0,"www");
-//                todo:1 min
-                url.add(1,"https://en.wikipedia.org/wiki/Test-driven_development");
-                url.add(2,"https://en.wikipedia.org/wiki/Code_refactoring");
-                url.add(3,"https://en.wikipedia.org/wiki/UML_tool");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Test-driven_development");
+                url.add(1,"https://en.wikipedia.org/wiki/Code_refactoring");
+                url.add(2,"https://en.wikipedia.org/wiki/UML_tool");
 
 
                 break;
-            case 4:  points.add("Analysis update");
-                points.add("Objects with responsibilities");
-                points.add("Applying design patterns");
-                points.add("Architectural Analysis");
-                points.add("Architecture Refinement");
-                points.add("Package Design");
-                points.add("Persistence framework with patterns.");
+            case 4:  points.add("Analysis Update");
+                points.add("Objects with Responsibilities");
+                points.add("Applying Design Patterns");
+
+                points.add("Architecture Description Language");
+                points.add("Package Diagram");
+                points.add("Persistence Framework");
+
                 url.add(0,"https://en.wikipedia.org/wiki/Static_program_analysis");
-                url.add(1,"http://stackoverflow.com/questions/3698594/how-do-you-apply-design-patterns");
-                /*url.add(2,);
-//                todo:5 min
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                */
+                url.add(1,"https://en.wikipedia.org/wiki/Responsibility-driven_design");
+                url.add(2,"http://stackoverflow.com/questions/3698594/how-do-you-apply-design-patterns");
+
+                url.add(3,"https://en.wikipedia.org/wiki/Architecture_description_language");
+                url.add(4,"https://en.wikipedia.org/wiki/Package_diagram");
+                url.add(5,"https://en.wikipedia.org/wiki/Persistence_framework");
+
+
                 break;
         }
         Bundle points_bundle=new Bundle();

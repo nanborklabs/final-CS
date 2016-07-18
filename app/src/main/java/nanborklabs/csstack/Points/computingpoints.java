@@ -147,11 +147,14 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
             case 0:   points.add("What is Computer?");
                 points.add("Generation & classification");
                 points.add("Numbering System");
+
                 points.add("Algorithm");
-                points.add("Pesudo code");
-                points.add("Flow chart"); url.add(0,"https://en.wikipedia.org/wiki/Computer");
-                url.add(1,"http://www.byte-notes.com/five-generations-computers");
+                points.add("Pseudo code");
+                points.add("Flow chart");
+                url.add(0,"https://en.wikipedia.org/wiki/Computer");
+                url.add(1,"https://en.wikipedia.org/wiki/Fifth_generation_computer#History");
                 url.add(2,"https://en.wikipedia.org/wiki/Computer_number_format");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Algorithm");
                 url.add(4,"https://en.wikipedia.org/wiki/Pseudocode");
                 url.add(5,"https://en.wikipedia.org/wiki/Flowchart");
@@ -160,14 +163,17 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
             case 1: points.add("Introduction to C");
                 points.add("Compilation & Linking");
                 points.add("Data types");
+
                 points.add("I/O operation");
                 points.add("Decision Making Statements");
-                points.add("Looping Statements"); url.add(0,"https://en.wikipedia.org/wiki/C_(programming_language)");
+                points.add("Looping Statements");
+
+                url.add(0,"https://en.wikipedia.org/wiki/C_(programming_language)");
                 url.add(1,"https://www.cs.cf.ac.uk/Dave/C/node3.html");
                 url.add(2,"https://en.wikipedia.org/wiki/Data_type");
                 url.add(3,"https://en.wikipedia.org/wiki/Input/output");
-                url.add(4,"http://www.studytonight.com/c/decision-making-in-c.php");
-                url.add(5,"http://fresh2refresh.com/c-programming/c-loop-control-statements/");
+                url.add(4,"https://en.wikipedia.org/wiki/Conditional_(computer_programming)");
+                url.add(5,"https://en.wikipedia.org/wiki/Control_flow#Loops");
 
                 break;
             case 2:   points.add("Array");
@@ -175,26 +181,28 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
                 points.add("String Operations");
 
                 points.add("Sorting Operations");
-                points.add("Matrix Operations");
-                url.add(0,"http://www.xpode.com/ShowArticle.aspx?ArticleId=497");
+                points.add("Matrix Multiplications");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Array_data_structure");
+                url.add(1,"https://en.wikipedia.org/wiki/Array_data_structure#Element_identifier_and_addressing_formulas");
                 url.add(1,"https://en.wikipedia.org/wiki/String_operations");
+
                 url.add(2,"https://en.wikipedia.org/wiki/Sorting");
-                url.add(3,"http://www.sanfoundry.com/c-programming-examples-matrix/");
-//todo:1 missing
+                url.add(3,"https://en.wikipedia.org/wiki/Matrix_multiplication_algorithm");
                 break;
-            case 3:  points.add("Function");
+            case 3:  points.add("Functions");
                 points.add("Parameter Passing");
                 points.add("Recursion");
-                points.add("Pointers");
-//                todo:wrong link
 
-                points.add("Pointer Arthematic");
+                points.add("Pointers");
                 points.add("Array pointer's");
-                url.add(0,"https://en.wikipedia.org/wiki/Parameter_(computer_programming)");
-                url.add(1,"https://en.wikipedia.org/wiki/Recursion");
-                url.add(2,"https://en.wikipedia.org/wiki/Pointer_(computer_programming)");
-                url.add(3,"https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/BitOp/pointer.html");
-                url.add(4,"http://www.studytonight.com/c/pointers-with-array.php");
+
+                url.add(0,"https://en.wikipedia.org/wiki/Function_prototype#Uses");
+                url.add(1,"https://en.wikipedia.org/wiki/Parameter_(computer_programming)");
+                url.add(2,"https://en.wikipedia.org/wiki/Recursion");
+
+                url.add(3,"https://en.wikipedia.org/wiki/Pointer_(computer_programming)");
+                url.add(4,"https://en.wikipedia.org/wiki/Pointer_(computer_programming)#C_arrays");
 
                 break;
             case 4:   points.add("Structures");
@@ -206,7 +214,7 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
                 url.add(1,"https://en.wikipedia.org/wiki/Union_type");
                 url.add(2,"https://en.wikipedia.org/wiki/C_syntax#Storage_duration_specifiers");
 
-                url.add(3,"https://www.techopedia.com/definition/24295/preprocessor-directive");
+                url.add(3,"https://en.wikipedia.org/wiki/C_preprocessor");
 
                 break;
         }

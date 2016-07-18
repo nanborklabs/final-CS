@@ -142,12 +142,12 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
         ArrayList<String> points=new ArrayList<>();
         ArrayList<String> url=new ArrayList<>();
         switch (position){
-            case 0: points.add("Characterstics of computers");
-                points.add("Evolution of computer");
+            case 0: points.add("Characteristics of Computers");
+                points.add("Evolution of Computer");
 
-                points.add("computer genreation");
+                points.add("Computer Generations");
                 points.add("Units of Data Storage");
-                points.add("Programming Planning");
+                points.add("Program Planning");
                 url.add(0,"https://en.wikipedia.org/wiki/Computer#Modern_computers");
                 url.add(1,"http://wikieducator.org/History_of_Computer_Development_%26_Generation_of_Computer#DEVELOPMENT_OF_COMPUTER");
                 url.add(2,"http://wikieducator.org/History_of_Computer_Development_%26_Generation_of_Computer#GENERATION_OF_COMPUTER");
@@ -155,22 +155,21 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
                 url.add(4,"https://en.wikipedia.org/wiki/Logic_model#Program_planning");
 
                 break;
-            case 1:  points.add("basic computer Operation");
-                points.add("classification of computer");
-                points.add("Hardware components");
-                points.add("bus architecutre and instruction sets");
+            case 1:  points.add("Basic Computer Operation");
+                points.add("Classification of Computer");
+                points.add("Hardware Components");
+                points.add("Bus Architecture and Instruction Sets");
 
-                points.add("computer Ethics");
+                points.add("Computer Ethics");
                 points.add("Generation of Languages");
-                points.add("Compiler & Intreprters");
+                points.add("Compiler & Interpreters");
                 points.add("Virtual Machines");
-                points.add("Procesural programming");
+                points.add("Procedural Programming");
                 points.add("Object Oriented Programming");
-                points.add("object oriented programming");
                 points.add("Scripting Languages");
-                points.add("FUnctional Languages");
-                points.add("Language Desgin");
-                points.add("Language Syntax & semantics");
+                points.add("Functional Languages");
+                points.add("Language Design");
+                points.add("Language Syntax & Semantics");
                 url.add(0,"www");
                 /*
                 url.add(1,);
@@ -187,15 +186,15 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
                 */
                 break;
             case 2:  points.add("Roles of OS");
-                points.add("Process Managment");
+                points.add("Process Management");
 
-                points.add("Memory Managment");
-                points.add("File Managment");
+                points.add("Memory Management");
+                points.add("File Management");
 
-                points.add("Device Managment");
-                points.add("UNIX");
+                points.add("Device Management");
+                points.add("Unix");
 
-                points.add("Ms-DOS");
+                points.add("MS-DOS");
                 url.add(0,"https://en.wikibooks.org/wiki/A-level_Computing/AQA/Problem_Solving,_Programming,_Operating_Systems,_Databases_and_Networking/Operating_Systems/Role_of_the_operating_system");
                 url.add(1,"https://en.wikipedia.org/wiki/Process_management_(computing)");
                 url.add(2,"https://en.wikipedia.org/wiki/Memory_management");
@@ -206,11 +205,11 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
                 url.add(7,"www.google.com");
                 break;
             case 3: points.add("File Based Approach");
-                points.add("Evolutions of Data models");
+                points.add("Evolutions of Data Models");
                 points.add("Data Independence");
 
-                points.add("Data dictionary");
-                points.add("Database administrator");
+                points.add("Data Dictionary");
+                points.add("Database Administrator");
                 url.add(0,"http://www.cs.cityu.edu.hk/~helena/cs34622000B/FileApproach.pdf");
                 url.add(1,"https://en.wikipedia.org/wiki/Data_modela");
                 url.add(2,"https://en.wikipedia.org/wiki/Data_independence");
@@ -222,12 +221,12 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
                 points.add("Open Systems Interconnection");
                 points.add("Topologies in Network Design");
 
-                points.add("Swtiching Technologies");
-                points.add("TCP/IP Network model");
-                points.add("Networking devices");
+                points.add("Switching Technologies");
+                points.add("TCP/IP Network Model");
+                points.add("Networking Devices");
 
                 points.add("Internet");
-                points.add("World wide web");
+                points.add("World Wide Web");
                 url.add(0,"https://en.wikipedia.org/wiki/Computer_network");
                 url.add(1,"https://en.wikipedia.org/wiki/OSI_model");
                 url.add(2,"https://en.wikipedia.org/wiki/Network_topology");

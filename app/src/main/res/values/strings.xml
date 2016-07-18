@@ -29,5 +29,7 @@
     <string name="parallel">Parallel Programming</string>
     <string name="security">Security in Computing</string>
     <string name="drawer_title">CS STACK</string>
+    <string name="cs_info_sub">A comprehensive Wiki Entries of all topics that a Computer Engineer needs</string>
+    <string name="head_title">Everything in a single place</string>
 
 </resources>

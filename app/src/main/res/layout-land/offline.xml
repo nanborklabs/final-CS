@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="wrap_content"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:background="@color/colorPrimary"
     android:layout_height="match_parent">
 
@@ -11,11 +11,12 @@
         android:id="@+id/textView2"
         android:layout_gravity="left"
         style="@style/offline_page_text"
-        android:layout_marginTop="@dimen/nd_mtop"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="57dp"
+        android:layout_marginStart="57dp"
         android:layout_alignParentTop="true"
-/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,13 +31,14 @@
         android:layout_alignStart="@+id/textView2" />
 
     <Button
-        android:layout_width="@dimen/nd_button_width"
-        android:layout_height="@dimen/nd_button_height"
+        android:layout_width="@dimen/nd_button_width_land"
+        android:layout_height="@dimen/nd_but_height_land"
         android:text="Turn on"
         style="@style/offline_button"
         android:id="@+id/button"
-        android:layout_marginBottom="@dimen/nd_but_mbottom"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/nd_but_mbottom_land"
+        android:layout_marginTop="@dimen/nd_but_mtop_land" />
 
 </RelativeLayout>

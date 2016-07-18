@@ -144,7 +144,7 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
         ArrayList<String> url=new ArrayList<>();
         switch (position){
             case 0:  points.add("Basics");
-                points.add("Input Primitives");
+                points.add("Geometric Primitives");
                 points.add("OpenGL");
 
                 points.add("Output Primitives");
@@ -162,8 +162,8 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Window");
                 points.add("View Port Transformation");
 
-                points.add("2D Geometric Transormations");
-                points.add("Clipping Algorithms");
+                points.add("2D Geometric Transformations");
+                points.add("Line Clipping");
                 url.add(0,"https://en.wikipedia.org/wiki/2D_computer_graphics");
                 url.add(1,"https://en.wikipedia.org/wiki/Window_(computing)");
                 url.add(2,"https://en.wikipedia.org/wiki/Viewport");
@@ -173,13 +173,13 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
 
 
                 break;
-            case 2:   points.add("Projections");
+            case 2:   points.add("Graphical Projections");
                 points.add("Three Dimensional Object Representations");
                 points.add("Parallel & Perspective Polygons");
 
                 points.add("3D Affine Transformations");
                 points.add("3D Rotations using Quatemions");
-                points.add("Viewing");
+                points.add("Viewing Frustrum");
 
                 points.add("Visible Surface Identification");
                 points.add("Color models");
@@ -195,28 +195,29 @@ public class CGpoints extends Fragment  implements rv_adapter.Point_clicked{
             case 3:  points.add("Multimedia");
                 points.add("Animations");
                 points.add("Compression & Types");
-                points.add("Image Compression");
 
+                points.add("Image Compression");
                 points.add("Video Compression");
                 points.add("File Format ");
+
                 points.add("Multimedia Data structres-KD Trees , R-Trees");
-              /*  url.add(0,);
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                */
+
+                url.add(0,"https://en.wikipedia.org/wiki/Multimedia");
+                url.add(1,"https://en.wikipedia.org/wiki/Animation#Computer_animation");
+                url.add(2,"https://en.wikipedia.org/wiki/Compression");
+
+                url.add(3,"https://en.wikipedia.org/wiki/Image_compression");
+                url.add(4,"https://en.wikipedia.org/wiki/Data_compression#Video");
+                url.add(5,"https://en.wikipedia.org/wiki/File_format");
+                url.add(6,"https://en.wikipedia.org/wiki/K-d_tree");
                 break;
-            case 4:  points.add("Authoring Systemsi");
+            case 4:  points.add("Authoring Systems");
                 points.add("Video on Demand");
                 points.add("Virtual Reality");
 
-                points.add("Augumented Reality");
-                points.add("Content based Retrivel");
-                //TODO:find and add urls-5 mins
+                points.add("Augmented Reality");
+                points.add("Content based Retrieval");
+
                 url.add(0,"https://en.wikipedia.org/wiki/Authoring_system");
                 url.add(1,"https://en.wikipedia.org/wiki/Video_on_demand");
                 url.add(2,"https://en.wikipedia.org/wiki/Virtual_reality");

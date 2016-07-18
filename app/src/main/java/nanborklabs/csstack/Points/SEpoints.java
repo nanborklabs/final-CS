@@ -144,12 +144,12 @@ public class SEpoints extends Fragment  implements rv_adapter.Point_clicked{
             case 0: points.add("Rise of Software");
                 points.add("Legacy Software");
                 points.add("Generic View of Process");
-                points.add("Capablity maturity model");
-                points.add("Waterfall model");
-                points.add("Incremental Process model");
-                points.add("The RAD model");
-                points.add("Sprial model");
-                points.add("Unified Process model");
+                points.add("Capability Maturity Model");
+                points.add("Waterfall Model");
+                points.add("Incremental Process Model");
+                points.add("The RAD Model");
+                points.add("Sprial Model");
+                points.add("Unified Process Model");
                 url.add(0,"https://en.wikipedia.org/wiki/Software#Industry_and_organizations");
                 url.add(1,"https://en.wikipedia.org/wiki/Legacy_system");
                 url.add(2,"https://en.wikipedia.org/wiki/Software_development_process");
@@ -164,7 +164,7 @@ public class SEpoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Construction Practice");
                 points.add("Deployment");
 
-                points.add("Rwquirements Engineering");
+                points.add("Requirements Engineering");
                 points.add("Use case Development");
                 points.add("Validating Requirements");
                 url.add(0,"https://en.wikipedia.org/wiki/Software_development#Planning");
@@ -177,14 +177,14 @@ public class SEpoints extends Fragment  implements rv_adapter.Point_clicked{
 
 
                 break;
-            case 2:   points.add("Requirement Analyis");
+            case 2:   points.add("Requirement Analysis");
                 points.add("Design Process");
                 points.add("UI design");
                 points.add("Testing Strategies");
-                points.add("Validation testing");
+                points.add("Validation Testing");
                 points.add("System Testing");
                 points.add("Art of Debugging");
-                points.add("Project managment");
+                points.add("Project Management");
                 url.add(0,"https://en.wikipedia.org/wiki/Requirements_analysis");
                 url.add(1,"https://en.wikipedia.org/wiki/Design_process_(computing)");
                 url.add(2,"https://en.wikipedia.org/wiki/User_interface_design");
@@ -198,12 +198,12 @@ public class SEpoints extends Fragment  implements rv_adapter.Point_clicked{
                 break;
             case 3:   // TODO: same titles in SE4 and SE5 look into it
                 points.add("Software Evolution");
-                points.add("Verifiation Deatils");
+                points.add("Verification Details");
                 points.add("Critical Systems");
-                points.add("MEtrics");
+                points.add("Metrics");
                 points.add("Quality Management");
-                points.add("Procees improvement");
-                points.add("Risk management");
+                points.add("Process Improvement");
+                points.add("Risk Management");
                 points.add("Configuration Management");
                 points.add("Cost Estimation");
                 url.add(0,"www");
@@ -217,7 +217,7 @@ public class SEpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(7,);
                 */
                 break;
-            case 4:points.add("Software evolution");
+            case 4:points.add("Software Evolution");
                 points.add("Verification and Validation");
                 points.add("Metrics for Product-Quality Management");
 

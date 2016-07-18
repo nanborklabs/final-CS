@@ -142,7 +142,7 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
         switch (position){
             case 0: points.add("Language Design");
                 points.add("Spectrum");
-                points.add("Compilation & intrepratation");
+                points.add("Compilation & Interpretation");
                 points.add("Names");
                 points.add("Types");
                 points.add("Binding");
@@ -170,12 +170,11 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
             case 1: points.add("Expression");
                 points.add("Assignment");
                 points.add("Control flow");
-                points.add("Input/output");
-                points.add("exception handling");
-                points.add("state\n" +
-                        "transformation –");
-                points.add("partial function");
-                points.add("dynamic typing");
+                points.add("Input/Output");
+                points.add("Exception Handling");
+                points.add("state Transformation");
+                points.add("Partial Function");
+                points.add("Dynamic Typing");
 //                todo:5min
                   /*
                 url.add(0,);
@@ -193,13 +192,13 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 */
                 break;
             case 2:  points.add("Call and Return");
-                points.add("Parameter passing");
-                points.add("function declaration");
-                points.add("semantics of call and return");
-                points.add("formal treatment of types and semantics");
-                points.add("memory management");
-                points.add("dynamic arrays");
-                points.add("garbage Collection");
+                points.add("Parameter Passing");
+                points.add("Function Declaration");
+                points.add("Semantics of Call and Return");
+                points.add("Formal Treatment of Types and Semantics");
+                points.add("Memory Management");
+                points.add("Dynamic Arrays");
+                points.add("Garbage Collection");
 //                todo:5min
                   /*
                 url.add(0,);
@@ -216,13 +215,13 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(11,);
                 */
                 break;
-            case 3:  points.add("Logic programming");
-                points.add("Event-Driven programming");
+            case 3:  points.add("Logic Programming");
+                points.add("Event-Driven Programming");
                 points.add("Concurrent Programming");
-                points.add("Synchronization strategies");
-                points.add("Language level mechanism");
+                points.add("Synchronization Strategies");
+                points.add("Language Level Mechanism");
                 points.add("Interprocess");
-                points.add("Scripting languages.");
+                points.add("Scripting Languages.");
 
 //                todo:5min
                  /*
@@ -240,13 +239,13 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(11,);
                 */
                 break;
-            case 4: points.add("Logic programming");
-                points.add("Event-Driven programming");
+            case 4: points.add("Logic Programming");
+                points.add("Event-Driven Programming");
                 points.add("Concurrent Programming");
-                points.add("Synchronization strategies");
-                points.add("Language level mechanism");
+                points.add("Synchronization Strategies");
+                points.add("Language Level Mechanism");
                 points.add("Interprocess");
-                points.add("Scripting languages.");
+                points.add("Scripting Languages.");
 //                todo:5min
                 /*
                 url.add(0,);

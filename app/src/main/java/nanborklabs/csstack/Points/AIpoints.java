@@ -163,7 +163,7 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
             case 0:
 
 
-                points.add("Introudction ");
+                points.add("Introduction ");
                 points.add("Intelligent Agents");
                 points.add("Types of Agents");
 
@@ -180,21 +180,23 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
 
                 points.add("Uniformed Search Strategies");
                 points.add("Heuristics");
-                points.add("Local Search Algorithams");
+                points.add("Local Search Algorithms");
 
-                points.add("Constraint satisfaction problem");
+                points.add("Constraint Satisfaction Problem");
                 points.add("Backtracking");
                 points.add("Game Playing");
 
                 points.add("Pruning");
                 points.add("Alpha-Beta Pruning");
 
-                url.add(0,"http://www.codeproject.com/Articles/203828/AI-Simple-Implementation-of-Uninformed-Search-Stra");
-                url.add(1,"www.google.com");
+                url.add(0,"http://artint.info/html/ArtInt_52.html");
+                url.add(1,"https://en.wikipedia.org/wiki/Heuristic_(computer_science)");
                 url.add(2,"https://en.wikipedia.org/wiki/Local_search_(optimization)");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Constraint_satisfaction_problem");
                 url.add(4,"https://en.wikipedia.org/wiki/Backtracking#Description_of_the_method");
-                url.add(5,"http://cis-linux1.temple.edu/~pwang/3203-AI/Lecture/Game.htm");
+                url.add(5,"https://en.wikipedia.org/wiki/General_game_playing");
+
                 url.add(6,"https://en.wikipedia.org/wiki/Pruning_(decision_trees)");
                 url.add(7,"https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning");
 
@@ -202,7 +204,7 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
             case 2:
 
                 points.add("Predicate Calculus");
-                points.add("First Order Prdeicate Logic");
+                points.add("First Order Predicate Logic");
                 points.add("Unification");
 
                 points.add("Forward Chaining");
@@ -223,7 +225,7 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
                 break;
             case 3:
 
-                points.add("Probability basics");
+                points.add("Probability Basics");
                 points.add("Bayes Rule");
                 points.add("Bayesian Networks");
 
@@ -236,7 +238,7 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
                 points.add("Artificial Neural Networks");
 
                 points.add("Non Parametric Models");
-                points.add("SUpport Vector Machines");
+                points.add("Support Vector Machines");
                 points.add("Statistical Learning");
 
                 points.add("The EM Algorithm");
@@ -266,11 +268,11 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
 
                 points.add("AI Applications");
                 points.add("Language Models");
-                points.add("Information Retrival");
+                points.add("Information Retrieval");
 
-                points.add("Natural Language Proccessing");
+                points.add("Natural Language Processing");
                 points.add("Machine Translation");
-                points.add("Speech Recogonition");
+                points.add("Speech Recognition");
 
                 points.add("Robotics");
                 points.add("Perception in Robotics");
