@@ -1,9 +1,14 @@
 package nanborklabs.csstack;
 
-import android.content.Intent;
+import android.animation.Animator;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.ViewUtils;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,10 +16,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AnticipateInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import nanborklabs.csstack.subjects.AIFrag;
 import nanborklabs.csstack.subjects.CGFrag;
@@ -51,8 +61,15 @@ public class StackHome extends AppCompatActivity
     Fragment subjectFragment;
     public int year_selected;
     public boolean introAnimation;
+    private WebViewFragment mWebViewFragment;
+
     Toolbar toolbar;
     DrawerLayout drawer;
+    TextView cs;
+    TextView cs2;
+    ImageView img_view;
+    ConnectivityManager connectivityManager;
+    NetworkInfo info;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,8 +86,15 @@ public class StackHome extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+       img_view=(ImageView)findViewById(R.id.imageview);
+        connectivityManager=(ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+            info=connectivityManager.getActiveNetworkInfo();
+
+
 
         left_side= (NavigationView) findViewById(R.id.nav_view);
+        cs=(TextView)findViewById(R.id.textView4);
+     cs2= (TextView)findViewById(R.id.textView5);
         right_side=(NavigationView)findViewById(R.id.right_side);
         left_side.setNavigationItemSelectedListener(this);
         right_side.setNavigationItemSelectedListener(this);
@@ -94,7 +118,7 @@ public class StackHome extends AppCompatActivity
         //Start intoro animation
         if (introAnimation){
             introAnimation=false;
-            startIntroAnim();
+           startIntroAnim();
         }
         return true;
     }
@@ -103,9 +127,71 @@ public class StackHome extends AppCompatActivity
         int size=toolbar.getHeight();
         toolbar.setTranslationY(-size);
         toolbar.animate().translationY(0)
-                .setDuration(400)
+                .setDuration(600)
                 .setInterpolator(new AccelerateDecelerateInterpolator())
-                .setStartDelay(500);
+                .setStartDelay(100).setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                cs.setVisibility(View.VISIBLE);
+
+
+                cs.animate().scaleX(1.5f).scaleY(1.5f)
+
+                        .alpha(1f)
+                        .setInterpolator(new AccelerateDecelerateInterpolator())
+                        .setDuration(2000).setListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        cs2.setVisibility(View.VISIBLE);
+                        cs2.setAlpha(0f);
+                        cs2.animate().alpha(1f).scaleY(1.1f)
+                                .scaleX(1.1f)
+                                .setDuration(500)
+                                .setInterpolator(new AccelerateInterpolator())
+                                .start();
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+            img_view.setVisibility(View.VISIBLE);
+                img_view.setAlpha(0f);
+                img_view.animate().alpha(1f)
+                        .scaleX(1.1f)
+                        .scaleY(1.1f)
+                        .setDuration(1200)
+                        .setInterpolator(new AccelerateDecelerateInterpolator())
+                        .start();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+
     }
 
     @Override
@@ -333,10 +419,33 @@ public class StackHome extends AppCompatActivity
 
     @Override
     public void loadUrl(String url) {
-        Log.d("CS_STACK",url);
-        final Intent intent=new Intent(this,WebViewActivity.class);
-        intent.putExtra("URL",url);
-        this.startActivity(intent);
+        if (info.isConnected()){
+            Log.d("DATA","connected");
+            //Online
+            Log.d("CS_STACK",url);
+            if(mWebViewFragment==null){
+                mWebViewFragment=new WebViewFragment();
+            }
+            else{
+                mWebViewFragment=null;
+                mWebViewFragment=new WebViewFragment();
+            }
+            Bundle b=new Bundle();
+            b.putString("URL",url);
+            b.putInt("cx",540);
+            b.putInt("cy",180);
+            mWebViewFragment.setArguments(b);
+            getSupportFragmentManager().beginTransaction()
+
+                    .addToBackStack("webview")
+                    .setCustomAnimations(android.R.anim.slide_in_left,android.R.anim.slide_out_right)
+                    .replace(R.id.frag_holder,mWebViewFragment).commit();
+        }
+        else{
+            Log.d("DATA","not connected");
+        }
+
+
 
 
     }

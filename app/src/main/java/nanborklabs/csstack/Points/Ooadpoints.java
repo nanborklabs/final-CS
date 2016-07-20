@@ -129,7 +129,7 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
     }
 
     @Override
-    public void point_clicked(int position) {
+    public void point_clicked(View v,int position) {
         callback.loadUrl(url_to_load.get(position));
     }
     UrLoad callback;
@@ -169,10 +169,10 @@ public class Ooadpoints extends Fragment  implements rv_adapter.Point_clicked{
 
                 points.add("Operation Contracts");
                 url.add(0,"https://en.wikipedia.org/wiki/Object_Constraint_Language");
-                url.add(2,"https://en.wikipedia.org/wiki/Domain_model");
-                url.add(3,"https://en.wikipedia.org/wiki/Sequence_diagram");
+                url.add(1,"https://en.wikipedia.org/wiki/Domain_model");
+                url.add(2,"https://en.wikipedia.org/wiki/Sequence_diagram");
 
-                url.add(4,"https://en.wikipedia.org/wiki/Design_by_contract");
+                url.add(3,"https://en.wikipedia.org/wiki/Design_by_contract");
 
 
                 break;

@@ -130,7 +130,7 @@ public class SEpoints extends Fragment  implements rv_adapter.Point_clicked{
     }
 
     @Override
-    public void point_clicked(int position) {
+    public void point_clicked(View v,int position) {
         callback.loadUrl(url_to_load.get(position));
     }
     UrLoad callback;
@@ -178,48 +178,47 @@ public class SEpoints extends Fragment  implements rv_adapter.Point_clicked{
 
                 break;
             case 2:   points.add("Requirement Analysis");
+                points.add("Analysis Modeling Approaches");
+                points.add("Scenario Based Modeling");
+                points.add("Flow Oriented Modeling");
+                points.add("Class Based Modeling");
+                points.add("creating a Behaviour Model");
+                url.add(0,"https://en.wikipedia.org/wiki/Requirements_analysis");
+                url.add(1,"https://en.wikipedia.org/wiki/Software_analysis_pattern");;
+                url.add(2,"https://en.wikipedia.org/wiki/Scenario_(computing)");
+                url.add(3,"https://en.wikipedia.org/wiki/Flow-based_programming");
+                url.add(4,"https://en.wikipedia.org/wiki/Class-based_programming");
+                url.add(5,"https://en.wikipedia.org/wiki/Behavioral_modeling");
+
+
+
+                break;
+            case 3:
+                points.add("Design Engineering");
                 points.add("Design Process");
                 points.add("UI design");
+
                 points.add("Testing Strategies");
                 points.add("Validation Testing");
                 points.add("System Testing");
+
                 points.add("Art of Debugging");
                 points.add("Project Management");
-                url.add(0,"https://en.wikipedia.org/wiki/Requirements_analysis");
+                url.add(0,"https://en.wikipedia.org/wiki/Design_engineer");
                 url.add(1,"https://en.wikipedia.org/wiki/Design_process_(computing)");
                 url.add(2,"https://en.wikipedia.org/wiki/User_interface_design");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Test_strategy");
                 url.add(4,"https://en.wikipedia.org/wiki/Acceptance_testing");
                 url.add(5,"https://en.wikipedia.org/wiki/System_testing");
+
                 url.add(6,"https://en.wikipedia.org/wiki/Debugging");
                 url.add(7,"https://en.wikipedia.org/wiki/Project_management");
 
-
-                break;
-            case 3:   // TODO: same titles in SE4 and SE5 look into it
-                points.add("Software Evolution");
-                points.add("Verification Details");
-                points.add("Critical Systems");
-                points.add("Metrics");
-                points.add("Quality Management");
-                points.add("Process Improvement");
-                points.add("Risk Management");
-                points.add("Configuration Management");
-                points.add("Cost Estimation");
-                url.add(0,"www");
-                //TODO:url fill it 5 min
-             /* url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                */
                 break;
             case 4:points.add("Software Evolution");
                 points.add("Verification and Validation");
-                points.add("Metrics for Product-Quality Management");
+                points.add("Product-Quality Management");
 
                 points.add("Process Improvement");
                 points.add("Risk Management-");
@@ -228,9 +227,11 @@ public class SEpoints extends Fragment  implements rv_adapter.Point_clicked{
                 url.add(0,"https://en.wikipedia.org/wiki/Software_evolution");
                 url.add(1,"https://en.wikipedia.org/wiki/Software_verification_and_validation");
                 url.add(2,"https://en.wikipedia.org/wiki/Quality_management");
+
                 url.add(3,"https://en.wikipedia.org/wiki/Business_process_improvement");
                 url.add(4,"https://en.wikipedia.org/wiki/Risk_management");
                 url.add(5,"https://en.wikipedia.org/wiki/Configuration_management");
+
                 url.add(6,"https://en.wikipedia.org/wiki/Cost_estimation_in_software_engineering");
                 break;
         }

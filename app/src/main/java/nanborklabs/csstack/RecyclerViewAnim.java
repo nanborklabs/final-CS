@@ -21,7 +21,7 @@ public class RecyclerViewAnim {
                 .translationY(0)
                 .setDuration(500)
                 .alpha(1f)
-                .setStartDelay(450)
+                .setStartDelay(750)
                 .setInterpolator(new DecelerateInterpolator())
                 .start();
     }

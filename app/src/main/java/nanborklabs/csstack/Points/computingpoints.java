@@ -132,7 +132,7 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
     }
 
     @Override
-    public void point_clicked(int position) {
+    public void point_clicked(View v,int position) {
         callback.loadUrl(url_to_load.get(position));
     }
     UrLoad callback;
@@ -185,10 +185,10 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
 
                 url.add(0,"https://en.wikipedia.org/wiki/Array_data_structure");
                 url.add(1,"https://en.wikipedia.org/wiki/Array_data_structure#Element_identifier_and_addressing_formulas");
-                url.add(1,"https://en.wikipedia.org/wiki/String_operations");
+                url.add(2,"https://en.wikipedia.org/wiki/String_operations");
 
-                url.add(2,"https://en.wikipedia.org/wiki/Sorting");
-                url.add(3,"https://en.wikipedia.org/wiki/Matrix_multiplication_algorithm");
+                url.add(3,"https://en.wikipedia.org/wiki/Sorting");
+                url.add(4,"https://en.wikipedia.org/wiki/Matrix_multiplication_algorithm");
                 break;
             case 3:  points.add("Functions");
                 points.add("Parameter Passing");
@@ -206,7 +206,7 @@ public class computingpoints extends  Fragment implements rv_adapter.Point_click
 
                 break;
             case 4:   points.add("Structures");
-                points.add("union");
+                points.add("Union");
                 points.add("Storage Classes");
 
                 points.add("PreProcessor Directives");

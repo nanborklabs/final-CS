@@ -10,7 +10,7 @@
 
     <style name="points_text" parent="AppTheme">
     <item name="android:textSize">@dimen/points_size</item>
-    <item name="android:textColor">@color/colorPrimary</item>
+    <item name="android:textColor">#FFFF</item>
         <item name="android:paddingTop">4dp</item>
 
         <item name="android:paddingLeft">24dp</item>

@@ -1,23 +1,29 @@
 package nanborklabs.csstack.Points;
 
+import android.animation.Animator;
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.webkit.WebView;
 
 import java.util.ArrayList;
 
 import nanborklabs.csstack.R;
-import nanborklabs.csstack.RecycelerviewDecorator;
 import nanborklabs.csstack.RecyclerViewAnim;
 import nanborklabs.csstack.UrLoad;
+import nanborklabs.csstack.Utild;
 import nanborklabs.csstack.adapter.rv_adapter;
 
 /**
@@ -32,7 +38,11 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
     public boolean loaded;
     RecyclerView mRecyclerView;
     RecyclerView.ItemDecoration itemDecoration;
-  UrLoad callback;
+        UrLoad callback;
+     WebView mWebView;
+    Animator.AnimatorListener listener;
+    int centerX;
+    int centerY;
 
 
 
@@ -94,7 +104,10 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+
         RecyclerViewAnim.startIntroAnim(mRecyclerView,getContext());
+
+        mWebView=(WebView)mView.findViewById(R.id.webview);
         return mView;
     }
 
@@ -144,9 +157,28 @@ public class AIpoints extends Fragment implements rv_adapter.Point_clicked{
     }
 
     @Override
-    public void point_clicked(int position) {
+    public void point_clicked(View v,int position) {
 
+      //  callback.loadUrl(url_to_load.get(position));
+
+
+
+//        showReavelWebview(centerX,centerY,position);
         callback.loadUrl(url_to_load.get(position));
+
+
+
+
+    }
+
+    private void showReavelWebview(int centerX, int centery, int position) {
+
+        int end= Utild.getScreenHeight(getContext());
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            Animator an=ViewAnimationUtils.createCircularReveal(getActivity().findViewById(R.id.frag_holder),centerX,centery,0,end);
+            an.setDuration(300).setInterpolator(new AccelerateInterpolator());
+            an.start();
+        }
 
     }
 

@@ -16,4 +16,6 @@
     <dimen name="nd_button_width_land">100dp</dimen>
     <dimen name="nd_but_height_land">48dp</dimen>
     <dimen name="nd_but_mbottom_land">36dp</dimen>
+    <dimen name="book_width">350dp</dimen>
+    <dimen name="book_height">400dp</dimen>
 </resources>

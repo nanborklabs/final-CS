@@ -131,7 +131,7 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
     }
 
     @Override
-    public void point_clicked(int position) {
+    public void point_clicked(View v,int position) {
         callback.loadUrl(url_to_load.get(position));
     }
     UrLoad callback;
@@ -172,6 +172,7 @@ public class Principlespoints extends Fragment  implements rv_adapter.Point_clic
                 points.add("Language Syntax & Semantics");
                 url.add(0,"www");
                 /*
+                //todo:gghjg
                 url.add(1,);
                 url.add(2,);
                 url.add(3,);

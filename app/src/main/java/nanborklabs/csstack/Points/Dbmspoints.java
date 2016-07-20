@@ -130,7 +130,7 @@ public class Dbmspoints extends Fragment  implements rv_adapter.Point_clicked{
     }
 
     @Override
-    public void point_clicked(int position) {
+    public void point_clicked(View v,int position) {
         callback.loadUrl(url_to_load.get(position));
     }
     UrLoad callback;
@@ -152,10 +152,10 @@ public class Dbmspoints extends Fragment  implements rv_adapter.Point_clicked{
 
                 url.add(0,"https://en.wikipedia.org/wiki/Data");
                 url.add(1,"https://en.wikipedia.org/wiki/Database");
-                url.add(3,"https://en.wikipedia.org/wiki/Data_model");
+                url.add(2,"https://en.wikipedia.org/wiki/Data_model");
 
-                url.add(4,"https://en.wikipedia.org/wiki/Shard_(database_architecture)#Database_architecture");
-                url.add(5,"http://data-informed.com/how-to-address-top-challenges-of-database-management");
+                url.add(3,"https://en.wikipedia.org/wiki/Shard_(database_architecture)#Database_architecture");
+                url.add(4,"http://data-informed.com/how-to-address-top-challenges-of-database-management");
 
                 break;
             case 1:
@@ -170,14 +170,14 @@ public class Dbmspoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Join Dependencies");
 
                 url.add(0,"https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model");
-                url.add("https://en.wikipedia.org/wiki/Relational_database_management_system");
-                url.add(1,"https://en.wikipedia.org/wiki/Relational_algebra");
+                url.add(1,"https://en.wikipedia.org/wiki/Relational_database_management_system");
+                url.add(2,"https://en.wikipedia.org/wiki/Relational_algebra");
 
-                url.add(2,"https://en.wikipedia.org/wiki/Key-value_database");
-                url.add(3,"https://en.wikipedia.org/wiki/Database_normalization");
-                url.add(4,"https://en.wikipedia.org/wiki/Boyce%E2%80%93Codd_normal_form");
+                url.add(3,"https://en.wikipedia.org/wiki/Key-value_database");
+                url.add(4,"https://en.wikipedia.org/wiki/Database_normalization");
+                url.add(5,"https://en.wikipedia.org/wiki/Boyce%E2%80%93Codd_normal_form");
 
-                url.add(5,"https://en.wikipedia.org/wiki/Join_dependency");
+                url.add(6,"https://en.wikipedia.org/wiki/Join_dependency");
 
                 break;
             case 2: points.add("Introduction to SQL");

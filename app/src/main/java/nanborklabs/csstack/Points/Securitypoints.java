@@ -130,7 +130,7 @@ public class Securitypoints extends Fragment  implements rv_adapter.Point_clicke
     }
 
     @Override
-    public void point_clicked(int position) {
+    public void point_clicked(View v,int position) {
         callback.loadUrl(url_to_load.get(position));
     }
     UrLoad callback;
@@ -163,7 +163,6 @@ public class Securitypoints extends Fragment  implements rv_adapter.Point_clicke
                 url.add(6,"https://en.wikipedia.org/wiki/Cryptographic_hash_function");
                 url.add(7,"https://en.wikipedia.org/wiki/Key_exchange");
                 url.add(8,"https://en.wikipedia.org/wiki/Digital_signature");
-                url.add(9,"https://en.wikipedia.org/wiki/Digital_signature");
 
                 break;
             case 1: points.add("Viruses");
@@ -200,7 +199,7 @@ public class Securitypoints extends Fragment  implements rv_adapter.Point_clicke
                 url.add(8,"https://en.wikipedia.org/wiki/Intrusion_detection_system");
                 url.add(9,"https://en.wikipedia.org/wiki/Email_encryption");
                 break;
-            case 3:  points.add("Requirements in Database Systems");
+            case 3:  points.add(" Database Systems Requirements");
                 points.add("Reliability & Integrity");
                 points.add("Two phase Update");
 
@@ -209,9 +208,9 @@ public class Securitypoints extends Fragment  implements rv_adapter.Point_clicke
                 points.add("Concurrency");
 
                 points.add("Inference");
-                url.add(0,"www.google.com");
-                //todo:ADD FUCKING URL'S HERE
-                url.add(1,"www.google.com");
+                url.add(0,"http://dbmsbasics.blogspot.in/2008/02/requirements-for-dbms.html");
+
+                url.add(1,"http://ishandbook.bsewall.com/risk/Methodology/CIA.html");
                 url.add(2,"https://en.wikipedia.org/wiki/Two-phase_commit_protocol");
                 url.add(3,"https://en.wikipedia.org/wiki/Data_redundancy");
                 url.add(4,"https://en.wikipedia.org/wiki/Data_recovery");

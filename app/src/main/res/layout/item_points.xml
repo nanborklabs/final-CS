@@ -9,15 +9,17 @@
     android:paddingBottom="6dp"
     android:layout_marginTop="6dp"
     android:layout_marginBottom="6dp"
-    app:cardBackgroundColor="#BBDEFB"
+    app:cardBackgroundColor="@color/colorPrimary"
 
-    android:layout_height="@dimen/cv_height"
+    android:layout_height="72dp"
 
     app:cardCornerRadius="4dp">
     <TextView
     android:layout_width="match_parent"
     style="@style/points_text"
+        android:text="hi"
         android:id="@+id/points_text"
+        android:layout_gravity="center_vertical"
 
 
     android:layout_height="60dp">

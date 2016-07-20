@@ -129,7 +129,7 @@ public class Ospoints extends Fragment  implements rv_adapter.Point_clicked{
     }
 
     @Override
-    public void point_clicked(int position) {
+    public void point_clicked(View v,int position) {
         callback.loadUrl(url_to_load.get(position));
     }
     UrLoad callback;
@@ -199,7 +199,6 @@ public class Ospoints extends Fragment  implements rv_adapter.Point_clicked{
 
                 points.add("Deadlocks-Conditions & Preventions");
 
-//                todo:10min
 
                 url.add(0,"https://en.wikipedia.org/wiki/Scheduling_(computing)");
                 url.add(1,"https://en.wikipedia.org/wiki/Scheduling_(computing)#Choosing_a_scheduling_algorithm");
@@ -229,7 +228,6 @@ public class Ospoints extends Fragment  implements rv_adapter.Point_clicked{
                 points.add("Page Replacement");
 
                 points.add("Thrashing");
-//                todo:10min
                 url.add(0,"https://en.wikipedia.org/wiki/Memory_management_(operating_systems)");
                 url.add(1,"https://en.wikipedia.org/wiki/Virtual_memory#Address_space_swapping");
                 url.add(2,"http://www.gitam.edu/eresource/comp/gvr(os)/8.3.htm");

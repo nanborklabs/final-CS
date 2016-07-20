@@ -129,7 +129,7 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
     }
 
     @Override
-    public void point_clicked(int position) {
+    public void point_clicked(View v,int position) {
         callback.loadUrl(url_to_load.get(position));
     }
     UrLoad callback;
@@ -141,126 +141,93 @@ public class PPpoints extends Fragment  implements rv_adapter.Point_clicked{
         ArrayList<String> url=new ArrayList<>();
         switch (position){
             case 0: points.add("Language Design");
-                points.add("Spectrum");
-                points.add("Compilation & Interpretation");
-                points.add("Names");
+                points.add("Compilation Vs Interpretation");
                 points.add("Types");
                 points.add("Binding");
                 points.add("Scope");
-                points.add("Static");
-                points.add("Dynamic");
+                points.add("Static Vs Dynamic Binding");
 
-//                todo:5 mins
-               /*
-                url.add(0,);
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                url.add(8,);
-                url.add(9,);
-                url.add(10,);
-                url.add(11,);
-                */
+
+//
+                url.add(0,"https://en.wikipedia.org/wiki/Programming_language_theory");
+                url.add(1,"http://stackoverflow.com/questions/3265357/compiled-vs-interpreted-languages");
+                url.add(2,"https://en.wikipedia.org/wiki/List_of_programming_languages_by_type");
+                url.add(3,"https://en.wikipedia.org/wiki/Language_binding");
+                url.add(4,"https://en.wikipedia.org/wiki/Scope_(computer_science)");
+                url.add(5,"http://stackoverflow.com/questions/19017258/static-vs-dynamic-binding-in-java");
 
                 break;
             case 1: points.add("Expression");
                 points.add("Assignment");
                 points.add("Control flow");
+
                 points.add("Input/Output");
                 points.add("Exception Handling");
                 points.add("state Transformation");
+
                 points.add("Partial Function");
                 points.add("Dynamic Typing");
-//                todo:5min
-                  /*
-                url.add(0,);
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                url.add(8,);
-                url.add(9,);
-                url.add(10,);
-                url.add(11,);
-                */
+
+                url.add(0,"https://en.wikipedia.org/wiki/Expression_(computer_science)");
+                url.add(1,"https://en.wikipedia.org/wiki/Assignment_(computer_science)");
+                url.add(2,"https://en.wikipedia.org/wiki/Control_flow");
+                url.add(3,"https://en.wikipedia.org/wiki/Input/output");
+                url.add(4,"https://en.wikipedia.org/wiki/Exception_handling");
+                url.add(5,"https://en.wikipedia.org/wiki/Program_transformation");
+                url.add(6,"https://en.wikipedia.org/wiki/Partial_function");
+                url.add(7,"https://en.wikipedia.org/wiki/Dynamic_programming_language");
+
                 break;
-            case 2:  points.add("Call and Return");
+            case 2:  points.add("Call and Return/Subroutine");
                 points.add("Parameter Passing");
                 points.add("Function Declaration");
-                points.add("Semantics of Call and Return");
-                points.add("Formal Treatment of Types and Semantics");
-                points.add("Memory Management");
+
                 points.add("Dynamic Arrays");
                 points.add("Garbage Collection");
-//                todo:5min
-                  /*
-                url.add(0,);
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                url.add(8,);
-                url.add(9,);
-                url.add(10,);
-                url.add(11,);
-                */
-                break;
-            case 3:  points.add("Logic Programming");
-                points.add("Event-Driven Programming");
-                points.add("Concurrent Programming");
-                points.add("Synchronization Strategies");
-                points.add("Language Level Mechanism");
-                points.add("Interprocess");
-                points.add("Scripting Languages.");
+                url.add(0,"https://en.wikipedia.org/wiki/Subroutine");
+                url.add(1,"https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Argument_passing");
+                url.add(2,"https://en.wikipedia.org/wiki/Function_prototype");
+                url.add(3,"https://en.wikipedia.org/wiki/Dynamic_array");
+                url.add(4,"https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)");
 
-//                todo:5min
-                 /*
-                url.add(0,);
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                url.add(8,);
-                url.add(9,);
-                url.add(10,);
-                url.add(11,);
-                */
+                break;
+            case 3:
+                points.add("Imperative Programming");
+                points.add("ADA");
+                points.add("Perl");
+
+                points.add("Object Oriented Programming");
+                points.add("Smalltalk");
+                points.add("Functional Programming");
+                points.add("Haskell");
+
+
+                url.add(0,"https://en.wikipedia.org/wiki/Imperative_programming");
+                url.add(1,"https://en.wikipedia.org/wiki/Ada_(programming_language)");
+                url.add(2,"https://en.wikipedia.org/wiki/Perl");
+                url.add(3,"https://en.wikipedia.org/wiki/Object-oriented_programming");
+                url.add(4,"https://en.wikipedia.org/wiki/Smalltalk");
+                url.add(5,"https://en.wikipedia.org/wiki/Functional_programming");
+
+                url.add(6,"https://en.wikipedia.org/wiki/Haskell_(programming_language)");
+
+
                 break;
             case 4: points.add("Logic Programming");
                 points.add("Event-Driven Programming");
                 points.add("Concurrent Programming");
+
                 points.add("Synchronization Strategies");
                 points.add("Language Level Mechanism");
-                points.add("Interprocess");
                 points.add("Scripting Languages.");
-//                todo:5min
-                /*
-                url.add(0,);
-                url.add(1,);
-                url.add(2,);
-                url.add(3,);
-                url.add(4,);
-                url.add(5,);
-                url.add(6,);
-                url.add(7,);
-                url.add(8,);
-                url.add(9,);
-                url.add(10,);
-                url.add(11,);
-                */
+
+                url.add(0,"https://en.wikipedia.org/wiki/Logic_programming");
+                url.add(1,"https://en.wikipedia.org/wiki/Event-driven_programming");
+                url.add(2,"http://www.emu.edu.tr/aelci/Courses/D-318/D-318-Files/plbook/concurre.htm");
+                url.add(3,"http://c2.com/cgi/wiki?SynchronizationStrategies");
+                url.add(4,"https://en.wikipedia.org/wiki/Low-level_programming_language");
+                url.add(5,"https://en.wikipedia.org/wiki/Scripting_language");
+
                 break;
         }
         Bundle points_bundle=new Bundle();

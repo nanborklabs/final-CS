@@ -32,4 +32,7 @@
     <string name="cs_info_sub">A comprehensive Wiki Entries of all topics that a Computer Engineer needs</string>
     <string name="head_title">Everything in a single place</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

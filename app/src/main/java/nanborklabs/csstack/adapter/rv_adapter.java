@@ -35,24 +35,22 @@ public class rv_adapter extends RecyclerView.Adapter<rv_adapter.ItemHolder> {
         Animated_item_count=points.size();
     }
 
-    public static class ItemHolder extends RecyclerView.ViewHolder{
+    public static class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView mTextView;
         rv_adapter.Point_clicked callback;
 
         public ItemHolder(final View itemView, Point_clicked callback1) {
             super(itemView);
             mTextView=(TextView) itemView.findViewById(R.id.points_text);
+            itemView.setOnClickListener(this);
+            callback=callback1;
             final CardView cardView= (CardView)itemView.findViewById(R.id.card_view);
-            this.callback=callback1;
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (callback !=null){
-                        callback.point_clicked(getAdapterPosition());
-                    }
 
-                }
-            });
+        }
+
+        @Override
+        public void onClick(View v) {
+            callback.point_clicked(v,getAdapterPosition());
         }
     }
     @Override
@@ -98,6 +96,6 @@ public class rv_adapter extends RecyclerView.Adapter<rv_adapter.ItemHolder> {
 
 
     public interface Point_clicked{
-        void point_clicked(int position);
+        void point_clicked(View v,int position);
     }
 }

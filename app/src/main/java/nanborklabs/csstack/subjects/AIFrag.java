@@ -1,5 +1,6 @@
 package nanborklabs.csstack.subjects;
 
+import android.animation.Animator;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextSwitcher;
@@ -123,9 +125,31 @@ public class AIFrag extends android.support.v4.app.Fragment implements ViewPager
 
             }
         });
-        TextView title = (TextView) mView.findViewById(R.id.subject_title);
+        final TextView title = (TextView) mView.findViewById(R.id.subject_title);
         title.setText(R.string.ai);
-        RecyclerViewAnim.startTitleAnim(title);
+//        title.setVisibility(View.INVISIBLE);
+        title.setAlpha(0f);
+        title.animate().alpha(1f).scaleX(1.2f).scaleY(1.2f).setDuration(400).setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+             title.animate().scaleY(0.9f).scaleX(0.9f).setDuration(150).start();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        }) ;
 
 
         TabLayout tabLayout = (TabLayout) mView.findViewById(R.id.sliding_tabs);
@@ -133,6 +157,10 @@ public class AIFrag extends android.support.v4.app.Fragment implements ViewPager
 
         Log.d("CS_STACK", "on CREATE====in view pager fragment");
         return mView;
+    }
+
+    private void rvanim() {
+//        RecyclerViewAnim.startTitleAnim(title);
     }
 
     private void setUpTextSwitcher() {

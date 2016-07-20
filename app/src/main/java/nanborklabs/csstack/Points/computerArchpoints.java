@@ -131,7 +131,7 @@ public class computerArchpoints extends Fragment  implements rv_adapter.Point_cl
     }
 
     @Override
-    public void point_clicked(int position) {
+    public void point_clicked(View v,int position) {
         callback.loadUrl(url_to_load.get(position));
     }
     UrLoad callback;
